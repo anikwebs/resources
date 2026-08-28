@@ -1,0 +1,201 @@
+/* =============================================================
+   THE RESOURCES BY ANIK — DESIGN TOKENS
+   One source of truth for colour, type, space, motion, elevation.
+   ============================================================= */
+
+:root {
+  /* ---------- TYPE FAMILIES ---------- */
+  --font-display: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+  --font-read: 'Source Serif 4', 'Iowan Old Style', Georgia, serif;
+  --font-ui: 'Instrument Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* ---------- TYPE SCALE (fluid, 1.22 ratio, clamped) ----------
+     Named by role, not by size — so hierarchy survives redesigns. */
+  --t-display: clamp(2.6rem, 1.7rem + 3.6vw, 4.6rem);
+  --t-hero: clamp(2.1rem, 1.45rem + 2.6vw, 3.4rem);
+  --t-title: clamp(1.72rem, 1.32rem + 1.5vw, 2.5rem);
+  --t-section: clamp(1.34rem, 1.15rem + 0.7vw, 1.72rem);
+  --t-subtitle: clamp(1.1rem, 1.02rem + 0.32vw, 1.28rem);
+  --t-lede: clamp(1.06rem, 1rem + 0.42vw, 1.28rem);
+  --t-body: 1rem;
+  --t-small: 0.925rem;
+  --t-caption: 0.85rem;
+  --t-meta: 0.78rem;
+  --t-label: 0.7rem;
+
+  --lh-tight: 1.06;
+  --lh-snug: 1.24;
+  --lh-normal: 1.5;
+  --lh-read: 1.72;
+
+  --tr-display: -0.035em;
+  --tr-title: -0.022em;
+  --tr-label: 0.13em;
+
+  /* reader zoom, user-controllable */
+  --reader-scale: 1;
+
+  /* ---------- SPACE (4px base) ---------- */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 20px;
+  --s-6: 24px;
+  --s-7: 32px;
+  --s-8: 40px;
+  --s-9: 52px;
+  --s-10: 68px;
+  --s-11: 88px;
+  --s-12: 112px;
+
+  /* section rhythm, tighter on phones */
+  --band: clamp(48px, 3vw + 34px, 84px);
+  --shell: 1220px;
+  --shell-narrow: 760px;
+  --gutter: clamp(16px, 3.2vw, 40px);
+
+  /* ---------- RADII ---------- */
+  --r-1: 6px;
+  --r-2: 10px;
+  --r-3: 14px;
+  --r-4: 20px;
+  --r-5: 28px;
+  --r-pill: 999px;
+
+  /* ---------- MOTION ---------- */
+  --e-out: cubic-bezier(.22, 1, .36, 1);
+  --e-in-out: cubic-bezier(.65, 0, .35, 1);
+  --d-1: 120ms;
+  --d-2: 210ms;
+  --d-3: 340ms;
+  --d-4: 520ms;
+
+  /* ---------- Z ---------- */
+  --z-nav: 40;
+  --z-drawer: 60;
+  --z-overlay: 70;
+  --z-toast: 90;
+}
+
+/* =============================================================
+   LIGHT — "warm paper". Calm, editorial, high contrast.
+   ============================================================= */
+:root,
+[data-theme='light'] {
+  color-scheme: light;
+
+  --bg: #f4f1ea;
+  --bg-tint: #efebe1;
+  --surface: #fffefb;
+  --surface-2: #f9f6ef;
+  --surface-3: #f0ece2;
+  --surface-invert: #17160f;
+
+  --ink: #16150f;
+  --ink-2: #3c3a30;
+  --muted: #6b6757;
+  --faint: #918c79;
+  --on-invert: #f6f3ea;
+
+  --line: #ddd7c7;
+  --line-2: #cbc4b0;
+  --line-strong: #a9a18a;
+
+  --primary: #2f5d4a;
+  --primary-ink: #24493a;
+  --primary-soft: #e4ede7;
+  --on-primary: #f7f5ee;
+
+  --secondary: #7d4a2c;
+  --secondary-soft: #f3e6dc;
+
+  --accent: #a8622a;
+  --accent-soft: #f6e8da;
+
+  --success: #2f6b45;
+  --success-soft: #e3efe6;
+  --warning: #8a6212;
+  --warning-soft: #f8eed6;
+  --danger: #9c3324;
+  --danger-soft: #f9e3de;
+  --info: #285a76;
+  --info-soft: #e2edf3;
+
+  --shadow-1: 0 1px 2px rgba(32, 28, 16, .05), 0 1px 1px rgba(32, 28, 16, .04);
+  --shadow-2: 0 2px 6px rgba(32, 28, 16, .06), 0 8px 22px -14px rgba(32, 28, 16, .18);
+  --shadow-3: 0 4px 12px rgba(32, 28, 16, .07), 0 22px 48px -22px rgba(32, 28, 16, .26);
+  --shadow-4: 0 12px 40px -8px rgba(32, 28, 16, .22), 0 40px 90px -40px rgba(32, 28, 16, .38);
+
+  --ring: #2f5d4a;
+  --sel: #d9e5dc;
+  --scrim: rgba(24, 21, 12, .42);
+  --grain: .022;
+}
+
+/* =============================================================
+   DARK — "lamplight". Warm-black, never blue-grey.
+   ============================================================= */
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --bg: #12110d;
+  --bg-tint: #171610;
+  --surface: #1b1a14;
+  --surface-2: #212018;
+  --surface-3: #2a281f;
+  --surface-invert: #f4f1ea;
+
+  --ink: #f0ece1;
+  --ink-2: #d8d3c5;
+  --muted: #a29c8b;
+  --faint: #7c7768;
+  --on-invert: #17160f;
+
+  --line: #322f26;
+  --line-2: #423e33;
+  --line-strong: #57523f;
+
+  --primary: #7fb99c;
+  --primary-ink: #a3d0b8;
+  --primary-soft: #1e2b24;
+  --on-primary: #0e1a14;
+
+  --secondary: #d19a72;
+  --secondary-soft: #2b221b;
+
+  --accent: #dd9c5f;
+  --accent-soft: #2d2318;
+
+  --success: #74bb8f;
+  --success-soft: #1a271e;
+  --warning: #d9b25c;
+  --warning-soft: #2a2317;
+  --danger: #e08a76;
+  --danger-soft: #2d1d19;
+  --info: #7fb3cd;
+  --info-soft: #18242b;
+
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, .4);
+  --shadow-2: 0 2px 8px rgba(0, 0, 0, .42), 0 10px 26px -16px rgba(0, 0, 0, .6);
+  --shadow-3: 0 6px 18px rgba(0, 0, 0, .46), 0 26px 56px -26px rgba(0, 0, 0, .7);
+  --shadow-4: 0 14px 46px -10px rgba(0, 0, 0, .6), 0 46px 100px -46px rgba(0, 0, 0, .8);
+
+  --ring: #8fc7aa;
+  --sel: #2c4034;
+  --scrim: rgba(4, 3, 1, .62);
+  --grain: .03;
+}
+
+/* =============================================================
+   ACCENT CHANNELS — each track / domain carries a hue so the
+   reader always knows which part of the system they are in.
+   ============================================================= */
+[data-accent='forest'] { --ac: var(--primary); --ac-soft: var(--primary-soft); }
+[data-accent='clay'] { --ac: var(--secondary); --ac-soft: var(--secondary-soft); }
+[data-accent='atlas'] { --ac: var(--info); --ac-soft: var(--info-soft); }
+[data-accent='council'] { --ac: var(--accent); --ac-soft: var(--accent-soft); }
+[data-accent='signal'] { --ac: var(--danger); --ac-soft: var(--danger-soft); }
+[data-accent='amber'] { --ac: var(--warning); --ac-soft: var(--warning-soft); }
+:root { --ac: var(--primary); --ac-soft: var(--primary-soft); }
