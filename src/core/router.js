@@ -66,6 +66,24 @@ export function go (path, { replace = false } = {}) {
   if (replace) resolve()
 }
 
+/**
+ * Rewrite the address bar WITHOUT re-resolving the route.
+ *
+ * For live surfaces such as full-page search, where the results are
+ * already rendered in place and re-running the handler would replace
+ * the input element and steal focus mid-keystroke. The link stays
+ * shareable; the view is left alone.
+ */
+export function syncUrl (path) {
+  const h = href(path)
+  if (location.hash === h) return
+  history.replaceState(null, '', h)
+  if (current) {
+    const loc = parse(h)
+    current = { ...current, ...loc, params: current.params }
+  }
+}
+
 /** Scroll-restore keyed by route path. */
 const scrollMem = new Map()
 function rememberScroll () {
