@@ -150,6 +150,14 @@ export function toolCard (t) {
   </a>`
 }
 
+/* stats.units / stats.words come from makeIndex().stats().byTrack.
+   Manifest tracks carry `name` and `description`, not title/blurb. */
+
+/* `weeks` is a bare number in the path data. Print it with its unit
+   so a card foot never reads just "6". */
+const weeksLabel = w =>
+  w == null ? '' : (typeof w === 'number' ? `about ${plural(w, 'week')}` : esc(w))
+
 export function pathCard (p, stats, started = false) {
   return `<a class="card rise" href="${href(`path/${p.id}`)}" data-accent="${p.accent}">
     <div class="card-head">
@@ -161,7 +169,7 @@ export function pathCard (p, stats, started = false) {
     </div>
     <p class="card-text clamp-3">${esc(clip(p.lede, 160))}</p>
     <div class="card-foot card-foot-line">
-      <span class="t-meta faint">${esc(p.weeks)}</span>
+      <span class="t-meta faint">${weeksLabel(p.weeks)}</span>
       <span class="t-meta faint">${plural(stats.total, 'item')}</span>
     </div>
   </a>`
@@ -215,10 +223,11 @@ export function trackCard (t, stats) {
     <div class="card-head">
       <div style="min-width:0">
         <span class="res-ic" style="margin-bottom:var(--s-3)">${trackIcon(t.icon)}</span>
-        <h3 class="card-title">${md(t.title)}</h3>
+        <h3 class="card-title">${md(t.name || t.title || '')}</h3>
       </div>
     </div>
-    ${t.blurb || t.subtitle ? `<p class="card-text clamp-3">${esc(clip(t.blurb || t.subtitle, 170))}</p>` : ''}
+    ${t.tagline ? `<p class="eyebrow">${esc(t.tagline)}</p>` : ''}
+    ${t.description || t.blurb || t.subtitle ? `<p class="card-text clamp-3">${esc(clip(t.description || t.blurb || t.subtitle, 170))}</p>` : ''}
     <div class="card-foot card-foot-line">
       <span class="t-meta faint">${plural(stats.units || 0, 'piece')}</span>
       <span class="t-meta faint">${num(stats.words || 0)} words</span>
