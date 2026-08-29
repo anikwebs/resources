@@ -171,8 +171,20 @@ npm run preview   # http://localhost:4173/the-resources-by-anik/
 ```
 
 `preview` deliberately serves under the real base path, so it exercises exactly
-the URLs GitHub Pages will. Note the trailing path — opening the bare root will
-correctly show nothing.
+the URLs GitHub Pages will. Opening the bare root redirects there for you.
+
+**Previewing through a remote hostname.** Vite refuses requests whose `Host`
+header it does not recognise, which protects you from DNS rebinding. Localhost
+and LAN addresses work with no setup, but a tunnel, a codespace or a cloud
+sandbox needs its hostname named:
+
+```bash
+PREVIEW_ALLOWED_HOSTS=my-tunnel.example.com npm run preview
+```
+
+A comma-separated list works, and a leading dot (`.example.com`) allows every
+subdomain. This applies to the local dev and preview servers only — it has no
+bearing on the static files GitHub Pages serves.
 
 ### Validate the content corpus
 
