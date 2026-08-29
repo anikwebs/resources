@@ -108,12 +108,17 @@ export async function buildIndex (extra = []) {
 
     const docs = []
 
-    // Corpus index: t = l(esson) | c(ollection) | e(ntry)
+    // Corpus index: t = l(esson) | c(ollection) | v(ault entry).
+    // Vault entry ids are stored as "collectionId#entryId".
     for (const d of raw) {
       const kind = d.t === 'l' ? 'lesson' : d.t === 'c' ? 'collection' : 'entry'
-      const route = kind === 'lesson'
-        ? `read/${d.tr}/${d.id}`
-        : kind === 'collection' ? `vault/${d.id}` : `vault/${d.c}/${d.id}`
+      let route
+      if (kind === 'lesson') route = `read/${d.tr}/${d.id}`
+      else if (kind === 'collection') route = `vault/${d.id}`
+      else {
+        const [coll, entry] = String(d.id).split('#')
+        route = entry ? `vault/${coll}/${entry}` : `vault/${coll}`
+      }
       docs.push({
         kind,
         title: d.ti || '',
