@@ -22,7 +22,10 @@
      • [data-act="key"] buttons run structural actions and redraw both sides
    ============================================================= */
 
-import { el, esc, on, copy, toast, debounce } from '../core/dom.js'
+import { el, esc, on, copy, toast, debounce, num } from '../core/dom.js'
+
+/* re-exported so tools import formatting from one place */
+export { num, esc }
 import { I } from '../core/icons.js'
 import { saveTool, loadTool, clearTool } from '../core/store.js'
 
@@ -206,6 +209,13 @@ export function mountTool (tool, root) {
     fn(s, { el: t, i: t.dataset.i != null ? Number(t.dataset.i) : null, redraw, drawOut, ev: e })
     saveTool(tool.id, s)
     redraw()
+  })
+
+  /* inline copy buttons inside tool output */
+  on(wrap, 'click', '[data-copy]', async (e, t) => {
+    e.preventDefault()
+    const ok = await copy(t.dataset.copy)
+    toast(ok ? 'Copied' : 'Could not copy', ok ? 'ok' : '')
   })
 
   /* kit actions */
