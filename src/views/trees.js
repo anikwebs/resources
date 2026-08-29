@@ -14,14 +14,12 @@
 
 import { esc, md, plural } from '../core/dom.js'
 import { I } from '../core/icons.js'
-import { href } from '../core/router.js'
 import { recordTree, getTree, getNote } from '../core/store.js'
 import { TREES, treeById, treeStats } from '../data/trees.js'
 import { TOOL_META } from '../tools/index.js'
-import { skillsForSituation } from '../data/skills.js'
 import {
   pageHead, crumbs, sectionHead, treeCard, toolCard, grid, errorState,
-  saveButton, promise
+  saveButton
 } from './parts.js'
 
 /* =============================================================

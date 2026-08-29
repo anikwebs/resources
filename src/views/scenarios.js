@@ -11,17 +11,16 @@
    is the whole exercise.
    ============================================================= */
 
-import { esc, md, plural, strip } from '../core/dom.js'
+import { esc, md, plural } from '../core/dom.js'
 import { I } from '../core/icons.js'
 import { href } from '../core/router.js'
 import { boot } from '../core/data.js'
 import { recordScenario, getScenario, scenarioCount, getNote } from '../core/store.js'
 import { SCENARIOS, scenarioById } from '../data/scenarios.js'
-import { skillById } from '../data/skills.js'
 import { TREES } from '../data/trees.js'
 import {
   pageHead, crumbs, sectionHead, scenarioCard, treeCard, situationCard,
-  grid, errorState, saveButton, jumpNav
+  grid, errorState, saveButton
 } from './parts.js'
 
 const GRADE = {

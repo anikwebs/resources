@@ -15,7 +15,7 @@
    exists, and the count is always shown.
    ============================================================= */
 
-import { esc, md, num, plural, readTime, strip, slug } from '../core/dom.js'
+import { esc, md, num, plural, readTime, strip } from '../core/dom.js'
 import { I, trackIcon } from '../core/icons.js'
 import { href } from '../core/router.js'
 import { getLesson, boot, makeIndex, getMissions, getPrompts } from '../core/data.js'

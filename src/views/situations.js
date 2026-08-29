@@ -8,7 +8,7 @@
    and the text box narrows what is already on screen.
    ============================================================= */
 
-import { esc, num, plural, debounce, $$ } from '../core/dom.js'
+import { esc, plural, debounce } from '../core/dom.js'
 import { I } from '../core/icons.js'
 import { href, go } from '../core/router.js'
 import { boot } from '../core/data.js'

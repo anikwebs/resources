@@ -13,7 +13,7 @@ import { esc, md, plural, strip } from '../core/dom.js'
 import { I } from '../core/icons.js'
 import { href } from '../core/router.js'
 import { boot, makeIndex } from '../core/data.js'
-import { doneCount, isDone, getNote } from '../core/store.js'
+import { doneCount, getNote } from '../core/store.js'
 import {
   SKILLS, DOMAINS, LEVELS, skillById, skillsOfDomain, domainById, skillStats
 } from '../data/skills.js'
@@ -23,8 +23,8 @@ import { TREES } from '../data/trees.js'
 import { SCENARIOS } from '../data/scenarios.js'
 import {
   pageHead, crumbs, sectionHead, skillCard, unitCard, situationCard, toolCard,
-  treeCard, scenarioCard, errorState, grid, saveButton, doneButton, promise,
-  statRow, jumpNav, chip
+  treeCard, scenarioCard, errorState, grid, saveButton, doneButton,
+  jumpNav, chip
 } from './parts.js'
 
 const LEVEL_ORDER = ['foundation', 'core', 'advanced']

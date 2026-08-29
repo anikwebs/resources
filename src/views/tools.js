@@ -11,7 +11,7 @@ import { esc, md, plural } from '../core/dom.js'
 import { I } from '../core/icons.js'
 import { href } from '../core/router.js'
 import { TOOL_META, TOOL_GROUPS, toolMeta, loadTool } from '../tools/index.js'
-import { store, toolsUsed, loadTool as loadToolState } from '../core/store.js'
+import { toolsUsed, loadTool as loadToolState } from '../core/store.js'
 import { skillsForTool } from '../data/skills.js'
 import {
   pageHead, crumbs, sectionHead, toolCard, grid, errorState, loadingState,

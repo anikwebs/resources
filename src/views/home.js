@@ -12,7 +12,7 @@
    Practice → Action → Return, and the page is ordered that way.
    ============================================================= */
 
-import { esc, md, num, plural, readTime } from '../core/dom.js'
+import { esc, md, num } from '../core/dom.js'
 import { I } from '../core/icons.js'
 import { href } from '../core/router.js'
 import { boot, makeIndex } from '../core/data.js'
@@ -27,7 +27,7 @@ import { TOOL_META } from '../tools/index.js'
 import { PROBLEM_DOMAINS, PROBLEMS } from '../data/ai-library.js'
 import {
   sectionHead, grid, situationCard, skillCard, toolCard, scenarioCard,
-  treeCard, unitCard, pathCard, statRow
+  treeCard, unitCard, pathCard
 } from './parts.js'
 
 /* Entry points for the "something is happening right now" panel.

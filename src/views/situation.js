@@ -16,7 +16,7 @@
    because that is the order in which it matters.
    ============================================================= */
 
-import { esc, md, plural, readTime, strip } from '../core/dom.js'
+import { esc, md, readTime, strip } from '../core/dom.js'
 import { I } from '../core/icons.js'
 import { href } from '../core/router.js'
 import { getSituation, getSituations } from '../core/data.js'

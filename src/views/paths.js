@@ -25,7 +25,7 @@ import { SCENARIOS } from '../data/scenarios.js'
 import { AI_ROUTES } from '../data/ai-routes.js'
 import {
   pageHead, crumbs, sectionHead, pathCard, unitCard, situationCard, toolCard,
-  treeCard, scenarioCard, grid, errorState, saveButton, jumpNav, statRow
+  treeCard, scenarioCard, grid, errorState, saveButton, jumpNav
 } from './parts.js'
 
 /* =============================================================
