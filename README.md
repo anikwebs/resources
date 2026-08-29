@@ -134,7 +134,7 @@ by hand-threading ids through 17 files.
 
 ### Stack
 
-Vite 5 · vanilla JavaScript (ES2020 modules) · hand-written CSS with a
+Vite 7 · vanilla JavaScript (ES2020 modules) · hand-written CSS with a
 token-based design system · `localStorage` · GitHub Actions → GitHub Pages.
 No runtime dependencies at all — `vite` is the only entry in
 `devDependencies`.
@@ -143,7 +143,8 @@ No runtime dependencies at all — `vite` is the only entry in
 
 ## Running it locally
 
-Node 18 or newer.
+Node 20.19+ or 22.12+ (the floor Vite 7 requires). The bundled workflow uses
+Node 22.
 
 ```bash
 npm ci          # install exactly what the lockfile pins

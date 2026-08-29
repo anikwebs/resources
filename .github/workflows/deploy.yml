@@ -29,7 +29,10 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          # 22 LTS. Vite 7 requires ^20.19 || >=22.12, so a bare "20"
+          # would resolve to whatever 20.x the runner caches and could
+          # land below that floor.
+          node-version: 22
           cache: npm
 
       - name: Install dependencies from the lockfile
