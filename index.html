@@ -49,7 +49,9 @@
 </head>
 
 <body>
-<a class="skip" href="#main">Skip to content</a>
+<!-- Not href="#main": this is a hash-routed app, so a bare fragment
+     would be read as a route. The handler focuses the region instead. -->
+<button class="skip" id="skip" type="button">Skip to content</button>
 
 <!-- First paint, replaced as soon as the app hydrates -->
 <div class="boot" id="boot" role="status" aria-live="polite">

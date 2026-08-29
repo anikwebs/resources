@@ -654,6 +654,14 @@ function delegate () {
     }
   })
 
+  /* skip link — lives outside #app so it survives the chrome build,
+     and moves focus rather than changing the hash (which is a route). */
+  $('#skip')?.addEventListener('click', () => {
+    const m = $('#main')
+    m.focus({ preventScroll: false })
+    m.scrollIntoView({ block: 'start' })
+  })
+
   /* nav shadow once the page has moved */
   const nav = $('#nav')
   const onScroll = () => nav.classList.toggle('stuck', window.scrollY > 6)

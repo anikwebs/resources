@@ -97,6 +97,54 @@ export const scale = (path, value, label, max = 5) => `
     ${range(path, value, { min: 1, max })}
   </div>`
 
+/**
+ * Bind every control in a tool form to an accessible name.
+ *
+ * Tool forms are written as markup strings, so a `<label>` sitting
+ * beside an input is visually correct but not programmatically
+ * associated — a screen reader announces "edit, blank". Rather than
+ * hand-thread ids through seventeen tools (and get it wrong once),
+ * this runs after every form draw and repairs the association:
+ *
+ *   1. a sibling/ancestor <label> gets a generated `for` + `id` pair;
+ *   2. anything still unnamed falls back to aria-label built from the
+ *      nearest visible text, then from its own bind path.
+ */
+let ctrlSeq = 0
+export function labelControls (host) {
+  host.querySelectorAll('input:not([type=hidden]), select, textarea').forEach(c => {
+    if (c.getAttribute('aria-label') || c.getAttribute('aria-labelledby')) return
+
+    const field = c.closest('.field, .rowitem, .scale, .check') || c.parentElement
+    let label = c.closest('label')
+    if (!label && field) {
+      // the label that belongs to this control is the one in the same
+      // wrapper; if a wrapper holds several controls, take the nearest
+      // preceding label so rows of sliders do not all share one name.
+      const labels = [...field.querySelectorAll('label')]
+      label = labels.find(l => l.compareDocumentPosition(c) & Node.DOCUMENT_POSITION_FOLLOWING) || labels[0]
+    }
+
+    if (label && !label.contains(c)) {
+      if (!c.id) c.id = `tk-c${++ctrlSeq}`
+      if (!label.getAttribute('for')) label.setAttribute('for', c.id)
+      if (label.getAttribute('for') === c.id) return
+    } else if (label && label.contains(c)) {
+      return // implicit association already works
+    }
+
+    const fromText = (label && label.textContent.trim())
+      || (field && field.querySelector('.lab, .t-meta, .hint')?.textContent.trim())
+      || ''
+    const fromPath = String(c.dataset.bind || '')
+      .replace(/\.(\d+)\./g, ' $1 ')
+      .replace(/[._]/g, ' ')
+      .trim()
+    const name = (fromText || fromPath || 'value').replace(/\s+/g, ' ').slice(0, 90)
+    c.setAttribute('aria-label', name + (c.placeholder && !fromText ? ` — ${c.placeholder}` : ''))
+  })
+}
+
 export const panel = (title, body, right = '') => `
   <section class="panel">
     <div class="panel-h"><h3 class="panel-t">${esc(title)}</h3>${right}</div>
@@ -167,6 +215,7 @@ export function mountTool (tool, root) {
   }
   function drawForm () {
     formHost.innerHTML = tool.form(s)
+    labelControls(formHost)
   }
   function redraw () { drawForm(); drawOut() }
 
