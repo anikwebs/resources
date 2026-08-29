@@ -1,1 +1,138 @@
-{"id":"people-authority-impersonation","title":"Someone claiming authority is demanding immediate compliance","category":"people","categoryTitle":"Manipulation & Bad Actors","severity":"high","tool":"The Callback Rule","tags":["scams","fraud","police","impersonation","money"],"lede":"A call, a visit, or an email: your bank's fraud team, the tax office, the police, your utility company, your own IT department. There is a problem, it is serious, and it must be resolved right now — and you must not discuss it with anyone.","sections":[{"n":"1","title":"What is happening","blocks":[{"type":"p","text":"A call, a visit, or an email: your bank's fraud team, the tax office, the police, your utility company, your own IT department. There is a problem, it is serious, and it must be resolved right now — and you must not discuss it with anyone."}]},{"n":"2","title":"What is actually going on","blocks":[{"type":"ul","items":["Three signals appear together in nearly every impersonation: urgency, secrecy, and an unusual payment or access method. Any two of them should stop you dead.","No real bank, police force, or tax authority asks you to move money to keep it safe, buy vouchers, read out a code, or install remote-access software. Ever.","Caller ID, email addresses, and letterheads are all trivially forgeable. Everything you are using to verify them can be faked.","The instruction not to tell anyone is the strongest single indicator of fraud. It exists purely to prevent the one thing that would stop it."]}]},{"n":"3","title":"Do this, in this order","blocks":[{"type":"steps","items":[{"move":"Stop the transaction. Do nothing irreversible.","detail":"No transfer, no code, no software install, no door opened. Everything else can wait; these cannot be undone."},{"move":"End the contact yourself and call back independently","detail":"Hang up. Find the number on your card, your bill, or the official website — never a number they provided."},{"move":"Wait five minutes before dialling","detail":"Some scams keep the line open so your callback reaches them. A short gap and a different device defeat this."},{"move":"Tell one person immediately","detail":"Say it out loud to someone. The secrecy instruction is the load-bearing element and this removes it."},{"move":"If someone is at your door, do not let them in","detail":"Ask for ID through the closed door, then call the organisation on a verified number while they wait outside."},{"move":"Screenshot and keep everything","detail":"Numbers, addresses, reference codes, transcripts. Needed for the bank and the police."}]}]},{"n":"4","title":"Words you can borrow","blocks":[{"type":"lines","items":[{"when":"The universal exit","say":"\"I do not take instructions on incoming calls. I will hang up and call you back on the published number.\""},{"when":"When pressed on urgency","say":"\"If it is genuinely urgent it will still be urgent in ten minutes. I am ending the call now.\""},{"when":"Against the secrecy instruction","say":"\"I discuss my finances with my family. If your process requires me not to, that tells me what this is.\""},{"when":"At the door","say":"\"I am not opening the door. Leave your name and department and I will call your office.\""}]}]},{"n":"5","title":"What makes it worse","blocks":[{"type":"bad","items":["Ringing a number given by the caller, in a text, or in the email itself.","Reading out any code sent to you, including one that arrives from your real bank.","Installing AnyDesk, TeamViewer, or any remote tool at a caller's request.","Being embarrassed into compliance by hints that you are being difficult or slow.","Assuming immunity. These operations are professional, scripted, and rehearsed against every objection you will improvise."]}]},{"n":"6","title":"Once the pressure drops","blocks":[{"type":"good","items":["If money moved, phone your bank immediately and use the words \"authorised push payment fraud.\" Speed materially affects recovery.","Report it to your national fraud reporting service and get a reference number.","Change passwords from a different, clean device and enable two-factor authentication.","Tell the people around you, especially older relatives, exactly what the script sounded like. Specifics inoculate better than warnings."]}]}],"limit":"","wordCount":596}
+{
+  "id": "people-authority-impersonation",
+  "title": "Someone claiming authority is demanding immediate compliance",
+  "category": "people",
+  "categoryTitle": "Manipulation & Bad Actors",
+  "severity": "high",
+  "tool": "The Callback Rule",
+  "tags": [
+    "scams",
+    "fraud",
+    "police",
+    "impersonation",
+    "money"
+  ],
+  "lede": "A call, a visit, or an email: your bank's fraud team, the tax office, the police, your utility company, your own IT department. There is a problem, it is serious, and it must be resolved right now — and you must not discuss it with anyone.",
+  "sections": [
+    {
+      "n": "1",
+      "title": "What is happening",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "A call, a visit, or an email: your bank's fraud team, the tax office, the police, your utility company, your own IT department. There is a problem, it is serious, and it must be resolved right now — and you must not discuss it with anyone."
+        }
+      ]
+    },
+    {
+      "n": "2",
+      "title": "What is actually going on",
+      "blocks": [
+        {
+          "type": "ul",
+          "items": [
+            "Three signals appear together in nearly every impersonation: urgency, secrecy, and an unusual payment or access method. Any two of them should stop you dead.",
+            "No real bank, police force, or tax authority asks you to move money to keep it safe, buy vouchers, read out a code, or install remote-access software. Ever.",
+            "Caller ID, email addresses, and letterheads are all trivially forgeable. Everything you are using to verify them can be faked.",
+            "The instruction not to tell anyone is the strongest single indicator of fraud. It exists purely to prevent the one thing that would stop it."
+          ]
+        }
+      ]
+    },
+    {
+      "n": "3",
+      "title": "Do this, in this order",
+      "blocks": [
+        {
+          "type": "steps",
+          "items": [
+            {
+              "move": "Stop the transaction. Do nothing irreversible.",
+              "detail": "No transfer, no code, no software install, no door opened. Everything else can wait; these cannot be undone."
+            },
+            {
+              "move": "End the contact yourself and call back independently",
+              "detail": "Hang up. Find the number on your card, your bill, or the official website — never a number they provided."
+            },
+            {
+              "move": "Wait five minutes before dialling",
+              "detail": "Some scams keep the line open so your callback reaches them. A short gap and a different device defeat this."
+            },
+            {
+              "move": "Tell one person immediately",
+              "detail": "Say it out loud to someone. The secrecy instruction is the load-bearing element and this removes it."
+            },
+            {
+              "move": "If someone is at your door, do not let them in",
+              "detail": "Ask for ID through the closed door, then call the organisation on a verified number while they wait outside."
+            },
+            {
+              "move": "Screenshot and keep everything",
+              "detail": "Numbers, addresses, reference codes, transcripts. Needed for the bank and the police."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "n": "4",
+      "title": "Words you can borrow",
+      "blocks": [
+        {
+          "type": "lines",
+          "items": [
+            {
+              "when": "The universal exit",
+              "say": "\"I do not take instructions on incoming calls. I will hang up and call you back on the published number.\""
+            },
+            {
+              "when": "When pressed on urgency",
+              "say": "\"If it is genuinely urgent it will still be urgent in ten minutes. I am ending the call now.\""
+            },
+            {
+              "when": "Against the secrecy instruction",
+              "say": "\"I discuss my finances with my family. If your process requires me not to, that tells me what this is.\""
+            },
+            {
+              "when": "At the door",
+              "say": "\"I am not opening the door. Leave your name and department and I will call your office.\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "n": "5",
+      "title": "What makes it worse",
+      "blocks": [
+        {
+          "type": "bad",
+          "items": [
+            "Ringing a number given by the caller, in a text, or in the email itself.",
+            "Reading out any code sent to you, including one that arrives from your real bank.",
+            "Installing AnyDesk, TeamViewer, or any remote tool at a caller's request.",
+            "Being embarrassed into compliance by hints that you are being difficult or slow.",
+            "Assuming immunity. These operations are professional, scripted, and rehearsed against every objection you will improvise."
+          ]
+        }
+      ]
+    },
+    {
+      "n": "6",
+      "title": "Once the pressure drops",
+      "blocks": [
+        {
+          "type": "good",
+          "items": [
+            "If money moved, phone your bank immediately and use the words \"authorised push payment fraud.\" Speed materially affects recovery.",
+            "Report it to your national fraud reporting service and get a reference number.",
+            "Change passwords from a different, clean device and enable two-factor authentication.",
+            "Tell the people around you, especially older relatives, exactly what the script sounded like. Specifics inoculate better than warnings."
+          ]
+        }
+      ]
+    }
+  ],
+  "limit": "No genuine police officer, tax authority, bank, or utility will demand payment in gift cards, cryptocurrency, or a same-day transfer, and none will tell you to keep it secret. End the call, look up the organisation independently, and call back. If you are threatened with immediate arrest or deportation unless you pay, that is the tell — it is a scam.",
+  "wordCount": 596
+}

@@ -1,1 +1,137 @@
-{"id":"conflict-family-money","title":"A family argument about money or inheritance","category":"conflict","categoryTitle":"Conflict & Confrontation","severity":"high","tool":"The Named Boundary","tags":["family","money","inheritance","boundaries"],"lede":"A will, a loan, a house, or a debt has surfaced and the family has split. Old grievances are arriving dressed as financial arguments, and someone has said the sentence that cannot be unsaid.","sections":[{"n":"1","title":"What is happening","blocks":[{"type":"p","text":"A will, a loan, a house, or a debt has surfaced and the family has split. Old grievances are arriving dressed as financial arguments, and someone has said the sentence that cannot be unsaid."}]},{"n":"2","title":"What is actually going on","blocks":[{"type":"ul","items":["Almost none of this is about the money. Money is the only measurable proxy available for who was loved more, who did the caring, and who was trusted.","The person who feels least acknowledged fights hardest and settles last, and no financial offer will resolve an acknowledgement problem.","Verbal family agreements are worth nothing at the point of conflict, and everyone remembers them differently and sincerely.","You are negotiating with people you cannot fire, in a relationship with a thirty-year tail."]}]},{"n":"3","title":"Do this, in this order","blocks":[{"type":"steps","items":[{"move":"Separate the legal question from the fairness question","detail":"What the documents say and what feels right are two different conversations. Conflating them guarantees deadlock."},{"move":"Get the actual documents before arguing","detail":"The will, the deeds, the account statements, the loan record. Most family fights run for months on assumptions about what the paperwork says."},{"move":"Say the acknowledgement out loud, early","detail":"Name what someone actually did — the years of care, the deposit, the sacrifice — before any number is discussed. It is often most of the settlement."},{"move":"Take it out of the group chat","detail":"Group threads reward performance and punish concession. Move to one-to-one calls or a single facilitated meeting."},{"move":"Define your own line privately first","detail":"Write down what you will accept and what you will not, before the room. Lines invented under pressure are always wrong."},{"move":"Propose a neutral process for anything unresolved","detail":"A solicitor, a mediator, or a professional valuation. Neutral process is what stops the relationship becoming the currency."}]}]},{"n":"4","title":"Words you can borrow","blocks":[{"type":"lines","items":[{"when":"The acknowledgement","say":"\"Before we talk about the money — you did the driving to hospital for two years and none of the rest of us did. That is real and I am not going to pretend otherwise.\""},{"when":"Separating the questions","say":"\"There is what the will says, and there is what we think is fair. Can we do those as two separate conversations?\""},{"when":"The boundary","say":"\"I am not discussing this at Christmas or in front of the kids. Any weekday evening on the phone, and I will be straight with you.\""},{"when":"When guilt is used","say":"\"You may be right that I owe you. I am not going to decide that while I feel this pressured. Ask me again next week.\""}]}]},{"n":"5","title":"What makes it worse","blocks":[{"type":"bad","items":["Raising it at a funeral, wedding, or holiday table. The setting will be remembered longer than the argument.","Litigating history. \"You never\" and \"you always\" convert a solvable dispute into a permanent one.","Lending or gifting to end the tension. It buys quiet for a season and resentment for a decade.","Using a child, a parent, or a spouse as a messenger.","Screenshotting and forwarding. Every family feud has a screenshot at its heart."]}]},{"n":"6","title":"Once the pressure drops","blocks":[{"type":"good","items":["Whatever is agreed, write it down and have everyone acknowledge the summary. One paragraph is enough.","Do not require an apology as a condition of moving on. It is the most common reason families stay broken over solved problems.","Decide consciously what contact you want with each person now, rather than drifting into estrangement by accident.","Sort your own paperwork — will, beneficiaries, letter of wishes. Most of this pain is inherited from someone who did not."]}]}],"limit":"","wordCount":633}
+{
+  "id": "conflict-family-money",
+  "title": "A family argument about money or inheritance",
+  "category": "conflict",
+  "categoryTitle": "Conflict & Confrontation",
+  "severity": "high",
+  "tool": "The Named Boundary",
+  "tags": [
+    "family",
+    "money",
+    "inheritance",
+    "boundaries"
+  ],
+  "lede": "A will, a loan, a house, or a debt has surfaced and the family has split. Old grievances are arriving dressed as financial arguments, and someone has said the sentence that cannot be unsaid.",
+  "sections": [
+    {
+      "n": "1",
+      "title": "What is happening",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "A will, a loan, a house, or a debt has surfaced and the family has split. Old grievances are arriving dressed as financial arguments, and someone has said the sentence that cannot be unsaid."
+        }
+      ]
+    },
+    {
+      "n": "2",
+      "title": "What is actually going on",
+      "blocks": [
+        {
+          "type": "ul",
+          "items": [
+            "Almost none of this is about the money. Money is the only measurable proxy available for who was loved more, who did the caring, and who was trusted.",
+            "The person who feels least acknowledged fights hardest and settles last, and no financial offer will resolve an acknowledgement problem.",
+            "Verbal family agreements are worth nothing at the point of conflict, and everyone remembers them differently and sincerely.",
+            "You are negotiating with people you cannot fire, in a relationship with a thirty-year tail."
+          ]
+        }
+      ]
+    },
+    {
+      "n": "3",
+      "title": "Do this, in this order",
+      "blocks": [
+        {
+          "type": "steps",
+          "items": [
+            {
+              "move": "Separate the legal question from the fairness question",
+              "detail": "What the documents say and what feels right are two different conversations. Conflating them guarantees deadlock."
+            },
+            {
+              "move": "Get the actual documents before arguing",
+              "detail": "The will, the deeds, the account statements, the loan record. Most family fights run for months on assumptions about what the paperwork says."
+            },
+            {
+              "move": "Say the acknowledgement out loud, early",
+              "detail": "Name what someone actually did — the years of care, the deposit, the sacrifice — before any number is discussed. It is often most of the settlement."
+            },
+            {
+              "move": "Take it out of the group chat",
+              "detail": "Group threads reward performance and punish concession. Move to one-to-one calls or a single facilitated meeting."
+            },
+            {
+              "move": "Define your own line privately first",
+              "detail": "Write down what you will accept and what you will not, before the room. Lines invented under pressure are always wrong."
+            },
+            {
+              "move": "Propose a neutral process for anything unresolved",
+              "detail": "A solicitor, a mediator, or a professional valuation. Neutral process is what stops the relationship becoming the currency."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "n": "4",
+      "title": "Words you can borrow",
+      "blocks": [
+        {
+          "type": "lines",
+          "items": [
+            {
+              "when": "The acknowledgement",
+              "say": "\"Before we talk about the money — you did the driving to hospital for two years and none of the rest of us did. That is real and I am not going to pretend otherwise.\""
+            },
+            {
+              "when": "Separating the questions",
+              "say": "\"There is what the will says, and there is what we think is fair. Can we do those as two separate conversations?\""
+            },
+            {
+              "when": "The boundary",
+              "say": "\"I am not discussing this at Christmas or in front of the kids. Any weekday evening on the phone, and I will be straight with you.\""
+            },
+            {
+              "when": "When guilt is used",
+              "say": "\"You may be right that I owe you. I am not going to decide that while I feel this pressured. Ask me again next week.\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "n": "5",
+      "title": "What makes it worse",
+      "blocks": [
+        {
+          "type": "bad",
+          "items": [
+            "Raising it at a funeral, wedding, or holiday table. The setting will be remembered longer than the argument.",
+            "Litigating history. \"You never\" and \"you always\" convert a solvable dispute into a permanent one.",
+            "Lending or gifting to end the tension. It buys quiet for a season and resentment for a decade.",
+            "Using a child, a parent, or a spouse as a messenger.",
+            "Screenshotting and forwarding. Every family feud has a screenshot at its heart."
+          ]
+        }
+      ]
+    },
+    {
+      "n": "6",
+      "title": "Once the pressure drops",
+      "blocks": [
+        {
+          "type": "good",
+          "items": [
+            "Whatever is agreed, write it down and have everyone acknowledge the summary. One paragraph is enough.",
+            "Do not require an apology as a condition of moving on. It is the most common reason families stay broken over solved problems.",
+            "Decide consciously what contact you want with each person now, rather than drifting into estrangement by accident.",
+            "Sort your own paperwork — will, beneficiaries, letter of wishes. Most of this pain is inherited from someone who did not."
+          ]
+        }
+      ]
+    }
+  ],
+  "limit": "If the money involved a signed agreement, a shared mortgage, an inheritance, or a power of attorney, this stopped being a family conversation and became a legal one. Get independent advice before you sign, forgive, or transfer anything — and never sign a document at the table under emotional pressure.",
+  "wordCount": 633
+}

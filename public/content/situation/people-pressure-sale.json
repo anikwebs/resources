@@ -1,1 +1,137 @@
-{"id":"people-pressure-sale","title":"A high-pressure sale you cannot get out of","category":"people","categoryTitle":"Manipulation & Bad Actors","severity":"medium","tool":"The Twenty-Four Hour Rule","tags":["scams","money","pressure","contracts"],"lede":"A doorstep salesman, a timeshare room, a phone call about your boiler, or a car showroom at closing. The price is only good today. There is a folder open and a pen already out, and saying no keeps not working.","sections":[{"n":"1","title":"What is happening","blocks":[{"type":"p","text":"A doorstep salesman, a timeshare room, a phone call about your boiler, or a car showroom at closing. The price is only good today. There is a folder open and a pen already out, and saying no keeps not working."}]},{"n":"2","title":"What is actually going on","blocks":[{"type":"ul","items":["Every technique in the room is designed to move you before you can consult anyone. Urgency, scarcity, and the vanishing discount are not features of the deal. They are the deal.","Reciprocity is being loaded on you deliberately — the coffee, the two hours of their time, the \"I have gone to my manager for you.\" You feel you owe them. You do not.","A genuinely good offer survives a night of sleep. That single test resolves almost every case you will ever face.","They are trained and you are not. This is not a fair contest and you should not try to win it on argument."]}]},{"n":"3","title":"Do this, in this order","blocks":[{"type":"steps","items":[{"move":"Stop giving reasons","detail":"Reasons are handholds. Every reason you offer gets answered, and answering is their job. Give no reason at all."},{"move":"Use the same sentence repeatedly","detail":"One flat line, repeated without variation and without heat. It is unglamorous and it works better than anything else."},{"move":"Do not sign, initial, or pay a deposit","detail":"Not \"to hold the price,\" not \"just to show intent.\" A deposit converts your position from free to negotiating."},{"move":"Physically create the exit","detail":"Stand up. Move toward the door. Say you have to make a call. Compliance to a seated position is half of what they are relying on."},{"move":"If it is a phone call, end it","detail":"You do not owe a stranger a graceful exit. \"No thank you\" and hang up is complete."},{"move":"Look up the company before any commitment","detail":"Search the name plus \"complaints\" and check whether they are registered. Two minutes here prevents most of the harm."}]}]},{"n":"4","title":"Words you can borrow","blocks":[{"type":"lines","items":[{"when":"The broken record","say":"\"I do not make decisions the same day. I am going to think about it.\""},{"when":"Against the vanishing discount","say":"\"If the price only exists today, then it is not a price I want. If it is real, it will be there tomorrow.\""},{"when":"Against reciprocity","say":"\"I appreciate your time and I am still not deciding today.\""},{"when":"The exit","say":"\"I am going to leave now. If you send it in writing, I will read it.\""}]}]},{"n":"5","title":"What makes it worse","blocks":[{"type":"bad","items":["Arguing about the product. It moves you onto their prepared ground.","Agreeing to a \"no-obligation\" credit check or application. These often create records or contracts.","Giving your bank details or card \"for verification.\"","Being alone in the room. Bring someone, or invent someone you have to consult.","Politeness as a reason to stay seated. You are allowed to be blunt with a stranger who is working on you."]}]},{"n":"6","title":"Once the pressure drops","blocks":[{"type":"good","items":["If you already signed, check immediately for a statutory cooling-off period — many jurisdictions give 14 days on doorstep and distance sales.","Cancel in writing and keep proof of sending. Verbal cancellation is routinely \"lost.\"","If money left your account under pressure, contact your bank the same day and use the words \"I was pressured into this.\"","Report the tactic even if you escaped. It is how repeat operators get stopped."]}]}],"limit":"","wordCount":603}
+{
+  "id": "people-pressure-sale",
+  "title": "A high-pressure sale you cannot get out of",
+  "category": "people",
+  "categoryTitle": "Manipulation & Bad Actors",
+  "severity": "medium",
+  "tool": "The Twenty-Four Hour Rule",
+  "tags": [
+    "scams",
+    "money",
+    "pressure",
+    "contracts"
+  ],
+  "lede": "A doorstep salesman, a timeshare room, a phone call about your boiler, or a car showroom at closing. The price is only good today. There is a folder open and a pen already out, and saying no keeps not working.",
+  "sections": [
+    {
+      "n": "1",
+      "title": "What is happening",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "A doorstep salesman, a timeshare room, a phone call about your boiler, or a car showroom at closing. The price is only good today. There is a folder open and a pen already out, and saying no keeps not working."
+        }
+      ]
+    },
+    {
+      "n": "2",
+      "title": "What is actually going on",
+      "blocks": [
+        {
+          "type": "ul",
+          "items": [
+            "Every technique in the room is designed to move you before you can consult anyone. Urgency, scarcity, and the vanishing discount are not features of the deal. They are the deal.",
+            "Reciprocity is being loaded on you deliberately — the coffee, the two hours of their time, the \"I have gone to my manager for you.\" You feel you owe them. You do not.",
+            "A genuinely good offer survives a night of sleep. That single test resolves almost every case you will ever face.",
+            "They are trained and you are not. This is not a fair contest and you should not try to win it on argument."
+          ]
+        }
+      ]
+    },
+    {
+      "n": "3",
+      "title": "Do this, in this order",
+      "blocks": [
+        {
+          "type": "steps",
+          "items": [
+            {
+              "move": "Stop giving reasons",
+              "detail": "Reasons are handholds. Every reason you offer gets answered, and answering is their job. Give no reason at all."
+            },
+            {
+              "move": "Use the same sentence repeatedly",
+              "detail": "One flat line, repeated without variation and without heat. It is unglamorous and it works better than anything else."
+            },
+            {
+              "move": "Do not sign, initial, or pay a deposit",
+              "detail": "Not \"to hold the price,\" not \"just to show intent.\" A deposit converts your position from free to negotiating."
+            },
+            {
+              "move": "Physically create the exit",
+              "detail": "Stand up. Move toward the door. Say you have to make a call. Compliance to a seated position is half of what they are relying on."
+            },
+            {
+              "move": "If it is a phone call, end it",
+              "detail": "You do not owe a stranger a graceful exit. \"No thank you\" and hang up is complete."
+            },
+            {
+              "move": "Look up the company before any commitment",
+              "detail": "Search the name plus \"complaints\" and check whether they are registered. Two minutes here prevents most of the harm."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "n": "4",
+      "title": "Words you can borrow",
+      "blocks": [
+        {
+          "type": "lines",
+          "items": [
+            {
+              "when": "The broken record",
+              "say": "\"I do not make decisions the same day. I am going to think about it.\""
+            },
+            {
+              "when": "Against the vanishing discount",
+              "say": "\"If the price only exists today, then it is not a price I want. If it is real, it will be there tomorrow.\""
+            },
+            {
+              "when": "Against reciprocity",
+              "say": "\"I appreciate your time and I am still not deciding today.\""
+            },
+            {
+              "when": "The exit",
+              "say": "\"I am going to leave now. If you send it in writing, I will read it.\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "n": "5",
+      "title": "What makes it worse",
+      "blocks": [
+        {
+          "type": "bad",
+          "items": [
+            "Arguing about the product. It moves you onto their prepared ground.",
+            "Agreeing to a \"no-obligation\" credit check or application. These often create records or contracts.",
+            "Giving your bank details or card \"for verification.\"",
+            "Being alone in the room. Bring someone, or invent someone you have to consult.",
+            "Politeness as a reason to stay seated. You are allowed to be blunt with a stranger who is working on you."
+          ]
+        }
+      ]
+    },
+    {
+      "n": "6",
+      "title": "Once the pressure drops",
+      "blocks": [
+        {
+          "type": "good",
+          "items": [
+            "If you already signed, check immediately for a statutory cooling-off period — many jurisdictions give 14 days on doorstep and distance sales.",
+            "Cancel in writing and keep proof of sending. Verbal cancellation is routinely \"lost.\"",
+            "If money left your account under pressure, contact your bank the same day and use the words \"I was pressured into this.\"",
+            "Report the tactic even if you escaped. It is how repeat operators get stopped."
+          ]
+        }
+      ]
+    }
+  ],
+  "limit": "Nothing legitimate needs your decision inside the same conversation. If they will not leave, will not put it in writing, or will not accept \"not today\", end it and close the door. In most countries a contract signed at your home carries a statutory cooling-off period — find out yours and use it in writing.",
+  "wordCount": 603
+}

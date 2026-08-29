@@ -1,1 +1,130 @@
-{"id":"crisis-someone-collapses","title":"Someone collapses in front of you","category":"crisis","categoryTitle":"Emergency & Crisis","severity":"critical","tool":"The First Ninety Seconds","tags":["first aid","cardiac","critical"],"lede":"A person goes down. Maybe a chair, maybe a pavement, maybe mid-sentence. There is a ring of people who have all become extremely still, and you are one of them.","sections":[{"n":"1","title":"What is happening","blocks":[{"type":"p","text":"A person goes down. Maybe a chair, maybe a pavement, maybe mid-sentence. There is a ring of people who have all become extremely still, and you are one of them."}]},{"n":"2","title":"What is actually going on","blocks":[{"type":"ul","items":["For a cardiac arrest, survival falls very fast per minute without compressions. The difference between a bystander who acts in the first minute and one who waits for an ambulance is frequently the whole outcome.","The bystander effect is the actual enemy. In a group, everyone waits for someone else, and the pause is filled with nobody. One person taking visible charge breaks it instantly.","You are not required to be right. Untrained compressions are vastly better than nothing, and the emergency operator will coach you through it in real time."]}]},{"n":"3","title":"Do this, in this order","blocks":[{"type":"steps","items":[{"move":"Get responsiveness: shout and shake shoulders","detail":"\"Can you hear me?\" If nothing, treat it as an emergency immediately."},{"move":"Assign tasks to named individuals","detail":"Point. \"You in the blue coat — call an ambulance, put it on speaker. You — find a defibrillator.\" Named people move; crowds do not."},{"move":"Check breathing for no more than ten seconds","detail":"Look at the chest, listen at the mouth. Occasional gasping is not breathing — treat gasping as arrest."},{"move":"If not breathing normally, start compressions","detail":"Centre of the chest, heel of the hand, arms straight, press hard about 5–6cm, roughly twice per second. Do not stop to deliberate."},{"move":"Get the defibrillator on as soon as it arrives","detail":"Turn it on and obey the voice. It will not shock a heart that should not be shocked — you cannot make things worse with it."},{"move":"If they are breathing but unconscious, roll them onto their side","detail":"Airway open, head tilted slightly down. Stay and monitor breathing continuously."}]}]},{"n":"4","title":"Words you can borrow","blocks":[{"type":"lines","items":[{"when":"Breaking the freeze","say":"\"You — in the blue coat. Call 999 now, speaker on. You — get the defibrillator from the entrance.\""},{"when":"To the operator","say":"\"Adult male, roughly sixty, collapsed, not breathing normally. I am starting compressions. Address is...\""},{"when":"Managing the crowd","say":"\"Everyone step back and give us room. Somebody go and wave the ambulance in.\""}]}]},{"n":"5","title":"What makes it worse","blocks":[{"type":"bad","items":["Waiting for a professional in the crowd to volunteer.","Stopping compressions to check whether it is working. Continuous is what matters.","Giving water, food, or medication to an unconscious person.","Moving someone with a suspected spinal injury unless they are in immediate danger where they lie.","Filming."]}]},{"n":"6","title":"Once the pressure drops","blocks":[{"type":"good","items":["Give the paramedics the timeline: when they collapsed, when compressions started, what you saw. It changes clinical decisions.","Expect to shake badly afterwards, and expect to doubt whether you did it right. Both are universal and neither is evidence of failure.","Do a four-hour first aid course. Reading this is not the same as having done it once with your hands."]}]}],"limit":"","wordCount":530}
+{
+  "id": "crisis-someone-collapses",
+  "title": "Someone collapses in front of you",
+  "category": "crisis",
+  "categoryTitle": "Emergency & Crisis",
+  "severity": "critical",
+  "tool": "The First Ninety Seconds",
+  "tags": [
+    "first aid",
+    "cardiac",
+    "critical"
+  ],
+  "lede": "A person goes down. Maybe a chair, maybe a pavement, maybe mid-sentence. There is a ring of people who have all become extremely still, and you are one of them.",
+  "sections": [
+    {
+      "n": "1",
+      "title": "What is happening",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "A person goes down. Maybe a chair, maybe a pavement, maybe mid-sentence. There is a ring of people who have all become extremely still, and you are one of them."
+        }
+      ]
+    },
+    {
+      "n": "2",
+      "title": "What is actually going on",
+      "blocks": [
+        {
+          "type": "ul",
+          "items": [
+            "For a cardiac arrest, survival falls very fast per minute without compressions. The difference between a bystander who acts in the first minute and one who waits for an ambulance is frequently the whole outcome.",
+            "The bystander effect is the actual enemy. In a group, everyone waits for someone else, and the pause is filled with nobody. One person taking visible charge breaks it instantly.",
+            "You are not required to be right. Untrained compressions are vastly better than nothing, and the emergency operator will coach you through it in real time."
+          ]
+        }
+      ]
+    },
+    {
+      "n": "3",
+      "title": "Do this, in this order",
+      "blocks": [
+        {
+          "type": "steps",
+          "items": [
+            {
+              "move": "Get responsiveness: shout and shake shoulders",
+              "detail": "\"Can you hear me?\" If nothing, treat it as an emergency immediately."
+            },
+            {
+              "move": "Assign tasks to named individuals",
+              "detail": "Point. \"You in the blue coat — call an ambulance, put it on speaker. You — find a defibrillator.\" Named people move; crowds do not."
+            },
+            {
+              "move": "Check breathing for no more than ten seconds",
+              "detail": "Look at the chest, listen at the mouth. Occasional gasping is not breathing — treat gasping as arrest."
+            },
+            {
+              "move": "If not breathing normally, start compressions",
+              "detail": "Centre of the chest, heel of the hand, arms straight, press hard about 5–6cm, roughly twice per second. Do not stop to deliberate."
+            },
+            {
+              "move": "Get the defibrillator on as soon as it arrives",
+              "detail": "Turn it on and obey the voice. It will not shock a heart that should not be shocked — you cannot make things worse with it."
+            },
+            {
+              "move": "If they are breathing but unconscious, roll them onto their side",
+              "detail": "Airway open, head tilted slightly down. Stay and monitor breathing continuously."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "n": "4",
+      "title": "Words you can borrow",
+      "blocks": [
+        {
+          "type": "lines",
+          "items": [
+            {
+              "when": "Breaking the freeze",
+              "say": "\"You — in the blue coat. Call 999 now, speaker on. You — get the defibrillator from the entrance.\""
+            },
+            {
+              "when": "To the operator",
+              "say": "\"Adult male, roughly sixty, collapsed, not breathing normally. I am starting compressions. Address is...\""
+            },
+            {
+              "when": "Managing the crowd",
+              "say": "\"Everyone step back and give us room. Somebody go and wave the ambulance in.\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "n": "5",
+      "title": "What makes it worse",
+      "blocks": [
+        {
+          "type": "bad",
+          "items": [
+            "Waiting for a professional in the crowd to volunteer.",
+            "Stopping compressions to check whether it is working. Continuous is what matters.",
+            "Giving water, food, or medication to an unconscious person.",
+            "Moving someone with a suspected spinal injury unless they are in immediate danger where they lie.",
+            "Filming."
+          ]
+        }
+      ]
+    },
+    {
+      "n": "6",
+      "title": "Once the pressure drops",
+      "blocks": [
+        {
+          "type": "good",
+          "items": [
+            "Give the paramedics the timeline: when they collapsed, when compressions started, what you saw. It changes clinical decisions.",
+            "Expect to shake badly afterwards, and expect to doubt whether you did it right. Both are universal and neither is evidence of failure.",
+            "Do a four-hour first aid course. Reading this is not the same as having done it once with your hands."
+          ]
+        }
+      ]
+    }
+  ],
+  "limit": "Call emergency services first, before anything else. If they are not breathing normally, start chest compressions and ask someone to find a defibrillator. Do not give food, drink, or medication to someone who is drowsy or confused. If you are untrained, the dispatcher will talk you through it — stay on the line.",
+  "wordCount": 530
+}
