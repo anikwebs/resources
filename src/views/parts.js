@@ -313,8 +313,14 @@ export const blocks = arr => (arr || []).map(block).join('')
 export const statRow = items => `<div class="stats">${items.map(i =>
   `<div class="stat"><b>${esc(String(i.v))}</b><span>${esc(i.l)}</span></div>`).join('')}</div>`
 
+/* Jump links CANNOT be plain href="#id": the whole app is
+   hash-routed, so setting location.hash to "#when" replaces the
+   route and lands the reader on the 404 page. They are buttons that
+   scroll, with data-jump carrying the target id; main.js handles the
+   click. Kept as <a> for the underline affordance and keyboard
+   semantics, with href omitted so nothing navigates. */
 export const jumpNav = links => `<nav class="jump" aria-label="Jump to section">${links.map(l =>
-  `<a href="#${esc(l.id)}">${esc(strip(l.label))}</a>`).join('')}</nav>`
+  `<a role="button" tabindex="0" data-jump="${esc(l.id)}">${esc(strip(l.label))}</a>`).join('')}</nav>`
 
 export const saveButton = (id, label = 'Save') => `
   <button class="btn btn-ghost btn-sm" data-save="${esc(id)}" aria-pressed="${isSaved(id)}">

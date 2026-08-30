@@ -102,6 +102,40 @@ export async function loadTool (id) {
   return mod.default
 }
 
+/* =============================================================
+   SITUATION → TOOL
+
+   A situation playbook offers one tool as the place to do the
+   thinking. The rule lives here rather than in a view, because two
+   pages need it and they must agree: the playbook says "use this
+   tool", and the tool page says "these playbooks send you here".
+   If the rule were duplicated, one side would start lying.
+
+   Order matters — the first pattern that matches a situation wins,
+   so the more specific patterns are listed first.
+   ============================================================= */
+const TOOL_HINTS = [
+  [/deadline|impossible|too much|priorit/i, 'priority-matrix'],
+  [/negotiat|salary|pay|rent|contract|price|sale/i, 'negotiation-planner'],
+  [/conversation|tell|talk|confront|shout|argu|apolog/i, 'conversation-planner'],
+  [/decide|offer|choice|quit|accept/i, 'decision-matrix'],
+  [/scam|fraud|hack|deepfake|claim|inform|lied/i, 'credibility-checker'],
+  [/risk|danger|threat|intrus|crash|fire|collapse/i, 'risk-analyzer'],
+  [/money|debt|income|evict|bank/i, 'opportunity-cost'],
+  [/burnout|grief|panic|health|diagnos/i, 'reflection']
+]
+
+/** The tool id a situation should offer. Always returns an id. */
+export function toolForSituation (doc) {
+  const hay = `${doc.title || ''} ${doc.lede || ''} ${(doc.tags || []).join(' ')} ${doc.tool || ''}`
+  for (const [re, id] of TOOL_HINTS) if (re.test(hay)) return id
+  return 'problem-canvas'
+}
+
+/** The situations that route to a given tool. Needs the corpus list. */
+export const situationsForTool = (id, situations) =>
+  (situations || []).filter(s => toolForSituation(s) === id)
+
 /** Search documents for the toolkit (§21). */
 export const searchDocs = () => TOOL_META.map(t => ({
   kind: 'tool',

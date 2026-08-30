@@ -24,7 +24,7 @@ import { getNote, recordScenario, getScenario } from '../core/store.js'
 import { drillFor } from '../data/drills.js'
 import { skillsForSituation } from '../data/skills.js'
 import { pathsContaining } from '../data/paths.js'
-import { TOOL_META } from '../tools/index.js'
+import { TOOL_META, toolForSituation } from '../tools/index.js'
 import {
   crumbs, block, chip, sev, alarm, saveButton, doneButton, jumpNav,
   situationCard, grid, errorState, sectionHead
@@ -76,7 +76,7 @@ export default async function situation (ctx) {
   const picked = drill ? (getScenario(drillKey) || {}).picked : null
   const skills = skillsForSituation(id)
   const paths = pathsContaining(id)
-  const tool = TOOL_META.find(t => matchTool(t, doc))
+  const tool = TOOL_META.find(t => t.id === toolForSituation(doc))
 
   const html = `
   <div class="shell">
@@ -349,20 +349,4 @@ function secHtml (type, items) {
   </section>`
 }
 
-/* Map a corpus situation onto one of the working tools,
-   so the playbook offers a place to actually do the thinking. */
-const TOOL_HINTS = [
-  [/deadline|impossible|too much|priorit/i, 'priority-matrix'],
-  [/negotiat|salary|pay|rent|contract|price|sale/i, 'negotiation-planner'],
-  [/conversation|tell|talk|confront|shout|argu|apolog/i, 'conversation-planner'],
-  [/decide|offer|choice|quit|accept/i, 'decision-matrix'],
-  [/scam|fraud|hack|deepfake|claim|inform|lied/i, 'credibility-checker'],
-  [/risk|danger|threat|intrus|crash|fire|collapse/i, 'risk-analyzer'],
-  [/money|debt|income|evict|bank/i, 'opportunity-cost'],
-  [/burnout|grief|panic|health|diagnos/i, 'reflection']
-]
-function matchTool (t, doc) {
-  const hay = `${doc.title} ${doc.lede || ''} ${(doc.tags || []).join(' ')} ${doc.tool || ''}`
-  for (const [re, id] of TOOL_HINTS) if (re.test(hay)) return t.id === id
-  return t.id === 'problem-canvas'
-}
+

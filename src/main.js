@@ -859,6 +859,26 @@ function relabelDone (btn, done) {
 function delegate () {
   const app = $('#app')
 
+  /* jump-to-section. A real href="#id" would overwrite the routing
+     hash and 404 the page, so these scroll manually and leave the
+     URL alone. Space/Enter work because they are role=button. */
+  const jumpTo = id => {
+    const el = document.getElementById(id)
+    if (!el) return
+    /* Offset by the sticky nav, or the heading hides behind it. */
+    const navH = $('#nav')?.getBoundingClientRect().height || 0
+    const y = el.getBoundingClientRect().top + window.scrollY - navH - 12
+    window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' })
+    /* Make the target focusable so screen readers follow the jump. */
+    if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '-1')
+    el.focus({ preventScroll: true })
+  }
+  on(app, 'click', '[data-jump]', (e, a) => { e.preventDefault(); jumpTo(a.dataset.jump) })
+  on(app, 'keydown', '[data-jump]', (e, a) => {
+    if (e.key !== 'Enter' && e.key !== ' ') return
+    e.preventDefault(); jumpTo(a.dataset.jump)
+  })
+
   /* save */
   on(app, 'click', '[data-save]', (e, btn) => {
     e.preventDefault()
