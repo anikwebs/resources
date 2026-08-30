@@ -229,10 +229,14 @@ export function trackCard (t, stats) {
   return `<a class="card card-pad-lg rise" href="${href(`track/${t.id}`)}" data-accent="${t.accent}">
     ${cardHead({
       lead: `<span class="res-ic">${trackIcon(t.icon)}</span>`,
-      eyebrow: t.tagline ? esc(t.tagline) : '',
       title: md(t.name || t.title || ''),
       clamp: 0
     })}
+    <!-- A track tagline is a whole sentence ("Eight levels. One
+         operating system. A lifetime of use."). It was sitting in the
+         eyebrow slot, which is a single-line uppercase label, so it
+         was cut to a few words. Sentences belong under the title. -->
+    ${t.tagline ? `<p class="card-tag">${esc(t.tagline)}</p>` : ''}
     ${t.description || t.blurb || t.subtitle ? `<p class="card-text clamp-3">${esc(clip(t.description || t.blurb || t.subtitle, 170))}</p>` : ''}
     <div class="card-foot card-foot-line">
       <span class="t-meta faint">${plural(stats.units || 0, 'piece')}</span>

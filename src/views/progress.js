@@ -35,22 +35,22 @@ import {
 const FIRST_MOVES = [
   {
     t: 'Take a path', to: 'paths', ic: 'route', accent: 'forest',
-    counts: 'Counts as a path started', time: `${PATHS.length} to choose from`,
+    counts: 'Path started', time: `${PATHS.length} to choose from`,
     d: 'An ordered route through the material rather than a pile of links. Opening the first stage is enough to register.'
   },
   {
     t: 'Fill in a tool', to: 'toolkit', ic: 'tool', accent: 'atlas',
-    counts: 'Counts as a tool used', time: `${TOOL_META.length} in the kit`,
+    counts: 'Tool used', time: `${TOOL_META.length} in the kit`,
     d: 'Your own words in a real worksheet — a decision, a negotiation, a conversation you have to have. It saves as you type.'
   },
   {
     t: 'Answer a scenario', to: 'scenarios', ic: 'puzzle', accent: 'clay',
-    counts: 'Counts as answered', time: `${SCENARIOS.length} scenarios`,
+    counts: 'Scenario answered', time: `${SCENARIOS.length} scenarios`,
     d: 'Commit to one option before you read why it works. Guessing and being wrong records the same as being right.'
   },
   {
     t: 'Finish a reading', to: 'library', ic: 'book', accent: 'council',
-    counts: 'Counts as a piece finished', time: 'Mostly 3–6 minutes each',
+    counts: 'Piece finished', time: 'Mostly 3–6 minutes each',
     d: 'Reach the end of a single lesson and mark it done. Half-read pieces are deliberately not counted.'
   }
 ]

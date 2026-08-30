@@ -204,15 +204,26 @@ a.card:hover, button.card:hover {
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-.card-meta > .eyebrow::before {
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: var(--s-2);
-  /* Nudge off the text baseline so the rule sits mid-cap-height. */
-  position: relative;
-  top: -1px;
+/* The eyebrow's leading rule is 22px plus an 8px gap. In a narrow
+   card (212px in a four-column grid) that is half the space left
+   over after the badge, so the label itself was cut to about 26px
+   — "Learning & thinking" became "L…". The rule is pure decoration
+   and the meta row already reads as meta, so drop it here and give
+   the words the room. It stays everywhere else. */
+.card-meta > .eyebrow::before { display: none; }
+/* In a 212px card the badge and the eyebrow compete, and flex was
+   resolving it by starving the eyebrow to 56px ("Learning &
+   thinking" → "L…"). The eyebrow is the category and the badge is a
+   one-word level, so the eyebrow wins: give it a floor and let the
+   badge shrink and ellipsis instead. */
+.card-meta > .eyebrow { flex: 1 1 auto; min-width: 8ch; }
+.card-meta > .badge, .card-meta > .sev {
+  flex: 0 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
-.card-meta > .badge, .card-meta > .sev { flex: none; }
 
 .card-title {
   font-family: var(--font-display);
@@ -230,6 +241,16 @@ a.card:hover .card-title, button.card:hover .card-title { color: var(--ac); }
 /* Leading numeral / icon sits on its own line above the meta row. */
 .card > .card-n, .card > .res-ic { margin-bottom: var(--s-3); }
 .card-text { font-size: var(--t-small); line-height: 1.58; color: var(--muted); }
+/* A short sentence sitting between title and body — a track's
+   tagline. Set in the accent so it reads as a claim, not as body. */
+.card-tag {
+  margin-top: -2px;
+  font-family: var(--font-read);
+  font-size: var(--t-small);
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--ac);
+}
 .card-foot {
   margin-top: auto;
   padding-top: var(--s-3);
