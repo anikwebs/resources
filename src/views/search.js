@@ -114,7 +114,7 @@ function bodyHtml (q, kind, results, counts) {
     ${emptyState(`Nothing matches “${q}”`,
       'Try describing what is happening instead of naming a topic — “my landlord wants me out” finds more than “tenancy”. Single unusual words are the hardest thing for any search to place.',
       `<div class="row-wrap" style="gap:var(--s-3);justify-content:center">
-        <a class="btn btn-soft" href="${href('situations')}">${I.compass}Browse 51 situations</a>
+        <a class="btn btn-soft" href="${href('situations')}">${I.compass}Browse all situations</a>
         <a class="btn btn-ghost" href="${href('skills')}">${I.target}Browse by skill</a>
       </div>`)}
     ${suggestionsHtml('Or try one of these')}`}`

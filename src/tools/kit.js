@@ -1,5 +1,5 @@
 /* =============================================================
-   TOOL KIT — the shared machinery behind all seventeen tools.
+   TOOL KIT — the shared machinery behind every tool.
 
    Every tool is a plain object:
 
@@ -103,7 +103,7 @@ export const scale = (path, value, label, max = 5) => `
  * Tool forms are written as markup strings, so a `<label>` sitting
  * beside an input is visually correct but not programmatically
  * associated — a screen reader announces "edit, blank". Rather than
- * hand-thread ids through seventeen tools (and get it wrong once),
+ * hand-thread ids through every tool (and get it wrong once),
  * this runs after every form draw and repairs the association:
  *
  *   1. a sibling/ancestor <label> gets a generated `for` + `id` pair;

@@ -349,7 +349,7 @@ function secHtml (type, items) {
   </section>`
 }
 
-/* Map a corpus situation onto one of the seventeen working tools,
+/* Map a corpus situation onto one of the working tools,
    so the playbook offers a place to actually do the thinking. */
 const TOOL_HINTS = [
   [/deadline|impossible|too much|priorit/i, 'priority-matrix'],

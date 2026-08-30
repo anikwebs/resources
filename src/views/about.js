@@ -245,7 +245,7 @@ export async function notFound (ctx) {
       ${sectionHead('The main entrances')}
       <div style="margin-top:var(--s-4)">
         ${grid([
-          ['Something is happening now', 'The 51 situation playbooks.', 'situations', I.compass],
+          ['Something is happening now', 'Every situation playbook, by category.', 'situations', I.compass],
           ['I want to get better at something', `${SKILLS.length} skills across ${DOMAINS.length} areas.`, 'skills', I.target],
           ['I need to work something out', `${TOOL_META.length} tools that actually compute.`, 'tools', I.tool],
           ['I want a route through it', `${PATHS.length} ordered learning paths.`, 'paths', I.route],
