@@ -546,7 +546,7 @@ export async function aiLibrary (ctx) {
 }
 
 const hayOf = p =>
-  `${p.title} ${p.hard} ${(p.approach || []).join(' ')} ${p.domain}`.toLowerCase()
+  `${p.title} ${p.hard} ${(p.approach || []).join(' ')} ${p.domain} ${(p.checks || []).join(' ')}`.toLowerCase()
 
 function mountLibraryFilter (root) {
   const input = root.querySelector('[data-ai-q]')
@@ -634,6 +634,25 @@ export async function aiProblem (ctx) {
       ${promptBox('Copy and fill in', p.prompt)}
     </section>
 
+    ${p.followUp ? `
+      <section class="sec" id="second-pass">
+        <div class="sec-head"><h2>The second pass</h2></div>
+        <p class="t-small muted" style="margin-bottom:var(--s-4)">Paste this <em>after</em> you have the first answer. It attacks the
+          answer rather than the problem, which is where a model is genuinely strong — critique is far more reliable than
+          generation. Most of the value people leave behind is here, because the first draft reads well enough to accept.</p>
+        ${promptBox('Copy this next', p.followUp)}
+      </section>` : ''}
+
+    ${(p.checks || []).length ? `
+      <section class="sec" id="checks">
+        <div class="sec-head"><h2>Check before you act</h2></div>
+        <p class="t-small muted" style="margin-bottom:var(--s-4)">Highest-cost failure first. A minute here is the difference
+          between using the tool and being used by it.</p>
+        <ul class="marklist goodlist" style="max-width:76ch">
+          ${p.checks.map(c => `<li>${md(c)}</li>`).join('')}
+        </ul>
+      </section>` : ''}
+
     ${p.warn ? `<div class="callout callout-danger" style="margin-top:var(--s-6)">
       <span class="lab">Before you use the output</span><p>${md(p.warn)}</p></div>` : ''}
 
@@ -651,7 +670,8 @@ export async function aiProblem (ctx) {
 
     ${siblings.length ? `
       <section class="sec">
-        ${sectionHead(`More in ${esc(dom.title || 'this area')}`,
+        ${/* sectionHead escapes its own title, so esc() here would double-escape. */ ''}
+        ${sectionHead(`More in ${dom.title || 'this area'}`,
           `<a class="btn btn-ghost btn-sm" href="${href(`ai/library?d=${p.domain}`)}">All${I.arrow}</a>`)}
         <div style="margin-top:var(--s-4)">${grid(siblings.map(problemCard), 3)}</div>
       </section>` : ''}

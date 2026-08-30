@@ -7,6 +7,8 @@
    are in [SQUARE BRACKETS] so they are obvious.
    ============================================================= */
 
+import { PROMPT_UPGRADES } from './ai-prompts-plus.js'
+
 export const PROBLEM_DOMAINS = [
   { id: 'work', title: 'Work & Office', icon: 'inbox', accent: 'forest', blurb: 'Email, meetings, reports, data, projects, managing people.' },
   { id: 'career', title: 'Career & Job Hunting', icon: 'target', accent: 'atlas', blurb: 'CVs, applications, interviews, offers, planning, salary.' },
@@ -667,6 +669,18 @@ export const MASTERCLASS = [
 ]
 
 /* ------------------------------------------------------------- */
+/* Merge the second-pass prompt and the output checks into each
+   problem. Kept in a separate module because the library file was
+   already long, and because followUp/checks are a different kind of
+   writing from the problem itself. */
+for (const [id, extra] of Object.entries(PROMPT_UPGRADES)) {
+  const p = PROBLEMS.find(x => x.id === id)
+  /* A key with no problem means a rename went half-done. Silently
+     ignoring it would drop the upgrade with no visible symptom. */
+  if (!p) throw new Error(`PROMPT_UPGRADES has no matching problem: ${id}`)
+  Object.assign(p, extra)
+}
+
 export const problemById = id => PROBLEMS.find(p => p.id === id)
 export const problemsOfDomain = d => PROBLEMS.filter(p => p.domain === d)
 export const masterclassById = id => MASTERCLASS.find(m => m.id === id)
@@ -678,7 +692,7 @@ export const searchDocs = () => [
     sub: (PROBLEM_DOMAINS.find(d => d.id === p.domain) || {}).title || 'AI',
     route: `ai/problem/${p.id}`,
     group: 'AI problem library',
-    body: `${p.title} ${p.hard} ${(p.approach || []).join(' ')} ${p.prompt} ${p.warn || ''}`
+    body: `${p.title} ${p.hard} ${(p.approach || []).join(' ')} ${p.prompt} ${p.followUp || ''} ${(p.checks || []).join(' ')} ${p.warn || ''}`
   })),
   ...MASTERCLASS.map(m => ({
     kind: 'ai',
