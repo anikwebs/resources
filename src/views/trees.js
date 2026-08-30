@@ -19,12 +19,37 @@ import { TREES, treeById, treeStats } from '../data/trees.js'
 import { TOOL_META } from '../tools/index.js'
 import {
   pageHead, crumbs, sectionHead, treeCard, toolCard, grid, errorState,
-  saveButton
+  saveButton, jumpNav
 } from './parts.js'
 
 /* =============================================================
    INDEX — trees
    ============================================================= */
+/* Eleven trees in one grid read as a list of eleven unrelated
+   questions. Grouped by what the decision actually costs you:
+   whether to take something on, whether to push back, and whether
+   to believe or delegate. Ids are explicit because the grouping is
+   editorial, and guarded below so a new tree cannot vanish. */
+const TREE_BANDS = [
+  { id: 'commit', head: 'Should I take this on?',
+    note: 'Time, money and commitment',
+    ids: ['say-yes', 'opportunity', 'buy-this', 'negotiate'] },
+  { id: 'push', head: 'Should I push back?',
+    note: 'Conflict, refusal, leaving',
+    ids: ['say-no', 'escalate', 'quit', 'respond-now'] },
+  { id: 'trust', head: 'Can I trust or hand this over?',
+    note: 'Information, AI and automation',
+    ids: ['trust-info', 'use-ai', 'automate'] }
+]
+
+{
+  const listed = new Set(TREE_BANDS.flatMap(b => b.ids))
+  const missing = TREES.filter(t => !listed.has(t.id)).map(t => t.id)
+  if (missing.length) throw new Error(`TREE_BANDS omits: ${missing.join(', ')}`)
+  const unknown = [...listed].filter(id => !TREES.some(t => t.id === id))
+  if (unknown.length) throw new Error(`TREE_BANDS names unknown trees: ${unknown.join(', ')}`)
+}
+
 export default async function treesIndex () {
   const html = `
   <div class="shell">
@@ -45,15 +70,25 @@ export default async function treesIndex () {
           returns an optimistic recommendation.</p>
       </div>
 
-      ${grid(TREES.map(t => {
-        const st = treeStats(t)
-        const used = !!getTree(t.id)
-        return treeCard(t, used).replace('</a>',
-          `<div class="card-foot card-foot-line">
-            <span class="t-meta faint">${st.questions} questions</span>
-            <span class="t-meta faint">${st.outcomes} outcomes</span>
-          </div></a>`)
-      }), 3)}
+      ${jumpNav(TREE_BANDS.map(b => ({ id: b.id, label: b.head })))}
+
+      ${TREE_BANDS.map(band => {
+        const rows = TREES.filter(t => band.ids.includes(t.id))
+        if (!rows.length) return ''
+        return `
+        <section class="sec" id="${band.id}">
+          ${sectionHead(band.head, `<span class="t-small faint">${esc(band.note)}</span>`)}
+          ${grid(rows.map(t => {
+            const st = treeStats(t)
+            const used = !!getTree(t.id)
+            return treeCard(t, used).replace('</a>',
+              `<div class="card-foot card-foot-line">
+                <span class="t-meta faint">${st.questions} questions</span>
+                <span class="t-meta faint">${st.outcomes} outcomes</span>
+              </div></a>`)
+          }), 3)}
+        </section>`
+      }).join('')}
     </div>
   </div>`
 
@@ -69,7 +104,7 @@ export async function treeView (ctx) {
     return {
       title: 'Not found',
       html: `<div class="band"><div class="shell">${errorState(
-        'No such decision tree', 'There are eleven. The index lists them by the decision they resolve.', false)}</div></div>`,
+        'No such decision tree', `There are ${TREES.length}. The index lists them by the decision they resolve.`, false)}</div></div>`,
       notFound: true
     }
   }

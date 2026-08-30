@@ -1,7 +1,7 @@
 /* =============================================================
    LEARNING PATHS — §23.
 
-   Ten ordered routes assembled from material that already exists
+   Ordered routes assembled from material that already exists
    here. A path is not a separate course: it is a sequence through
    the library with a reason for the order, and every stage mixes
    reading, a real situation, a tool, a rehearsal and a written
@@ -31,6 +31,33 @@ import {
 /* =============================================================
    INDEX — paths
    ============================================================= */
+/* Ten paths in one flat grid gave the reader no way to choose. The
+   real distinction is not subject but sequence: one path is the
+   spine, four are the general capabilities it branches into, and
+   five are situational specialisations. Ids are listed explicitly
+   rather than inferred, because the grouping is an editorial
+   judgment and should be visible as one. */
+const PATH_BANDS = [
+  { id: 'spine', head: 'Start here', note: 'The one everything else assumes',
+    ids: ['resourceful'] },
+  { id: 'general', head: 'The four general capabilities',
+    note: 'Thinking, speaking, working, learning',
+    ids: ['think-better', 'communicate-better', 'work-better', 'learn-better'] },
+  { id: 'applied', head: 'Applied to a specific pressure',
+    note: 'Pick by what is actually in front of you',
+    ids: ['decide-better', 'difficult', 'career-capability', 'ai-enabled', 'self-reliant'] }
+]
+
+/* A hand-listed grouping silently hides any path added later. Fail
+   at import instead of shipping a page that omits it. */
+{
+  const listed = new Set(PATH_BANDS.flatMap(b => b.ids))
+  const missing = PATHS.filter(p => !listed.has(p.id)).map(p => p.id)
+  if (missing.length) throw new Error(`PATH_BANDS omits: ${missing.join(', ')}`)
+  const unknown = [...listed].filter(id => !PATHS.some(p => p.id === id))
+  if (unknown.length) throw new Error(`PATH_BANDS names unknown paths: ${unknown.join(', ')}`)
+}
+
 export default async function pathsIndex () {
   const started = activePaths()
 
@@ -38,7 +65,7 @@ export default async function pathsIndex () {
   <div class="shell">
     ${pageHead({
       eyebrow: 'Learning paths',
-      title: 'Ten ordered routes through all of this',
+      title: `${PATHS.length} ordered routes through all of this`,
       lede: 'If the library is too large to know where to start — and it is — a path is the answer. Each one has a reason for its order: the things that everything else depends on come first. Six stages on average, each with reading, a real situation, a tool to use, something to rehearse and a question to answer in writing.',
       accent: 'forest',
       meta: `<span class="chip">${I.route}${plural(PATHS.length, 'path')}</span>
@@ -53,7 +80,17 @@ export default async function pathsIndex () {
           is a specialisation of those four moves.</p>
       </div>
 
-      ${grid(PATHS.map(p => pathCard(p, pathStats(p), started.includes(p.id))), 3)}
+      ${jumpNav(PATH_BANDS.map(b => ({ id: b.id, label: b.head })))}
+
+      ${PATH_BANDS.map(band => {
+        const rows = PATHS.filter(p => band.ids.includes(p.id))
+        if (!rows.length) return ''
+        return `
+        <section class="sec" id="${band.id}">
+          ${sectionHead(band.head, `<span class="t-small faint">${esc(band.note)}</span>`)}
+          ${grid(rows.map(p => pathCard(p, pathStats(p), started.includes(p.id))), 3)}
+        </section>`
+      }).join('')}
     </div>
   </div>`
 
