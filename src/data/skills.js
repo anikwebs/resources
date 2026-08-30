@@ -714,7 +714,14 @@ export const SKILLS = [
    QUERIES
    ------------------------------------------------------------- */
 export const skillById = id => SKILLS.find(s => s.id === id)
-export const skillsOfDomain = d => SKILLS.filter(s => s.domain === d)
+
+/* Foundation first, then core, then advanced. Sorting here rather than
+   relying on authoring order means a skill appended to the bottom of
+   SKILLS still lands in the right place on every page that lists it. */
+const LEVEL_RANK = { foundation: 0, core: 1, advanced: 2 }
+export const skillsOfDomain = d => SKILLS
+  .filter(s => s.domain === d)
+  .sort((a, b) => (LEVEL_RANK[a.level] ?? 9) - (LEVEL_RANK[b.level] ?? 9))
 export const domainById = id => DOMAINS.find(d => d.id === id)
 
 /** Which skills reference a given situation — powers "the skill behind this". */
