@@ -16,7 +16,7 @@ import {
   store, doneCount, isDone, activePaths, lastRead,
   exportAll, importAll, resetAll, getScenario, getTree, loadTool
 } from '../core/store.js'
-import { pathById, pathItems, pathStats } from '../data/paths.js'
+import { PATHS, pathById, pathItems, pathStats } from '../data/paths.js'
 import { SCENARIOS, scenarioById } from '../data/scenarios.js'
 import { TREES, treeById } from '../data/trees.js'
 import { TOOL_META, toolMeta } from '../tools/index.js'
@@ -26,6 +26,34 @@ import {
   pageHead, crumbs, sectionHead, statRow, jumpNav, grid, emptyState,
   pathCard, unitCard, situationCard, toolCard, treeCard, saveButton
 } from './parts.js'
+
+/* The four actions this page actually counts, shown when it has
+   nothing to count yet. Kept beside the counters they feed rather
+   than in a data file, because if a counter is ever added or
+   dropped this list has to change with it. Counts come from the
+   registries so they cannot drift out of date. */
+const FIRST_MOVES = [
+  {
+    t: 'Take a path', to: 'paths', ic: 'route', accent: 'forest',
+    counts: 'Counts as a path started', time: `${PATHS.length} to choose from`,
+    d: 'An ordered route through the material rather than a pile of links. Opening the first stage is enough to register.'
+  },
+  {
+    t: 'Fill in a tool', to: 'toolkit', ic: 'tool', accent: 'atlas',
+    counts: 'Counts as a tool used', time: `${TOOL_META.length} in the kit`,
+    d: 'Your own words in a real worksheet — a decision, a negotiation, a conversation you have to have. It saves as you type.'
+  },
+  {
+    t: 'Answer a scenario', to: 'scenarios', ic: 'puzzle', accent: 'clay',
+    counts: 'Counts as answered', time: `${SCENARIOS.length} scenarios`,
+    d: 'Commit to one option before you read why it works. Guessing and being wrong records the same as being right.'
+  },
+  {
+    t: 'Finish a reading', to: 'library', ic: 'book', accent: 'council',
+    counts: 'Counts as a piece finished', time: 'Mostly 3–6 minutes each',
+    d: 'Reach the end of a single lesson and mark it done. Half-read pieces are deliberately not counted.'
+  }
+]
 
 /* -------------------------------------------------------------
    PROGRESS — route: progress
@@ -82,14 +110,27 @@ export default async function progress () {
     })}
 
     ${nothing ? `
-      <section class="sec">
-        ${emptyState('There is nothing here to show you yet',
-          'That is not a failure — it is an empty page waiting for real work. Read one thing, answer one scenario, or fill in one tool, and this page becomes useful.',
-          `<div class="row-wrap" style="gap:var(--s-3);justify-content:center">
-            <a class="btn btn-primary" href="${href('paths')}">${I.route}Take a path</a>
-            <a class="btn btn-soft" href="${href('tools')}">${I.tool}Use a tool</a>
-            <a class="btn btn-ghost" href="${href('scenarios')}">${I.puzzle}Try a scenario</a>
-          </div>`)}
+      <!-- The old empty state repeated the page lede almost word for
+           word and then offered the same two buttons again, under a
+           centred icon with 96px of padding above it. An empty page
+           is more useful when it says exactly what would fill it, so
+           it now lists the four counted actions as real entry points
+           and shows what each is worth. -->
+      <section class="sec" id="begin">
+        ${sectionHead('Four things that would put something here')}
+        ${grid(FIRST_MOVES.map(m => `
+          <a class="card rise" href="${href(m.to)}" data-accent="${m.accent}">
+            <span class="res-ic">${I[m.ic]}</span>
+            <div class="card-meta"><p class="eyebrow">${esc(m.counts)}</p></div>
+            <h3 class="card-title">${esc(m.t)}</h3>
+            <p class="card-text">${esc(m.d)}</p>
+            <div class="card-foot card-foot-line">
+              <span class="t-meta faint">${esc(m.time)}</span>
+            </div>
+          </a>`), 4)}
+        <p class="t-small muted" style="margin-top:var(--s-5);max-width:70ch">Nothing else is
+        counted. Opening a page, scrolling one, or reading half of one does not register —
+        which is why this page stays honest.</p>
       </section>
       ${dangerZone()}
     ` : `

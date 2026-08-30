@@ -313,9 +313,18 @@
 .crumbs a:hover { color: var(--ac); }
 .crumbs svg { width: 12px; height: 12px; opacity: .5; }
 
-/* page header */
-.phead { padding-block: clamp(30px, 3.4vw, 52px) var(--s-6); }
-.phead h1 { margin-block: var(--s-3); }
+/* page header. The h1 and lede are measure-limited for reading, so
+   on a wide screen the header left a third of the row visibly empty
+   and the eye had nowhere to go. A hairline under it closes the
+   band and separates the header from the content below. */
+.phead {
+  padding-block: clamp(30px, 3.4vw, 52px) var(--s-6);
+  border-bottom: 1px solid var(--line);
+  margin-bottom: var(--s-2);
+}
+/* A display-size title reads better at a measure than stretched
+   across 1220px, and balance stops a one-word last line. */
+.phead h1 { margin-block: var(--s-3); max-width: 24ch; text-wrap: balance; }
 
 /* ---------------------------------------------------------------
    READER
