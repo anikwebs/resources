@@ -45,7 +45,7 @@ export default async function skillsIndex (ctx) {
     return {
       title: 'Not found',
       html: `<div class="band"><div class="shell">${errorState(
-        'No such area', 'The seven areas are Work, Career, Communication, Daily life, Money, Learning and Digital life.', false)}</div></div>`,
+        'No such area', `The ${DOMAINS.length} areas are ${DOMAINS.map(d => d.title).join(', ')}.`, false)}</div></div>`,
       notFound: true
     }
   }
@@ -113,7 +113,7 @@ export async function skillView (ctx) {
       title: 'Not found',
       html: `<div class="band"><div class="shell">${errorState(
         'That skill is not in this system',
-        'The index lists all twenty-nine.',
+        `The index lists all ${SKILLS.length}.`,
         false)}</div></div>`,
       notFound: true
     }

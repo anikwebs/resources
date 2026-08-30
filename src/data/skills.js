@@ -85,7 +85,11 @@ export const LEVELS = {
 /* -------------------------------------------------------------
    THE SKILLS
    ------------------------------------------------------------- */
-export const SKILLS = [
+import { SKILLS_MORE } from './skills-more.js'
+
+/* Volume one. SKILLS below concatenates this with SKILLS_MORE so the
+   rest of the app only ever sees one flat list. */
+const SKILLS_CORE = [
   /* ================= WORK ================= */
   {
     id: 'staying-steady',
@@ -709,6 +713,20 @@ export const SKILLS = [
     aiEdge: 'Ask for the shortest defensible statement of fact, then ask what it would look like screenshotted out of context. Both answers matter.'
   }
 ]
+
+/** Every skill, both volumes. The only list the rest of the app uses. */
+export const SKILLS = [...SKILLS_CORE, ...SKILLS_MORE]
+
+/* Two volumes means two chances to reuse an id by accident, and a
+   duplicate would silently shadow the earlier skill on every lookup.
+   Fail loudly at import instead. */
+{
+  const seen = new Set()
+  for (const s of SKILLS) {
+    if (seen.has(s.id)) throw new Error(`Duplicate skill id: ${s.id}`)
+    seen.add(s.id)
+  }
+}
 
 /* -------------------------------------------------------------
    QUERIES

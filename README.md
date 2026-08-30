@@ -46,7 +46,7 @@ Two consequences of those rules worth stating plainly:
 | Area | Contents |
 |---|---|
 | **Situations** | 51 full playbooks across work, career, communication, daily life, money, learning and digital life |
-| **Skills** | 29 skills organised by domain, each with progressive depth |
+| **Skills** | 46 skills organised by domain, each with progressive depth |
 | **Library** | 239 lessons across 4 tracks, plus a 36-collection reference vault |
 | **Toolkit** | 17 tools that actually compute and save their state |
 | **Scenarios** | 8 "what would you do?" exercises with consequences, trade-offs, hidden issues and expert reasoning |
