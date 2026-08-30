@@ -1,7 +1,7 @@
 /* =============================================================
    TOOLKIT — the index (§20) and the single-tool host.
 
-   Seventeen tools that compute. The host page loads the tool
+   Twenty-one tools that compute. The host page loads the tool
    definition lazily, mounts it through the shared kit, and lets
    the kit own all interaction from that point — so state, focus
    and persistence behave identically in every tool.
@@ -28,7 +28,7 @@ export default async function toolsIndex () {
   <div class="shell">
     ${pageHead({
       eyebrow: 'The toolkit',
-      title: 'Seventeen tools that actually compute',
+      title: `${TOOL_META.length} tools that actually compute`,
       lede: 'Not printable worksheets. Each one takes what you type, works out something you could not see by staring at the problem, and gives you an honest reading — including when the honest reading is that your two options are equivalent and the real question is one you have not written down.',
       accent: 'clay',
       meta: `<span class="chip">${I.tool}${plural(TOOL_META.length, 'tool')}</span>
@@ -99,7 +99,7 @@ export async function toolView (ctx) {
       title: 'Not found',
       html: `<div class="band"><div class="shell">${errorState(
         'No such tool',
-        'The toolkit has seventeen. The index lists all of them by what they decide.',
+        `The toolkit has ${TOOL_META.length}. The index lists all of them by what they decide.`,
         false)}</div></div>`,
       notFound: true
     }

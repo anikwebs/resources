@@ -87,13 +87,18 @@ const pathIds = new Set(pathsMod.PATHS.map(p => p.id))
 const problemIds = new Set(libMod.PROBLEMS.map(p => p.id))
 const officeIds = new Set(libMod.MASTERCLASS.map(m => m.id))
 
-const TOOL_IDS = new Set([
-  'decision-matrix', 'priority-matrix', 'task-decomposition', 'risk-analyzer',
-  'opportunity-cost', 'goal-planner', 'habit-planner', 'meeting-planner',
-  'conversation-planner', 'negotiation-planner', 'learning-planner',
-  'career-decision', 'personal-swot', 'credibility-checker', 'problem-canvas',
-  'reflection', 'scenario-simulator'
-])
+/* Read the ids straight from the registry rather than restating them.
+   A second hand-maintained list silently stops checking the moment a
+   tool is added to only one of the two places. */
+const toolsMod = await load('src/tools/index.js')
+const TOOL_IDS = new Set(toolsMod.TOOL_IDS)
+
+/* Every tool must sit in a declared group, or the toolkit index simply
+   will not render it — the page iterates groups, not tools. */
+const TOOL_GROUP_IDS = new Set(toolsMod.TOOL_GROUPS.map(g => g.id))
+for (const t of toolsMod.TOOL_META) {
+  if (!TOOL_GROUP_IDS.has(t.group)) fail(`tool "${t.id}": unknown group "${t.group}"`)
+}
 
 ok(`modules: ${skillIds.size} skills, ${pathIds.size} paths, ${scenarioIds.size} scenarios, ${treeIds.size} trees, ${TOOL_IDS.size} tools, ${problemIds.size} AI problems`)
 

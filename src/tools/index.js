@@ -1,7 +1,7 @@
 /* =============================================================
    TOOL REGISTRY
 
-   Seventeen working tools. Definitions are lazy-loaded so the
+   Twenty-one working tools. Definitions are lazy-loaded so the
    toolkit index page does not pull every tool's code.
    ============================================================= */
 
@@ -17,11 +17,15 @@ export const TOOL_META = [
     blurb: 'Weigh a role change on what compounds, not what flatters.' },
   { id: 'scenario-simulator', name: 'Scenario Simulator', group: 'Deciding', icon: 'shuffle', accent: 'atlas',
     blurb: 'Run a plan through good, likely and bad futures before committing.' },
+  { id: 'pre-mortem', name: 'Pre-Mortem', group: 'Deciding', icon: 'alert', accent: 'signal',
+    blurb: 'Assume it already failed, then work backwards to what you would change now.' },
 
   { id: 'priority-matrix', name: 'Priority Matrix', group: 'Working', icon: 'grid', accent: 'clay',
     blurb: 'Sort what you are carrying by importance against urgency.' },
   { id: 'task-decomposition', name: 'Task Decomposition', group: 'Working', icon: 'layers', accent: 'forest',
     blurb: 'Break something too big to start into steps you can actually begin.' },
+  { id: 'time-audit', name: 'Time Audit', group: 'Working', icon: 'clock', accent: 'atlas',
+    blurb: 'Find where the week actually goes, and what it is worth.' },
 
   { id: 'meeting-planner', name: 'Meeting Planner', group: 'Communicating', icon: 'users', accent: 'atlas',
     blurb: 'Establish whether the meeting is needed, then make it short.' },
@@ -29,6 +33,11 @@ export const TOOL_META = [
     blurb: 'Prepare the opening line, the outcome, and your answer to pushback.' },
   { id: 'negotiation-planner', name: 'Negotiation Planner', group: 'Communicating', icon: 'scale', accent: 'council',
     blurb: 'Set your number, your walk-away, and the non-money axes.' },
+  { id: 'email-pressure-test', name: 'Message Pressure Test', group: 'Communicating', icon: 'shield', accent: 'clay',
+    blurb: 'Check a difficult email before you send it, against the things a hostile reader notices.' },
+
+  { id: 'money-triage', name: 'Money Triage', group: 'Money', icon: 'money', accent: 'signal',
+    blurb: 'Work out which bills can actually hurt you, and in what order to pay them.' },
 
   { id: 'goal-planner', name: 'Goal Planner', group: 'Building', icon: 'target', accent: 'forest',
     blurb: 'Turn an intention into a measure, milestones and a weekly action.' },
@@ -51,6 +60,7 @@ export const TOOL_GROUPS = [
   { id: 'Deciding', blurb: 'For when there is a choice to make and no obvious answer.' },
   { id: 'Working', blurb: 'For when there is too much and no order to it.' },
   { id: 'Communicating', blurb: 'For the conversations that decide things.' },
+  { id: 'Money', blurb: 'For when the numbers are the problem and the order of payment matters.' },
   { id: 'Building', blurb: 'For capability that accumulates rather than resets.' },
   { id: 'Thinking', blurb: 'For working out what is actually true and actually wrong.' }
 ]
@@ -77,7 +87,11 @@ const LOADERS = {
   'credibility-checker': () => import('./credibility-checker.js'),
   'problem-canvas': () => import('./problem-canvas.js'),
   'reflection': () => import('./reflection.js'),
-  'scenario-simulator': () => import('./scenario-simulator.js')
+  'scenario-simulator': () => import('./scenario-simulator.js'),
+  'pre-mortem': () => import('./pre-mortem.js'),
+  'time-audit': () => import('./time-audit.js'),
+  'email-pressure-test': () => import('./email-pressure-test.js'),
+  'money-triage': () => import('./money-triage.js')
 }
 
 /** Load a tool definition. Throws if the id is unknown. */

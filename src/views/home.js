@@ -243,13 +243,13 @@ function continueSection (last, started, doneUnits, doneSits, ix) {
 }
 
 function toolsSection () {
-  const featured = ['decision-matrix', 'priority-matrix', 'risk-analyzer', 'conversation-planner',
-    'negotiation-planner', 'credibility-checker', 'problem-canvas', 'opportunity-cost']
+  const featured = ['decision-matrix', 'priority-matrix', 'pre-mortem', 'conversation-planner',
+    'email-pressure-test', 'money-triage', 'time-audit', 'credibility-checker']
     .map(id => TOOL_META.find(t => t.id === id)).filter(Boolean)
   return `
   <section class="band" id="tools" data-accent="clay">
     <div class="shell">
-      ${sectionHead('Tools that actually compute', `<a class="btn btn-ghost btn-sm" href="${href('tools')}">All 17 tools${I.arrow}</a>`)}
+      ${sectionHead('Tools that actually compute', `<a class="btn btn-ghost btn-sm" href="${href('tools')}">All ${TOOL_META.length} tools${I.arrow}</a>`)}
       <p class="t-lede muted" style="margin-bottom:var(--s-6)">Not worksheets to print. Each one takes what you enter,
         works something out you could not see by staring at it, and tells you the honest reading — including when the
         answer is "these two options are equivalent and you are avoiding the real question". Everything saves on this device.</p>
