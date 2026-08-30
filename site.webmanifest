@@ -1,0 +1,13 @@
+{
+  "name": "The Resources by Anik",
+  "short_name": "The Resources",
+  "description": "A practical system for becoming more capable in the real world.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f1ea",
+  "theme_color": "#f4f1ea",
+  "icons": [
+    { "src": "./icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

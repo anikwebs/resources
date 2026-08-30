@@ -1,0 +1,135 @@
+{
+  "id": "conflict-friend-betrayal",
+  "title": "A friend has repeated something you told them in confidence",
+  "category": "conflict",
+  "categoryTitle": "Conflict & Confrontation",
+  "severity": "medium",
+  "tool": "The Single Clean Conversation",
+  "tags": [
+    "trust",
+    "friendship",
+    "reputation"
+  ],
+  "lede": "Something private is now in general circulation, and the trail runs back to the one person you told. They have not admitted it and possibly do not know that you know.",
+  "sections": [
+    {
+      "n": "1",
+      "title": "What is happening",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Something private is now in general circulation, and the trail runs back to the one person you told. They have not admitted it and possibly do not know that you know."
+        }
+      ]
+    },
+    {
+      "n": "2",
+      "title": "What is actually going on",
+      "blocks": [
+        {
+          "type": "ul",
+          "items": [
+            "Most confidence breaches are carelessness rather than malice — told to one person as gossip currency, then travelled. This matters because malice and carelessness need different responses.",
+            "The damage is already done. The only live question is what your relationship becomes now.",
+            "Confronting on secondhand information is risky. Confirm the chain before you spend the friendship on it.",
+            "The temptation to punish by withdrawal — going cold without explanation — feels safe and destroys more than the original leak."
+          ]
+        }
+      ]
+    },
+    {
+      "n": "3",
+      "title": "Do this, in this order",
+      "blocks": [
+        {
+          "type": "steps",
+          "items": [
+            {
+              "move": "Verify before you accuse",
+              "detail": "Who said it, who did they hear it from, how specific was it. One wrong accusation costs you both the friend and the moral position."
+            },
+            {
+              "move": "Contain the spread first",
+              "detail": "If the information can still cause practical harm — job, relationship, health — deal with the harm before the friendship."
+            },
+            {
+              "move": "Have one conversation, in private, in person if possible",
+              "detail": "Not in a group, not by message. Messages get screenshotted and forwarded, which is exactly how you got here."
+            },
+            {
+              "move": "Describe the impact rather than the crime",
+              "detail": "People defend against accusations and respond to impact. This is the difference between a repair and a war."
+            },
+            {
+              "move": "Ask a direct question and then be quiet",
+              "detail": "Let them answer without help. Their first response tells you almost everything."
+            },
+            {
+              "move": "Decide the new terms consciously",
+              "detail": "Full repair, reduced trust, or ending it. All three are legitimate; drifting is not."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "n": "4",
+      "title": "Words you can borrow",
+      "blocks": [
+        {
+          "type": "lines",
+          "items": [
+            {
+              "when": "The opening",
+              "say": "\"I need to ask you something directly. Did you tell anyone about the thing I told you in March?\""
+            },
+            {
+              "when": "Impact framing",
+              "say": "\"Three people have mentioned it to me. I felt exposed at work and I did not know it was coming.\""
+            },
+            {
+              "when": "If they minimise",
+              "say": "\"I believe you did not mean harm. It still landed on me, and I need to know it will not happen again.\""
+            },
+            {
+              "when": "Reduced trust, stated kindly",
+              "say": "\"I want to stay friends. I am not going to tell you the serious things for a while, and I would rather say that than pretend.\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "n": "5",
+      "title": "What makes it worse",
+      "blocks": [
+        {
+          "type": "bad",
+          "items": [
+            "Retaliating with something of theirs. It ends any chance that you are the reasonable party.",
+            "Broadcasting the betrayal to the shared group. It forces everyone to choose and usually costs you more of them than it costs them.",
+            "Demanding they identify everyone they told and retract it. It cannot be done and it makes you look controlling.",
+            "Pretending it did not happen while quietly punishing them for a year."
+          ]
+        }
+      ]
+    },
+    {
+      "n": "6",
+      "title": "Once the pressure drops",
+      "blocks": [
+        {
+          "type": "good",
+          "items": [
+            "Assume the information is permanent and plan around it existing, not around it being recalled.",
+            "Notice the pattern: was this the first time? If it is the third, the problem is your disclosure policy, not their character.",
+            "Rebuild in small increments if you choose repair. Trust is restored by low-stakes reliability, not by one big conversation.",
+            "Write down, for yourself, the two or three people who have never once leaked. That is your actual inner circle."
+          ]
+        }
+      ]
+    }
+  ],
+  "limit": "If the betrayal involved your money, your login credentials, your professional reputation, or intimate images, treat it as a security and legal matter alongside a personal one. Change credentials, preserve the evidence with dates, and get advice before you confront them — confrontation destroys evidence.",
+  "wordCount": 585
+}

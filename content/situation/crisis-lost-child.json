@@ -1,0 +1,130 @@
+{
+  "id": "crisis-lost-child",
+  "title": "A child is missing in a public place",
+  "category": "crisis",
+  "categoryTitle": "Emergency & Crisis",
+  "severity": "critical",
+  "tool": "The First Ninety Seconds",
+  "tags": [
+    "children",
+    "search",
+    "critical"
+  ],
+  "lede": "You look down and they are not there. Ten seconds ago they were holding the trolley. The shop is enormous and suddenly full of strangers, and your chest has gone tight.",
+  "sections": [
+    {
+      "n": "1",
+      "title": "What is happening",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "You look down and they are not there. Ten seconds ago they were holding the trolley. The shop is enormous and suddenly full of strangers, and your chest has gone tight."
+        }
+      ]
+    },
+    {
+      "n": "2",
+      "title": "What is actually going on",
+      "blocks": [
+        {
+          "type": "ul",
+          "items": [
+            "The first few minutes are disproportionately valuable. A child who has wandered is usually still very close, and staff can lock down exits fast if they are told immediately.",
+            "Your instinct is to search alone quietly to avoid embarrassment. That instinct wastes the window in which fifty people could have been looking.",
+            "Small children move toward what interests them, not toward exits, and they hide when frightened — inside clothes rails, under displays, behind counters."
+          ]
+        }
+      ]
+    },
+    {
+      "n": "3",
+      "title": "Do this, in this order",
+      "blocks": [
+        {
+          "type": "steps",
+          "items": [
+            {
+              "move": "Tell staff immediately and loudly",
+              "detail": "Do not spend two minutes looking first. Most large venues have a formal missing-child protocol that includes watching the doors."
+            },
+            {
+              "move": "Give a description built on colour and height",
+              "detail": "Coat colour, hair, height against you, shoes. Colour is what strangers can actually scan for at distance."
+            },
+            {
+              "move": "Ask for exits to be watched, explicitly",
+              "detail": "This is the request that matters most and the one people forget to make."
+            },
+            {
+              "move": "Stay where you are and send others to search",
+              "detail": "You are the fixed point the child is looking for. A moving parent and a moving child can orbit each other for a long time."
+            },
+            {
+              "move": "Have someone check the immediate hiding places",
+              "detail": "Inside racks, under tables, behind the counter, the toy aisle, the doors they liked."
+            },
+            {
+              "move": "Call the police if not found within a few minutes",
+              "detail": "Do not wait to feel certain. It costs nothing to start and everything to delay."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "n": "4",
+      "title": "Words you can borrow",
+      "blocks": [
+        {
+          "type": "lines",
+          "items": [
+            {
+              "when": "To staff",
+              "say": "\"My four-year-old is missing, right now, in this store. Red coat, dark curly hair, this tall. Please watch the exits and announce it.\""
+            },
+            {
+              "when": "Calling out",
+              "say": "Their name plus a familiar hook: \"Maya! I've got your bear!\" A recognisable phrase carries better than a name alone."
+            },
+            {
+              "when": "To police",
+              "say": "Age, exactly what they are wearing, when and where last seen, whether anyone has been showing them attention."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "n": "5",
+      "title": "What makes it worse",
+      "blocks": [
+        {
+          "type": "bad",
+          "items": [
+            "Searching alone for ten minutes before telling anyone.",
+            "Leaving the venue to check the car park while nobody watches the doors.",
+            "Shouting at them when they are found. It teaches them to hide next time, which is the genuinely dangerous outcome.",
+            "Assuming they are with your partner without confirming by voice."
+          ]
+        }
+      ]
+    },
+    {
+      "n": "6",
+      "title": "Once the pressure drops",
+      "blocks": [
+        {
+          "type": "good",
+          "items": [
+            "When they are found, hold them and stay calm. The lesson you want to install is \"come to me,\" not \"avoid the shouting.\"",
+            "Teach and rehearse one rule: if you cannot see me, stand still and find a person with a name badge.",
+            "Photograph them each morning of a big day out. Current clothing beats any description you will manage under panic.",
+            "Expect a delayed adrenaline crash. It arrives about an hour later and it is brutal."
+          ]
+        }
+      ]
+    }
+  ],
+  "limit": "Alert staff and call the police immediately — do not wait a polite interval, and do not search alone first. In a public building, ask for a lockdown of exits. Near open water, a road, a car park, or a rail line, treat it as an emergency from the first second. Reporting early and being wrong costs nothing.",
+  "wordCount": 537
+}

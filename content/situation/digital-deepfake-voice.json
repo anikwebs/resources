@@ -1,0 +1,136 @@
+{
+  "id": "digital-deepfake-voice",
+  "title": "A call from a family member asking urgently for money",
+  "category": "digital",
+  "categoryTitle": "Digital, Scams & Reputation",
+  "severity": "high",
+  "tool": "The Callback Rule",
+  "tags": [
+    "fraud",
+    "ai",
+    "family",
+    "impersonation"
+  ],
+  "lede": "Your daughter, your son, your mother — the voice is right. They are in trouble: an accident, an arrest, a phone lost abroad, a hospital. They need money now and they cannot talk long.",
+  "sections": [
+    {
+      "n": "1",
+      "title": "What is happening",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Your daughter, your son, your mother — the voice is right. They are in trouble: an accident, an arrest, a phone lost abroad, a hospital. They need money now and they cannot talk long."
+        }
+      ]
+    },
+    {
+      "n": "2",
+      "title": "What is actually going on",
+      "blocks": [
+        {
+          "type": "ul",
+          "items": [
+            "Voices can now be cloned convincingly from a few seconds of public audio. The voice sounding right is no longer evidence of anything.",
+            "The script always contains the same three elements: distress, urgency, and a reason you cannot verify — new number, broken phone, cannot talk, do not tell dad.",
+            "Distress bypasses verification. Parents and grandparents are targeted precisely because love makes deliberation feel like betrayal.",
+            "The payment method is the tell: transfer to a new account, crypto, vouchers, or a courier collecting cash. Real emergencies do not need these."
+          ]
+        }
+      ]
+    },
+    {
+      "n": "3",
+      "title": "Do this, in this order",
+      "blocks": [
+        {
+          "type": "steps",
+          "items": [
+            {
+              "move": "Hang up and call them on their known number",
+              "detail": "The number in your phone, not the one that called you. This single step defeats nearly every version of this scam."
+            },
+            {
+              "move": "Ask a question no clone can answer",
+              "detail": "Not a birthday — something only they would know: what we called the old car, what happened at the caravan. Agree such a phrase with your family in advance."
+            },
+            {
+              "move": "Send no money on this call",
+              "detail": "Whatever the story. If it is genuine, ten minutes changes nothing; if it is not, ten minutes saves everything."
+            },
+            {
+              "move": "Break the secrecy instruction immediately",
+              "detail": "Call another family member. \"Do not tell anyone\" exists solely to stop this call happening."
+            },
+            {
+              "move": "If they claim to be police, lawyer, or hospital, verify independently",
+              "detail": "Look up the institution and ring the main switchboard. Never a number they supply."
+            },
+            {
+              "move": "Keep the evidence",
+              "detail": "Number, time, account details, any recording. Needed for the bank and the report."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "n": "4",
+      "title": "Words you can borrow",
+      "blocks": [
+        {
+          "type": "lines",
+          "items": [
+            {
+              "when": "The safe deflection",
+              "say": "\"I am going to hang up and call you back on your usual number. If you are really in trouble, you will still be there.\""
+            },
+            {
+              "when": "The verification question",
+              "say": "\"Before we go on — what did we call Grandad's dog?\""
+            },
+            {
+              "when": "Against secrecy",
+              "say": "\"I am going to tell your mother. If that is a problem, I know what this is.\""
+            },
+            {
+              "when": "Refusing the method",
+              "say": "\"I do not transfer money to new accounts on a phone call. Not ever.\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "n": "5",
+      "title": "What makes it worse",
+      "blocks": [
+        {
+          "type": "bad",
+          "items": [
+            "Confirming names or details they fish for. \"Is that you, Sarah?\" hands them the script.",
+            "Transfers, crypto, vouchers, or handing cash to a courier.",
+            "Staying on the line \"so it can be sorted.\" Keeping you on the line is a technique.",
+            "Feeling ashamed for hesitating. Verification is love, not doubt."
+          ]
+        }
+      ]
+    },
+    {
+      "n": "6",
+      "title": "Once the pressure drops",
+      "blocks": [
+        {
+          "type": "good",
+          "items": [
+            "Agree a family code word today, out loud, with everyone. It costs one minute and it ends this entire category of attack.",
+            "If money moved, call the bank immediately and ask for a recall attempt.",
+            "Report it — these operations run at industrial scale and reports drive disruption.",
+            "Warn older relatives with the actual script, not a general warning. Specifics are what stick."
+          ]
+        }
+      ]
+    }
+  ],
+  "limit": "Any urgent request for money, credentials, or codes that arrives by voice or video must be verified on a channel you initiate, to a number you already had. Hang up and call back. If it involved intimate imagery of you or a child, that is a criminal matter — report it, preserve the evidence, and do not negotiate with whoever sent it.",
+  "wordCount": 554
+}

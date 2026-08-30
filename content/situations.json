@@ -1,0 +1,910 @@
+{
+  "categories": [
+    {
+      "id": "work",
+      "title": "Work & Career",
+      "blurb": "The meeting, the review, the layoff, the credit taken by someone else. Where most adult pressure actually lives.",
+      "accent": "forest"
+    },
+    {
+      "id": "conflict",
+      "title": "Conflict & Confrontation",
+      "blurb": "Being accused, cornered, shouted at, or quietly undermined — and having to answer while your body is screaming.",
+      "accent": "clay"
+    },
+    {
+      "id": "danger",
+      "title": "Physical Danger & Threat",
+      "blurb": "Violence, intimidation, being followed, being trapped. Where the goal is not winning. The goal is leaving.",
+      "accent": "clay"
+    },
+    {
+      "id": "crisis",
+      "title": "Emergency & Crisis",
+      "blurb": "Fire, collapse, crash, flood, evacuation. Situations measured in seconds where hesitation is the actual risk.",
+      "accent": "clay"
+    },
+    {
+      "id": "people",
+      "title": "Manipulation & Bad Actors",
+      "blurb": "Gaslighting, coercion, love-bombing, pressure selling. People running a play on you, and how to see the play.",
+      "accent": "council"
+    },
+    {
+      "id": "digital",
+      "title": "Digital, Scams & Reputation",
+      "blurb": "Fraud, account takeover, leaked data, being lied about online. Fast damage, often reversible if you move within hours.",
+      "accent": "atlas"
+    },
+    {
+      "id": "money",
+      "title": "Money, Legal & Authority",
+      "blurb": "Debt, contracts, police, landlords, institutions. Rooms where what you say is recorded and used.",
+      "accent": "council"
+    },
+    {
+      "id": "health",
+      "title": "Medical & Mental Health",
+      "blurb": "The bad diagnosis, the panic attack, the friend who says they want to die. Including the ones where you are the patient.",
+      "accent": "amber"
+    },
+    {
+      "id": "life",
+      "title": "Family, Love & Social",
+      "blurb": "Breakups, betrayals, funerals, feuds, boundaries with people you cannot simply fire from your life.",
+      "accent": "forest"
+    }
+  ],
+  "situations": [
+    {
+      "id": "conflict-accused-falsely",
+      "title": "You are accused of something you did not do",
+      "category": "conflict",
+      "categoryTitle": "Conflict & Confrontation",
+      "severity": "high",
+      "tool": "The Clean Denial",
+      "tags": [
+        "accusation",
+        "reputation",
+        "evidence"
+      ],
+      "lede": "Someone has said, to people who matter, that you did something. It is not true. You find out second-hand, which means it has already travelled, and the version in circulation is more detailed than the truth ever is.",
+      "sectionCount": 6,
+      "wordCount": 622
+    },
+    {
+      "id": "conflict-family-money",
+      "title": "A family argument about money or inheritance",
+      "category": "conflict",
+      "categoryTitle": "Conflict & Confrontation",
+      "severity": "high",
+      "tool": "The Named Boundary",
+      "tags": [
+        "family",
+        "money",
+        "inheritance",
+        "boundaries"
+      ],
+      "lede": "A will, a loan, a house, or a debt has surfaced and the family has split. Old grievances are arriving dressed as financial arguments, and someone has said the sentence that cannot be unsaid.",
+      "sectionCount": 6,
+      "wordCount": 633
+    },
+    {
+      "id": "conflict-friend-betrayal",
+      "title": "A friend has repeated something you told them in confidence",
+      "category": "conflict",
+      "categoryTitle": "Conflict & Confrontation",
+      "severity": "medium",
+      "tool": "The Single Clean Conversation",
+      "tags": [
+        "trust",
+        "friendship",
+        "reputation"
+      ],
+      "lede": "Something private is now in general circulation, and the trail runs back to the one person you told. They have not admitted it and possibly do not know that you know.",
+      "sectionCount": 6,
+      "wordCount": 585
+    },
+    {
+      "id": "conflict-neighbour-feud",
+      "title": "A neighbour dispute is turning hostile",
+      "category": "conflict",
+      "categoryTitle": "Conflict & Confrontation",
+      "severity": "medium",
+      "tool": "The Paper Trail",
+      "tags": [
+        "neighbours",
+        "property",
+        "harassment",
+        "documentation"
+      ],
+      "lede": "It started with noise, or a fence, or a parking space. Now there are notes, staring, slammed doors, maybe a camera aimed at your window. You live thirty feet from this person and cannot walk away from it.",
+      "sectionCount": 6,
+      "wordCount": 603
+    },
+    {
+      "id": "conflict-performance-review-ambush",
+      "title": "A performance review turns into an ambush",
+      "category": "conflict",
+      "categoryTitle": "Conflict & Confrontation",
+      "severity": "high",
+      "tool": "The Buy-Time Sentence",
+      "tags": [
+        "job",
+        "documentation",
+        "hr",
+        "pressure"
+      ],
+      "lede": "You expected a routine review. Instead there is a document with dated allegations you have never heard before, and a phrase like \"this is informal at this stage.\" Someone from HR is taking notes.",
+      "sectionCount": 6,
+      "wordCount": 588
+    },
+    {
+      "id": "conflict-shouted-at-public",
+      "title": "Someone is shouting at you in public",
+      "category": "conflict",
+      "categoryTitle": "Conflict & Confrontation",
+      "severity": "medium",
+      "tool": "The 4-Second Pause",
+      "tags": [
+        "aggression",
+        "humiliation",
+        "de-escalation"
+      ],
+      "lede": "A stranger, a customer, or a neighbour has raised their voice at you in a shop, a street, or an office. People are watching. Your face is hot and your hands have started to shake.",
+      "sectionCount": 6,
+      "wordCount": 569
+    },
+    {
+      "id": "crisis-car-crash",
+      "title": "You are in or witness a car crash",
+      "category": "crisis",
+      "categoryTitle": "Emergency & Crisis",
+      "severity": "critical",
+      "tool": "The First Ninety Seconds",
+      "tags": [
+        "road",
+        "trauma",
+        "critical"
+      ],
+      "lede": "The noise stops and there is a strange quiet. Glass, a horn stuck on, an engine still running, someone shouting. Your hands are not fully yours yet.",
+      "sectionCount": 6,
+      "wordCount": 517
+    },
+    {
+      "id": "crisis-fire-building",
+      "title": "Fire in your building",
+      "category": "crisis",
+      "categoryTitle": "Emergency & Crisis",
+      "severity": "critical",
+      "tool": "The Exit Map",
+      "tags": [
+        "fire",
+        "evacuation",
+        "critical"
+      ],
+      "lede": "The alarm is going, or you smell smoke, or someone is banging on doors. There is a strong pull to work out whether this is real before doing anything.",
+      "sectionCount": 6,
+      "wordCount": 519
+    },
+    {
+      "id": "crisis-lost-child",
+      "title": "A child is missing in a public place",
+      "category": "crisis",
+      "categoryTitle": "Emergency & Crisis",
+      "severity": "critical",
+      "tool": "The First Ninety Seconds",
+      "tags": [
+        "children",
+        "search",
+        "critical"
+      ],
+      "lede": "You look down and they are not there. Ten seconds ago they were holding the trolley. The shop is enormous and suddenly full of strangers, and your chest has gone tight.",
+      "sectionCount": 6,
+      "wordCount": 537
+    },
+    {
+      "id": "crisis-someone-collapses",
+      "title": "Someone collapses in front of you",
+      "category": "crisis",
+      "categoryTitle": "Emergency & Crisis",
+      "severity": "critical",
+      "tool": "The First Ninety Seconds",
+      "tags": [
+        "first aid",
+        "cardiac",
+        "critical"
+      ],
+      "lede": "A person goes down. Maybe a chair, maybe a pavement, maybe mid-sentence. There is a ring of people who have all become extremely still, and you are one of them.",
+      "sectionCount": 6,
+      "wordCount": 530
+    },
+    {
+      "id": "danger-aggressive-stranger",
+      "title": "A stranger becomes aggressive in public",
+      "category": "danger",
+      "categoryTitle": "Physical Danger & Threat",
+      "severity": "high",
+      "tool": "The De-escalation Ladder",
+      "tags": [
+        "violence",
+        "de-escalation",
+        "public"
+      ],
+      "lede": "On a train platform, a man is escalating — over a look, a seat, a phone, nothing. His voice is up, he is stepping into your space, and he wants a reaction from you.",
+      "sectionCount": 6,
+      "wordCount": 531
+    },
+    {
+      "id": "danger-cornered-group",
+      "title": "You are cornered by a group",
+      "category": "danger",
+      "categoryTitle": "Physical Danger & Threat",
+      "severity": "critical",
+      "tool": "The De-escalation Ladder",
+      "tags": [
+        "violence",
+        "robbery",
+        "critical"
+      ],
+      "lede": "Three or four of them, spread out around you, one doing the talking while the others move to your sides. There is a question being asked — the time, a cigarette, where you are from — and the question is not the point.",
+      "sectionCount": 6,
+      "wordCount": 559
+    },
+    {
+      "id": "danger-domestic-escalation",
+      "title": "Someone at home is becoming dangerous",
+      "category": "danger",
+      "categoryTitle": "Physical Danger & Threat",
+      "severity": "critical",
+      "tool": "The Exit Map",
+      "tags": [
+        "domestic abuse",
+        "critical",
+        "planning"
+      ],
+      "lede": "The pattern is now familiar. The mood turns, the accusations start, the doors get blocked, objects get thrown or broken. You have started managing your own behaviour continuously to prevent the next episode.",
+      "sectionCount": 6,
+      "wordCount": 725
+    },
+    {
+      "id": "danger-followed-street",
+      "title": "You are being followed on the street",
+      "category": "danger",
+      "categoryTitle": "Physical Danger & Threat",
+      "severity": "high",
+      "tool": "The Exit Map",
+      "tags": [
+        "safety",
+        "street",
+        "night"
+      ],
+      "lede": "You notice the same footsteps behind you through two turns. It is dark, the street is thinning out, and the distance between you has not changed. Your stomach knows before your mind agrees.",
+      "sectionCount": 6,
+      "wordCount": 600
+    },
+    {
+      "id": "danger-home-intrusion",
+      "title": "Someone is inside your home",
+      "category": "danger",
+      "categoryTitle": "Physical Danger & Threat",
+      "severity": "critical",
+      "tool": "The Exit Map",
+      "tags": [
+        "break-in",
+        "night",
+        "critical"
+      ],
+      "lede": "It is 3am. Downstairs there is a sound that is not the house — a click, a footstep, a door moving. You are fully awake and your heart is loud enough to hear.",
+      "sectionCount": 6,
+      "wordCount": 569
+    },
+    {
+      "id": "digital-account-hacked",
+      "title": "Your account has been taken over",
+      "category": "digital",
+      "categoryTitle": "Digital, Scams & Reputation",
+      "severity": "high",
+      "tool": "The Containment Order",
+      "tags": [
+        "security",
+        "email",
+        "accounts",
+        "recovery"
+      ],
+      "lede": "You cannot log in, or you can but there are messages you did not send, a changed recovery email, and a login from a country you have never visited. Your email account is the one that matters most and it may be the one that is gone.",
+      "sectionCount": 6,
+      "wordCount": 593
+    },
+    {
+      "id": "digital-bank-fraud",
+      "title": "Money has left your account and you did not authorise it",
+      "category": "digital",
+      "categoryTitle": "Digital, Scams & Reputation",
+      "severity": "high",
+      "tool": "The First Hour",
+      "tags": [
+        "fraud",
+        "bank",
+        "money",
+        "recovery"
+      ],
+      "lede": "A notification, or a balance that is wrong. One large payment or a run of small ones. Some you recognise, some you do not, and there may be a new payee you have never set up.",
+      "sectionCount": 6,
+      "wordCount": 592
+    },
+    {
+      "id": "digital-deepfake-voice",
+      "title": "A call from a family member asking urgently for money",
+      "category": "digital",
+      "categoryTitle": "Digital, Scams & Reputation",
+      "severity": "high",
+      "tool": "The Callback Rule",
+      "tags": [
+        "fraud",
+        "ai",
+        "family",
+        "impersonation"
+      ],
+      "lede": "Your daughter, your son, your mother — the voice is right. They are in trouble: an accident, an arrest, a phone lost abroad, a hospital. They need money now and they cannot talk long.",
+      "sectionCount": 6,
+      "wordCount": 554
+    },
+    {
+      "id": "digital-lied-about-online",
+      "title": "Someone is posting lies about you online",
+      "category": "digital",
+      "categoryTitle": "Digital, Scams & Reputation",
+      "severity": "medium",
+      "tool": "The Minimum Viable Response",
+      "tags": [
+        "reputation",
+        "defamation",
+        "review",
+        "takedown"
+      ],
+      "lede": "A review, a post, a thread, or a fake profile. It names you or your business and it is untrue. It is also, unhelpfully, near the top of the search results for your name.",
+      "sectionCount": 6,
+      "wordCount": 570
+    },
+    {
+      "id": "digital-ransomware-work",
+      "title": "Your work files are encrypted and there is a ransom note",
+      "category": "digital",
+      "categoryTitle": "Digital, Scams & Reputation",
+      "severity": "critical",
+      "tool": "The Containment Order",
+      "tags": [
+        "ransomware",
+        "work",
+        "it",
+        "critical"
+      ],
+      "lede": "Files will not open. Names have changed to something unfamiliar. There is a text file or a full-screen message with a countdown and a payment address, and the same thing is starting to happen on the shared drive.",
+      "sectionCount": 6,
+      "wordCount": 579
+    },
+    {
+      "id": "digital-sextortion",
+      "title": "Someone threatens to send intimate images of you to your contacts",
+      "category": "digital",
+      "categoryTitle": "Digital, Scams & Reputation",
+      "severity": "critical",
+      "tool": "The No-Payment Rule",
+      "tags": [
+        "blackmail",
+        "extortion",
+        "privacy",
+        "critical"
+      ],
+      "lede": "Images or video exist — sent willingly, recorded without consent, or in some cases faked. A stranger or an ex now has them, has named your family and colleagues, and has given you hours to pay.",
+      "sectionCount": 6,
+      "wordCount": 596
+    },
+    {
+      "id": "health-bad-diagnosis",
+      "title": "You have just been given a serious diagnosis",
+      "category": "health",
+      "categoryTitle": "Medical & Mental Health",
+      "severity": "high",
+      "tool": "The Second Appointment",
+      "tags": [
+        "medical",
+        "shock",
+        "decisions",
+        "family"
+      ],
+      "lede": "A consultant has said a word you have been fearing. The room has gone slightly unreal and they are still talking, explaining stages or options, and you are absorbing almost none of it.",
+      "sectionCount": 6,
+      "wordCount": 600
+    },
+    {
+      "id": "health-burnout-collapse",
+      "title": "You have stopped being able to function",
+      "category": "health",
+      "categoryTitle": "Medical & Mental Health",
+      "severity": "high",
+      "tool": "The Hard Stop",
+      "tags": [
+        "burnout",
+        "work",
+        "mental health",
+        "recovery"
+      ],
+      "lede": "You are not sad exactly, you are flat. Simple emails feel impossible, you are getting ill constantly, you dread Sunday evenings, and you have started making mistakes that are not like you at all.",
+      "sectionCount": 6,
+      "wordCount": 607
+    },
+    {
+      "id": "health-not-being-listened-to",
+      "title": "A doctor is dismissing your symptoms",
+      "category": "health",
+      "categoryTitle": "Medical & Mental Health",
+      "severity": "high",
+      "tool": "The Documented Concern",
+      "tags": [
+        "medical",
+        "advocacy",
+        "assertiveness"
+      ],
+      "lede": "Third appointment. You are tired, in pain, or frightened, and you have been told it is stress, or your age, or that the tests were normal so there is nothing wrong. You are being managed out of the room.",
+      "sectionCount": 6,
+      "wordCount": 601
+    },
+    {
+      "id": "health-panic-attack",
+      "title": "You are having a panic attack",
+      "category": "health",
+      "categoryTitle": "Medical & Mental Health",
+      "severity": "medium",
+      "tool": "The Long Exhale",
+      "tags": [
+        "anxiety",
+        "panic",
+        "body",
+        "regulation"
+      ],
+      "lede": "Your heart is hammering, your hands are numb, your chest is tight, and you are certain something is very wrong. You may be in a meeting, a supermarket, a train, or your own kitchen.",
+      "sectionCount": 6,
+      "wordCount": 556
+    },
+    {
+      "id": "health-someone-drunk-unsafe",
+      "title": "Someone is dangerously drunk or has taken something",
+      "category": "health",
+      "categoryTitle": "Medical & Mental Health",
+      "severity": "high",
+      "tool": "The Recovery Position",
+      "tags": [
+        "alcohol",
+        "drugs",
+        "first aid",
+        "safety"
+      ],
+      "lede": "At a party, in a bar, or at home. They are barely responsive, or vomiting, or their breathing has changed. People around you are laughing or have drifted away, and someone is suggesting putting them to bed.",
+      "sectionCount": 6,
+      "wordCount": 558
+    },
+    {
+      "id": "health-someone-suicidal",
+      "title": "Someone tells you they want to end their life",
+      "category": "health",
+      "categoryTitle": "Medical & Mental Health",
+      "severity": "critical",
+      "tool": "The Direct Question",
+      "tags": [
+        "crisis",
+        "suicide",
+        "mental health",
+        "critical"
+      ],
+      "lede": "A friend, a colleague, or your child says something that stops you cold — that they cannot go on, that everyone would be better off, that they have thought about how. You are the person in front of them and you feel entirely unqualified.",
+      "sectionCount": 6,
+      "wordCount": 625
+    },
+    {
+      "id": "life-child-in-trouble",
+      "title": "Your child tells you something frightening",
+      "category": "life",
+      "categoryTitle": "Family, Love & Social",
+      "severity": "high",
+      "tool": "The First Reaction",
+      "tags": [
+        "children",
+        "parenting",
+        "disclosure",
+        "safeguarding"
+      ],
+      "lede": "Bullying, self-harm, a message they should not have received, drugs, an assault, a pregnancy, a debt to someone older. They have finally said it and they are watching your face to see what happens next.",
+      "sectionCount": 6,
+      "wordCount": 579
+    },
+    {
+      "id": "life-friend-in-abusive-relationship",
+      "title": "A friend is in a relationship you believe is abusive",
+      "category": "life",
+      "categoryTitle": "Family, Love & Social",
+      "severity": "critical",
+      "tool": "The Open Door",
+      "tags": [
+        "abuse",
+        "friendship",
+        "safety",
+        "critical"
+      ],
+      "lede": "The cancelled plans, the checked phone, the money they no longer control, the way they watch their partner before answering. You have hinted. They defended them, and now you see them less.",
+      "sectionCount": 6,
+      "wordCount": 592
+    },
+    {
+      "id": "life-funeral-and-grief",
+      "title": "Someone close has died and you have to function",
+      "category": "life",
+      "categoryTitle": "Family, Love & Social",
+      "severity": "medium",
+      "tool": "The Two-Week List",
+      "tags": [
+        "grief",
+        "death",
+        "admin",
+        "family"
+      ],
+      "lede": "It has happened. There are calls to make, a service to arrange, relatives arriving with opinions, and an administrative machine that expects you to produce documents while you cannot remember your own address.",
+      "sectionCount": 6,
+      "wordCount": 569
+    },
+    {
+      "id": "life-parent-declining",
+      "title": "A parent is declining and refusing help",
+      "category": "life",
+      "categoryTitle": "Family, Love & Social",
+      "severity": "high",
+      "tool": "The Smallest Acceptable Step",
+      "tags": [
+        "ageing",
+        "family",
+        "capacity",
+        "caring"
+      ],
+      "lede": "There are unopened bills, food going off, a bruise they will not explain, a car they should not be driving. When you raise it, you are told firmly that they are perfectly fine.",
+      "sectionCount": 6,
+      "wordCount": 615
+    },
+    {
+      "id": "life-relationship-ending",
+      "title": "Your relationship is ending and you have to say it",
+      "category": "life",
+      "categoryTitle": "Family, Love & Social",
+      "severity": "high",
+      "tool": "The Clean Ending",
+      "tags": [
+        "relationship",
+        "breakup",
+        "honesty",
+        "logistics"
+      ],
+      "lede": "You have known for a while. There is a shared home, maybe children, maybe money, and a person who does not know that today is the day. Every version of the sentence sounds cruel.",
+      "sectionCount": 6,
+      "wordCount": 622
+    },
+    {
+      "id": "life-social-humiliation",
+      "title": "You have humiliated yourself in front of people",
+      "category": "life",
+      "categoryTitle": "Family, Love & Social",
+      "severity": "low",
+      "tool": "The Two-Second Recovery",
+      "tags": [
+        "embarrassment",
+        "social",
+        "recovery",
+        "confidence"
+      ],
+      "lede": "You said the wrong name, sent the message to the wrong thread, fell over, mispronounced something in a presentation, cried in a meeting, or told a joke into total silence. It is still happening on your face.",
+      "sectionCount": 6,
+      "wordCount": 542
+    },
+    {
+      "id": "money-cannot-pay-rent",
+      "title": "You cannot pay the rent or mortgage this month",
+      "category": "money",
+      "categoryTitle": "Money, Legal & Authority",
+      "severity": "high",
+      "tool": "The Early Disclosure",
+      "tags": [
+        "money",
+        "housing",
+        "debt",
+        "eviction"
+      ],
+      "lede": "The date is coming and the money is not there. Not late — absent. You have been avoiding the letters and the app, because opening them makes it real.",
+      "sectionCount": 6,
+      "wordCount": 642
+    },
+    {
+      "id": "money-contract-pressure",
+      "title": "You are being pushed to sign something now",
+      "category": "money",
+      "categoryTitle": "Money, Legal & Authority",
+      "severity": "medium",
+      "tool": "The Twenty-Four Hour Rule",
+      "tags": [
+        "contracts",
+        "legal",
+        "pressure",
+        "employment"
+      ],
+      "lede": "A settlement agreement, a lease, a loan, a franchise deal, a freelance contract. It is long, you have been given ten minutes, and the person handing it to you keeps saying it is standard.",
+      "sectionCount": 6,
+      "wordCount": 560
+    },
+    {
+      "id": "money-debt-collector",
+      "title": "A debt collector is contacting you aggressively",
+      "category": "money",
+      "categoryTitle": "Money, Legal & Authority",
+      "severity": "medium",
+      "tool": "The Paper Trail",
+      "tags": [
+        "debt",
+        "collections",
+        "rights",
+        "money"
+      ],
+      "lede": "Calls at work, texts at night, letters in red type, threats about doorstep visits and court. Possibly for a debt you do not recognise, or one you thought was settled years ago.",
+      "sectionCount": 6,
+      "wordCount": 601
+    },
+    {
+      "id": "money-landlord-eviction",
+      "title": "Your landlord tells you to leave",
+      "category": "money",
+      "categoryTitle": "Money, Legal & Authority",
+      "severity": "high",
+      "tool": "The Process Check",
+      "tags": [
+        "housing",
+        "tenancy",
+        "rights",
+        "eviction"
+      ],
+      "lede": "A text, a letter, or a knock: you need to be out by the end of the month. Maybe there are arrears, maybe there was an argument, maybe they want to sell. There is a deadline and it sounds final.",
+      "sectionCount": 6,
+      "wordCount": 590
+    },
+    {
+      "id": "money-police-questioning",
+      "title": "The police want to ask you some questions",
+      "category": "money",
+      "categoryTitle": "Money, Legal & Authority",
+      "severity": "critical",
+      "tool": "The Single Sentence",
+      "tags": [
+        "police",
+        "legal",
+        "rights",
+        "critical"
+      ],
+      "lede": "At your door, at your workplace, or a phone call: they would like a chat. Nothing formal, they say. Just to clear something up, and it would look better if you cooperate.",
+      "sectionCount": 6,
+      "wordCount": 569
+    },
+    {
+      "id": "money-sudden-income-loss",
+      "title": "Your income has stopped with no warning",
+      "category": "money",
+      "categoryTitle": "Money, Legal & Authority",
+      "severity": "high",
+      "tool": "The Triage Budget",
+      "tags": [
+        "money",
+        "job loss",
+        "planning",
+        "benefits"
+      ],
+      "lede": "Contract ended, client gone, hours cut to nothing, or dismissal. The money coming in is now zero or close to it, and the outgoings have not noticed.",
+      "sectionCount": 6,
+      "wordCount": 591
+    },
+    {
+      "id": "people-authority-impersonation",
+      "title": "Someone claiming authority is demanding immediate compliance",
+      "category": "people",
+      "categoryTitle": "Manipulation & Bad Actors",
+      "severity": "high",
+      "tool": "The Callback Rule",
+      "tags": [
+        "scams",
+        "fraud",
+        "police",
+        "impersonation",
+        "money"
+      ],
+      "lede": "A call, a visit, or an email: your bank's fraud team, the tax office, the police, your utility company, your own IT department. There is a problem, it is serious, and it must be resolved right now — and you must not discuss it with anyone.",
+      "sectionCount": 6,
+      "wordCount": 596
+    },
+    {
+      "id": "people-gaslit-partner",
+      "title": "Someone keeps telling you your memory is wrong",
+      "category": "people",
+      "categoryTitle": "Manipulation & Bad Actors",
+      "severity": "high",
+      "tool": "The External Record",
+      "tags": [
+        "gaslighting",
+        "relationship",
+        "reality",
+        "control"
+      ],
+      "lede": "You remember the conversation. They say it never happened, or happened completely differently, and they say it with total confidence and a note of concern for you. It has happened enough times that you have started checking yourself before ",
+      "sectionCount": 6,
+      "wordCount": 629
+    },
+    {
+      "id": "people-guilt-tripped",
+      "title": "Someone uses guilt to get you to say yes",
+      "category": "people",
+      "categoryTitle": "Manipulation & Bad Actors",
+      "severity": "low",
+      "tool": "The Named Boundary",
+      "tags": [
+        "boundaries",
+        "guilt",
+        "family",
+        "saying no"
+      ],
+      "lede": "A favour, a loan, a lift, a weekend, a commitment you do not have room for. When you hesitate, out comes the history: everything they have done for you, how little you call, how they would never have said no to you.",
+      "sectionCount": 6,
+      "wordCount": 555
+    },
+    {
+      "id": "people-love-bombing",
+      "title": "Someone new is moving unnaturally fast",
+      "category": "people",
+      "categoryTitle": "Manipulation & Bad Actors",
+      "severity": "medium",
+      "tool": "The Pace Test",
+      "tags": [
+        "relationship",
+        "love-bombing",
+        "red flags",
+        "coercion"
+      ],
+      "lede": "Three weeks in and it is intense: constant contact, enormous declarations, talk of moving in, gifts beyond the stage of the relationship, and mild irritation whenever you are unavailable. It feels wonderful and something in you is uneasy.",
+      "sectionCount": 6,
+      "wordCount": 575
+    },
+    {
+      "id": "people-mob-online",
+      "title": "A group has turned on you at work or online",
+      "category": "people",
+      "categoryTitle": "Manipulation & Bad Actors",
+      "severity": "high",
+      "tool": "The Minimum Viable Response",
+      "tags": [
+        "reputation",
+        "pile-on",
+        "isolation",
+        "workplace"
+      ],
+      "lede": "It is not one person any more. There is a group — a team, a chat, a comment section — and the story has hardened into a version of you that you do not recognise. New people keep arriving already convinced.",
+      "sectionCount": 6,
+      "wordCount": 583
+    },
+    {
+      "id": "people-pressure-sale",
+      "title": "A high-pressure sale you cannot get out of",
+      "category": "people",
+      "categoryTitle": "Manipulation & Bad Actors",
+      "severity": "medium",
+      "tool": "The Twenty-Four Hour Rule",
+      "tags": [
+        "scams",
+        "money",
+        "pressure",
+        "contracts"
+      ],
+      "lede": "A doorstep salesman, a timeshare room, a phone call about your boiler, or a car showroom at closing. The price is only good today. There is a folder open and a pen already out, and saying no keeps not working.",
+      "sectionCount": 6,
+      "wordCount": 603
+    },
+    {
+      "id": "work-blamed-publicly",
+      "title": "You are blamed for a failure in front of everyone",
+      "category": "work",
+      "categoryTitle": "Work & Career",
+      "severity": "medium",
+      "tool": "Name / Need / Next",
+      "tags": [
+        "reputation",
+        "meeting",
+        "accusation"
+      ],
+      "lede": "In a status meeting with twelve people and your boss's boss on the call, a colleague says: \"Well, the delay came from your side.\" It is not true, or it is a quarter true. Every face turns to your square on the screen.",
+      "sectionCount": 6,
+      "wordCount": 606
+    },
+    {
+      "id": "work-boss-shouting",
+      "title": "Your manager shouts at you",
+      "category": "work",
+      "categoryTitle": "Work & Career",
+      "severity": "high",
+      "tool": "The State Check",
+      "tags": [
+        "abuse",
+        "authority",
+        "boundaries"
+      ],
+      "lede": "Your manager's voice goes up. The content stops being about the work and becomes about you — your competence, your attitude, whether you are \"actually up to this.\" Others can hear. You feel yourself shrinking or heating up.",
+      "sectionCount": 6,
+      "wordCount": 626
+    },
+    {
+      "id": "work-credit-stolen",
+      "title": "Someone takes credit for your work",
+      "category": "work",
+      "categoryTitle": "Work & Career",
+      "severity": "medium",
+      "tool": "The Paper Trail",
+      "tags": [
+        "reputation",
+        "promotion",
+        "politics"
+      ],
+      "lede": "Your manager forwards a summary of the project to leadership. The framing is \"the work I led,\" the analysis is yours, the deck is yours, and your name appears nowhere. Two people reply with congratulations. To them.",
+      "sectionCount": 6,
+      "wordCount": 616
+    },
+    {
+      "id": "work-fired-blindside",
+      "title": "You are fired with no warning",
+      "category": "work",
+      "categoryTitle": "Work & Career",
+      "severity": "high",
+      "tool": "The 4-Second Pause",
+      "tags": [
+        "job loss",
+        "money",
+        "shock",
+        "legal"
+      ],
+      "lede": "You are called into a room at 10am. HR is already sitting there, which tells you the decision was made before you walked in. Someone says the words \"we have decided to let you go.\" Your ears get hot and the rest of the sentence arrives as n",
+      "sectionCount": 6,
+      "wordCount": 755
+    },
+    {
+      "id": "work-impossible-deadline",
+      "title": "You are handed an impossible deadline",
+      "category": "work",
+      "categoryTitle": "Work & Career",
+      "severity": "medium",
+      "tool": "The Trade-Off Statement",
+      "tags": [
+        "workload",
+        "burnout",
+        "negotiation"
+      ],
+      "lede": "\"We need this by Friday.\" It is Wednesday afternoon. The work is realistically eight days. Everyone in the room nods, and the nodding is doing a lot of work.",
+      "sectionCount": 6,
+      "wordCount": 605
+    },
+    {
+      "id": "work-interview-blank",
+      "title": "Your mind goes blank in an interview",
+      "category": "work",
+      "categoryTitle": "Work & Career",
+      "severity": "medium",
+      "tool": "The 4-Second Pause",
+      "tags": [
+        "interview",
+        "panic",
+        "performance"
+      ],
+      "lede": "They ask a question you have absolutely prepared for. Nothing arrives. There is a silence you can hear, and inside it a loud voice explaining that you are losing this.",
+      "sectionCount": 6,
+      "wordCount": 567
+    }
+  ]
+}

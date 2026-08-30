@@ -1,0 +1,137 @@
+{
+  "id": "health-bad-diagnosis",
+  "title": "You have just been given a serious diagnosis",
+  "category": "health",
+  "categoryTitle": "Medical & Mental Health",
+  "severity": "high",
+  "tool": "The Second Appointment",
+  "tags": [
+    "medical",
+    "shock",
+    "decisions",
+    "family"
+  ],
+  "lede": "A consultant has said a word you have been fearing. The room has gone slightly unreal and they are still talking, explaining stages or options, and you are absorbing almost none of it.",
+  "sections": [
+    {
+      "n": "1",
+      "title": "What is happening",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "A consultant has said a word you have been fearing. The room has gone slightly unreal and they are still talking, explaining stages or options, and you are absorbing almost none of it."
+        }
+      ]
+    },
+    {
+      "n": "2",
+      "title": "What is actually going on",
+      "blocks": [
+        {
+          "type": "ul",
+          "items": [
+            "You will retain very little of this conversation. That is normal neurology under shock, not a failure of attention, and it is why the second appointment matters more than the first.",
+            "The prognosis figures you are about to search online are population averages, often years out of date, and frequently exclude the treatment you will actually receive.",
+            "Almost no decision has to be made today. Even in fast-moving disease, days for a second opinion are usually available and are standard practice.",
+            "The urge to protect everyone by saying nothing is powerful and it isolates you exactly when support has the most value."
+          ]
+        }
+      ]
+    },
+    {
+      "n": "3",
+      "title": "Do this, in this order",
+      "blocks": [
+        {
+          "type": "steps",
+          "items": [
+            {
+              "move": "Ask them to write down the diagnosis, exactly",
+              "detail": "The precise name, type, and stage. Vague terms make everything afterwards harder, including searching for real information."
+            },
+            {
+              "move": "Ask for the three practical questions",
+              "detail": "\"What are my options?\" \"What happens if we do nothing?\" \"What does the best case look like?\""
+            },
+            {
+              "move": "Record the conversation or bring someone",
+              "detail": "Ask permission and record it on your phone, or have someone else take notes. This is normal and clinicians expect it."
+            },
+            {
+              "move": "Ask about the second appointment and who your named contact is",
+              "detail": "A specialist nurse or care coordinator is often the most useful person in the whole system."
+            },
+            {
+              "move": "Do not make treatment decisions in the room",
+              "detail": "Say you want to think and return with questions. That is a clinically respected response."
+            },
+            {
+              "move": "Ask what you should do in the next week",
+              "detail": "Practical, immediate, bounded. It converts an abyss into a task list."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "n": "4",
+      "title": "Words you can borrow",
+      "blocks": [
+        {
+          "type": "lines",
+          "items": [
+            {
+              "when": "Slowing it down",
+              "say": "\"Can you stop for a moment? I have stopped taking it in. Can you write down the diagnosis and the next step?\""
+            },
+            {
+              "when": "The high-value question",
+              "say": "\"If you were me, what would you want to know that I have not thought to ask?\""
+            },
+            {
+              "when": "Requesting a second opinion",
+              "say": "\"I would like a second opinion before deciding. Can you help arrange it?\" — this is routine and good clinicians support it."
+            },
+            {
+              "when": "Telling family",
+              "say": "\"I have news and I want to tell you properly. It is serious, there is a plan, and I will need you for practical things more than for reassurance.\""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "n": "5",
+      "title": "What makes it worse",
+      "blocks": [
+        {
+          "type": "bad",
+          "items": [
+            "Searching survival statistics at 2am on the first night. It is the single most damaging thing people do in week one.",
+            "Making financial, job, or relationship decisions in the first fortnight.",
+            "Alternative treatments that require abandoning conventional care.",
+            "Telling everyone at once and then having to manage forty people's emotions.",
+            "Reading forums for prognosis. Use them for practical coping, not for numbers."
+          ]
+        }
+      ]
+    },
+    {
+      "n": "6",
+      "title": "Once the pressure drops",
+      "blocks": [
+        {
+          "type": "good",
+          "items": [
+            "Start one notebook: dates, drug names, doses, appointments, questions. It will be worth more than any app.",
+            "Nominate one person as the information hub so you are not repeating the news thirty times.",
+            "Sort the boring admin early — sick pay, insurance, benefits, work notification, power of attorney if relevant. It removes background dread.",
+            "Ask about the psychological support attached to your service. It exists and it is underused."
+          ]
+        }
+      ]
+    }
+  ],
+  "limit": "If you are told something serious, ask for it in writing and ask for the name of the condition, the stage, and the next decision point. Get a second opinion for anything irreversible, and take someone with you to the next appointment. If you have thoughts of ending your life, contact a crisis line or emergency services now — that is the line where this stops being something to manage alone.",
+  "wordCount": 600
+}
