@@ -322,6 +322,13 @@
   border-bottom: 1px solid var(--line);
   margin-bottom: var(--s-2);
 }
+/* Three separate things were each adding air above the title: the
+   band's 77px, the crumbs' own bottom margin, then the header's 49px
+   — about 140px between the nav and the first word, which read as a
+   page that had failed to load its top. When crumbs are present they
+   have already placed the header, so the header's own top padding is
+   the redundant one. It stays on pages that open without crumbs. */
+.crumbs + .phead { padding-top: var(--s-2); }
 /* A display-size title reads better at a measure than stretched
    across 1220px, and balance stops a one-word last line. */
 .phead h1 { margin-block: var(--s-3); max-width: 24ch; text-wrap: balance; }
@@ -415,11 +422,51 @@
 .prose th { background: var(--surface-2); font-weight: 640; }
 .prose figure { overflow-x: auto; }
 
-/* document sections */
-.sec { padding-top: var(--s-8); }
-.sec + .sec { border-top: 1px solid var(--line); }
-.sec-head { display: flex; align-items: baseline; gap: var(--s-3); margin-bottom: var(--s-5); flex-wrap: wrap; }
-.sec-head h2 { font-family: var(--font-display); font-size: var(--t-section); font-weight: 620; letter-spacing: -0.022em; }
+/* document sections.
+
+   The divider between two sections used to sit hard against the end
+   of the section above it, with all 40px of air on the underside. So
+   the rule read as belonging to the section below rather than as a
+   break between the two, and a page of six sections looked like six
+   headings each wearing a hat. Air on both sides — a little more
+   above than below — and the rule reads as the join it is.
+
+   A leading section has no rule above it, so its padding was pure
+   dead space stacked under the page header's own margin. */
+.sec { padding-top: var(--s-8); scroll-margin-top: 96px; }
+.sec + .sec { margin-top: var(--s-6); border-top: 1px solid var(--line); }
+.sec:first-child { padding-top: var(--s-5); }
+
+.sec-head {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  column-gap: var(--s-4);
+  /* When the head wraps, the controls drop under the heading. A full
+     s-3 there read as a gap in the section; s-2 keeps them attached. */
+  row-gap: var(--s-2);
+  margin-bottom: var(--s-5);
+}
+.sec-head h2 {
+  font-family: var(--font-display);
+  font-size: var(--t-section);
+  font-weight: 620;
+  line-height: 1.2;
+  letter-spacing: -0.022em;
+  /* Section headings are sentences too — "Four things that would put
+     something here". Held to a measure and balanced, matching
+     .phead h1 and .card-title rather than each one setting its own. */
+  max-width: 36ch;
+  text-wrap: balance;
+}
+/* A jumped-to section is focused programmatically so screen readers
+   follow. Ring the heading, not a 900px-tall box. */
+.sec:focus-visible { outline: none; }
+.sec:focus-visible .sec-head h2 {
+  outline: 2.5px solid var(--ring);
+  outline-offset: 4px;
+  border-radius: var(--r-1);
+}
 
 /* rail */
 .rail { display: flex; flex-direction: column; gap: var(--s-6); }
