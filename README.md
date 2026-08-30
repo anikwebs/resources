@@ -196,6 +196,32 @@ npm run content:situations
 
 ## Deploying to GitHub Pages
 
+**This site is deployed:** <https://anikwebs.github.io/resources/>
+
+It currently publishes from the `gh-pages` branch, which holds the built output.
+The automated workflow in `.github/workflows/deploy.yml` is present in this
+repository but is **not active yet** — see *Switching to the automated
+workflow* below for the one manual step that turns it on.
+
+### Redeploying by hand (works today)
+
+```bash
+BASE_PATH=/resources/ npm run build   # base must match the repo name
+touch dist/.nojekyll
+cp dist/index.html dist/404.html      # so deep links resolve
+# then publish the contents of dist/ to the gh-pages branch
+```
+
+### Switching to the automated workflow
+
+Once `.github/workflows/deploy.yml` reaches GitHub, set **Settings → Pages →
+Source** to **GitHub Actions** and every push to `main` will build and deploy
+by itself, deriving the base path from the repository name. The workflow file
+has to be added by a user account or a token carrying the `workflow` scope —
+GitHub deliberately refuses to let an app token create workflow files.
+
+### Starting from scratch in a new repository
+
 The workflow is already written. Nothing needs editing.
 
 1. **Create a repository** on GitHub and push this project to the `main` branch.
