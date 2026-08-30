@@ -80,68 +80,102 @@ function asOption (action) {
 /**
  * Recover the base verb from the stem of an -ing form.
  *
- * English drops a silent "e" before -ing ("retaliate" → "retaliating")
- * and doubles a final consonant after a short vowel ("cutting" →
- * "cut"). Reversing that is ambiguous in general, so rather than guess
- * from a whitelist — which is what produced "Litigat history" and
- * "Retaliat with something of theirs" — the rules below are ordered
- * from most to least certain, and anything still unrecognised is left
- * in its original gerund form. A slightly stiff "Retaliating with
- * something of theirs" is perfectly readable; "Retaliat" is not.
+ * Reversing English -ing spelling is genuinely ambiguous. "ask" and
+ * "brak" are the same shape, yet one is already a verb and the other
+ * needs its silent e back ("brake"). Earlier revisions of this file
+ * tried to tell them apart with ordered heuristics and shipped
+ * "Brak hard to teach them a lesson", "Engag with whoever posted it"
+ * and "Minimis the size of it".
+ *
+ * So the direction is inverted. Instead of stripping letters off a
+ * stem and hoping the result is a word, every verb we are willing to
+ * convert is listed below, the -ing form is generated FORWARD from it
+ * by the ordinary spelling rules, and the gerund we were handed is
+ * looked up in the result. A match is therefore provably correct, and
+ * an unlisted verb returns null so the corpus's own gerund survives
+ * untouched. A slightly stiff "Retaliating with something of theirs"
+ * is perfectly readable; "Retaliat" is not.
+ *
+ * To support a new trap phrasing, add the plain infinitive to VERBS.
  */
+
+/* Every verb the corpus opens a trap with, as a plain infinitive.
+   Order is irrelevant; duplicates are harmless. */
+const VERBS = `accept add admit agree announce apologise argue arm arrive ask
+assume avoid back believe blame block brake bring broadcast build buy calculate
+call campaign cancel capture cash change check choose clean click complain
+confirm confiscate confront contact continue control correct cry cut deal
+decide declare decline delete demand deny describe diagnose disconnect double
+downplay doxx drink drive drop email end engage escalate establish explain fight
+fill film find fix follow forward gather get give go guess handle hang hide hint
+hope ignore initial insist install interpret invent invite involve keep kill
+lead lend let lie litigate lock lose lower make match minimise miss move name
+negotiate offer open pay point post present preserve pretend promise prove push
+put quit quote race raise rally reach read record recover refresh refuse
+register rely remove renegotiate replay reply report request rescue resign
+restore restructure retaliate return reuse ring save say screenshot search send
+separate settle share shelter shout sign skip slap sleep slow smirk soften
+speak spend split spread stand start stay stop sulk take talk tell test
+threaten throw touch transfer try turn use verify volunteer wait walk win
+withhold work write`.trim().split(/\s+/)
+
+/* Consonants that double before -ing after a single stressed short
+   vowel. "qu" counts as one consonant for this purpose, which is why
+   "quit" doubles to "quitting" rather than "quiting". */
+const DOUBLES = 'bdglmnprt'
+
+/* Verbs whose -ing form doubles the final letter even though the plain
+   rules below would not predict it, plus the ones where the rules
+   would wrongly double. Listing them is shorter and far safer than
+   modelling English stress, which is what decides the real cases
+   (`visit` → visiting, but `omit` → omitting, on stress alone). */
+const GERUND_EXCEPTIONS = {
+  cancel: 'cancelling', initial: 'initialling', travel: 'travelling',
+  model: 'modelling', control: 'controlling', patrol: 'patrolling',
+  screenshot: 'screenshotting', doxx: 'doxxing',
+  // rule-would-double, but must not
+  visit: 'visiting', limit: 'limiting', edit: 'editing', exit: 'exiting',
+  profit: 'profiting', target: 'targeting', interpret: 'interpreting',
+  offer: 'offering', gather: 'gathering', suffer: 'suffering',
+  open: 'opening', listen: 'listening', happen: 'happening'
+}
+
+/** Generate the -ing form of a plain infinitive, forward. */
+function toGerund (v) {
+  if (GERUND_EXCEPTIONS[v]) return GERUND_EXCEPTIONS[v]
+  if (v.endsWith('ie')) return v.slice(0, -2) + 'ying'      // lie → lying
+  if (v.endsWith('ee')) return v + 'ing'                    // agree → agreeing
+  if (v.endsWith('e')) return v.slice(0, -1) + 'ing'        // make → making
+
+  /* One short vowel before the final consonant, with nothing but
+     consonants ahead of it — a single stressed syllable: cut →
+     cutting, drop → dropping, quit → quitting. "qu" is stripped first
+     because the u is part of the consonant, not the vowel. */
+  const core = v.replace(/^qu/, 'q')
+  if (/^[^aeiou]*[aeiou][^aeiou]$/.test(core) && DOUBLES.includes(v.slice(-1))) {
+    return v + v.slice(-1) + 'ing'
+  }
+  return v + 'ing'
+}
+
+/* gerund → infinitive, built once at module load. Irregular spellings
+   are already handled inside toGerund via GERUND_EXCEPTIONS, so this
+   is a straight inversion of the generated forms. */
+const FROM_GERUND = new Map(VERBS.map(v => [toGerund(v), v]))
+
+/* Words that merely LOOK like gerunds: "During an incident" is a
+   preposition, not something a person can choose to do, and an earlier
+   revision rendered it "Dure an incident". Nothing here is converted. */
+const NOT_VERBS = new Set([
+  'during', 'nothing', 'something', 'anything', 'everything',
+  'morning', 'evening', 'warning', 'meaning', 'being', 'feeling',
+  'willing', 'ceiling', 'sibling', 'wedding', 'building', 'sharing'
+])
+
 function deGerund (stem) {
-  const s = stem.toLowerCase()
-
-  /* Words that merely LOOK like gerunds. "During an incident" is a
-     preposition, not something you can do, and de-gerunding it
-     produced the nonsense "Dure an incident". Anything here is left
-     exactly as the corpus wrote it. */
-  if (/^(dur|noth|someth|anyth|everyth|morn|even|feel|warn|mean|be)$/.test(s)) return null
-
-  /* Verbs whose base form cannot be derived by rule, either because
-     they are irregular or because the bare stem is a different word.
-     Explicit is the only safe option here. */
-  const BASE = {
-    lie: 'lying', die: 'dying', tie: 'tying', have: 'having',
-    make: 'making', take: 'taking', give: 'giving', come: 'coming',
-    leave: 'leaving', argue: 'arguing', write: 'writing', drive: 'driving',
-    lose: 'losing', use: 'using', hide: 'hiding', file: 'filing',
-    save: 'saving', move: 'moving', prove: 'proving', quote: 'quoting',
-    blame: 'blaming', delete: 'deleting', promise: 'promising',
-    announce: 'announcing', involve: 'involving', retaliate: 'retaliating',
-    litigate: 'litigating', apologise: 'apologising', raise: 'raising',
-    ignore: 'ignoring', invite: 'inviting', decide: 'deciding',
-    escalate: 'escalating', negotiate: 'negotiating', assume: 'assuming',
-    refuse: 'refusing', continue: 'continuing', become: 'becoming',
-    ring: 'ringing', bring: 'bringing', cling: 'clinging'
-  }
-  for (const base in BASE) if (BASE[base] === s + 'ing') return base
-
-  /* Doubled final consonant after a short vowel: cutting → cut,
-     getting → get, dropping → drop.
-
-     "ll" and "ss" are excluded because English verbs genuinely end in
-     them — fill, tell, call, pass — so stripping gives a non-word
-     ("filling" → "fil"). For the remaining consonants a doubled ending
-     is not a valid base verb, so removing one is safe. */
-  if (/([^aeiou])\1$/.test(s) && /[bdgmnprt]$/.test(s) && s.length > 3) {
-    return s.slice(0, -1)
-  }
-
-  /* A stem ending in a cluster English cannot end a word with almost
-     always needs its silent e back: "chas" → "chase". */
-  if (/(bl|pl|tl|cl|gl|zl|kl|fl|dg|nc|rc|rs|ns|ps|lv|nv|rg)$/.test(s)) {
-    return s + 'e'
-  }
-
-  /* Plain verbs whose stem already stands alone: matching → match,
-     shouting → shout, breaking → break, asking → ask. This is the
-     common case and is safe because the stem is a real word. */
-  if (/[aeiou][a-z]*[bcdfghjklmnpqrstwxz]$/.test(s)) return s
-
-  /* Not confident. Returning null keeps the original gerund, which is
-     always readable even when it is slightly stiff. */
-  return null
+  const gerund = String(stem).toLowerCase() + 'ing'
+  if (NOT_VERBS.has(gerund)) return null
+  return FROM_GERUND.get(gerund) || null
 }
 
 /**

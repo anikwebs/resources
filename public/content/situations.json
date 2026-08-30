@@ -73,6 +73,22 @@
       "wordCount": 622
     },
     {
+      "id": "conflict-apology-owed",
+      "title": "You were wrong and have to apologise properly",
+      "category": "conflict",
+      "categoryTitle": "Conflict & Confrontation",
+      "severity": "medium",
+      "tool": "The Clean Apology",
+      "tags": [
+        "accountability",
+        "repair",
+        "trust"
+      ],
+      "lede": "You have gone over it enough times to know you were wrong. Not partly, not in a way that can be shared out. The urge now is to explain — to supply the context that makes it understandable. That urge is the thing that will ruin the apology.",
+      "sectionCount": 6,
+      "wordCount": 693
+    },
+    {
       "id": "conflict-family-money",
       "title": "A family argument about money or inheritance",
       "category": "conflict",
@@ -121,6 +137,22 @@
       "lede": "It started with noise, or a fence, or a parking space. Now there are notes, staring, slammed doors, maybe a camera aimed at your window. You live thirty feet from this person and cannot walk away from it.",
       "sectionCount": 6,
       "wordCount": 603
+    },
+    {
+      "id": "conflict-passive-aggression",
+      "title": "Someone is undermining you quietly",
+      "category": "conflict",
+      "categoryTitle": "Conflict & Confrontation",
+      "severity": "medium",
+      "tool": "The Named Pattern",
+      "tags": [
+        "undermining",
+        "politics",
+        "evidence"
+      ],
+      "lede": "Nothing you could point to. A correction in front of others, information that arrives too late to be useful, your name absent from the thread, a compliment with a hook in it. Individually, all deniable. Together, you have started second-guessing yourself in rooms you used to be fine in.",
+      "sectionCount": 6,
+      "wordCount": 756
     },
     {
       "id": "conflict-performance-review-ambush",
@@ -172,6 +204,22 @@
       "wordCount": 517
     },
     {
+      "id": "crisis-choking-adult",
+      "title": "Someone is choking and cannot speak",
+      "category": "crisis",
+      "categoryTitle": "Emergency & Crisis",
+      "severity": "critical",
+      "tool": "The First Ninety Seconds",
+      "tags": [
+        "first aid",
+        "airway",
+        "seconds"
+      ],
+      "lede": "One second they were eating. Now they are silent, hands at the throat, eyes wide, and the room has not caught up. Silence is the signal: someone coughing loudly is moving air, someone making no sound is not.",
+      "sectionCount": 6,
+      "wordCount": 665
+    },
+    {
       "id": "crisis-fire-building",
       "title": "Fire in your building",
       "category": "crisis",
@@ -186,6 +234,22 @@
       "lede": "The alarm is going, or you smell smoke, or someone is banging on doors. There is a strong pull to work out whether this is real before doing anything.",
       "sectionCount": 6,
       "wordCount": 519
+    },
+    {
+      "id": "crisis-flood-or-storm",
+      "title": "Water is rising or a storm is closing in",
+      "category": "crisis",
+      "categoryTitle": "Emergency & Crisis",
+      "severity": "critical",
+      "tool": "The First Ninety Seconds",
+      "tags": [
+        "flood",
+        "evacuation",
+        "utilities"
+      ],
+      "lede": "The forecast turned into something visible — water across the road, a drain backing up, the sound changing. There is a window now, measured in tens of minutes, in which decisions are cheap. After it closes, every option costs much more.",
+      "sectionCount": 6,
+      "wordCount": 717
     },
     {
       "id": "crisis-lost-child",
@@ -300,6 +364,22 @@
       "wordCount": 569
     },
     {
+      "id": "danger-road-rage",
+      "title": "A driver is following you or blocking you in",
+      "category": "danger",
+      "categoryTitle": "Physical Danger & Threat",
+      "severity": "high",
+      "tool": "The Exit Map",
+      "tags": [
+        "road",
+        "aggression",
+        "escape"
+      ],
+      "lede": "Something happened at a junction — you cut them up, or they think you did. Now they are behind you, close, flashing. Or they have pulled across you and got out. Your body has decided this is a fight and your car is not the place to have one.",
+      "sectionCount": 6,
+      "wordCount": 707
+    },
+    {
       "id": "digital-account-hacked",
       "title": "Your account has been taken over",
       "category": "digital",
@@ -366,6 +446,22 @@
       "lede": "A review, a post, a thread, or a fake profile. It names you or your business and it is untrue. It is also, unhelpfully, near the top of the search results for your name.",
       "sectionCount": 6,
       "wordCount": 570
+    },
+    {
+      "id": "digital-privacy-exposed",
+      "title": "Your private information is suddenly public",
+      "category": "digital",
+      "categoryTitle": "Digital, Scams & Reputation",
+      "severity": "high",
+      "tool": "The Containment Order",
+      "tags": [
+        "privacy",
+        "leak",
+        "takedown"
+      ],
+      "lede": "Your address, your number, your workplace, a screenshot of something you wrote privately — now visible to people you did not choose. The first instinct is to look at it repeatedly. The useful work is containment, and it has a strict order.",
+      "sectionCount": 6,
+      "wordCount": 712
     },
     {
       "id": "digital-ransomware-work",
@@ -436,6 +532,38 @@
       "wordCount": 607
     },
     {
+      "id": "health-caring-for-someone-alone",
+      "title": "You have become the carer and nobody is coming",
+      "category": "health",
+      "categoryTitle": "Medical & Mental Health",
+      "severity": "high",
+      "tool": "The Load Audit",
+      "tags": [
+        "caring",
+        "burnout",
+        "systems"
+      ],
+      "lede": "It happened without a decision. A diagnosis, a fall, a slow decline — and now you handle the medication, the appointments, the money, the meals, the nights. Nobody appointed you and nobody is arriving. You have stopped noticing how tired you are, which is the dangerous part.",
+      "sectionCount": 6,
+      "wordCount": 783
+    },
+    {
+      "id": "health-hospital-advocate",
+      "title": "Someone you love is in hospital and decisions are being made fast",
+      "category": "health",
+      "categoryTitle": "Medical & Mental Health",
+      "severity": "high",
+      "tool": "The Written Question",
+      "tags": [
+        "hospital",
+        "advocacy",
+        "records"
+      ],
+      "lede": "Different staff each shift. Information arriving in fragments in corridors. A consent form. A phrase you did not understand and did not ask about because everyone seemed busy. You are the only continuous presence in the room, which makes you the record.",
+      "sectionCount": 6,
+      "wordCount": 732
+    },
+    {
       "id": "health-not-being-listened-to",
       "title": "A doctor is dismissing your symptoms",
       "category": "health",
@@ -503,6 +631,22 @@
       "wordCount": 625
     },
     {
+      "id": "life-caught-in-a-lie",
+      "title": "You have been caught in a lie",
+      "category": "life",
+      "categoryTitle": "Family, Love & Social",
+      "severity": "medium",
+      "tool": "The Clean Apology",
+      "tags": [
+        "trust",
+        "accountability",
+        "repair"
+      ],
+      "lede": "It was small, or it started small. Now the person is holding it, looking at you, and the next thirty seconds decide whether this is something you recover from or the beginning of a much longer problem. The reflex is to explain. The reflex is wrong.",
+      "sectionCount": 6,
+      "wordCount": 715
+    },
+    {
       "id": "life-child-in-trouble",
       "title": "Your child tells you something frightening",
       "category": "life",
@@ -552,6 +696,22 @@
       "lede": "It has happened. There are calls to make, a service to arrange, relatives arriving with opinions, and an administrative machine that expects you to produce documents while you cannot remember your own address.",
       "sectionCount": 6,
       "wordCount": 569
+    },
+    {
+      "id": "life-moving-to-new-country",
+      "title": "You have moved somewhere new and know nobody",
+      "category": "life",
+      "categoryTitle": "Family, Love & Social",
+      "severity": "medium",
+      "tool": "The Ninety-Day Build",
+      "tags": [
+        "isolation",
+        "admin",
+        "belonging"
+      ],
+      "lede": "The logistics are done, roughly. What nobody warned you about is the specific weight of a Tuesday evening in a place where no one would notice if you did not leave the flat. The competence you had somewhere else does not transfer automatically, and that is disorienting.",
+      "sectionCount": 6,
+      "wordCount": 761
     },
     {
       "id": "life-parent-declining",
@@ -656,6 +816,22 @@
       "wordCount": 601
     },
     {
+      "id": "money-insurance-refused",
+      "title": "An insurer or provider has refused a claim",
+      "category": "money",
+      "categoryTitle": "Money, Legal & Authority",
+      "severity": "medium",
+      "tool": "The Escalation Ladder",
+      "tags": [
+        "claims",
+        "complaints",
+        "process"
+      ],
+      "lede": "A short letter or a call centre sentence: not covered, outside the terms, declined. It is delivered as if it is final. It is not final — it is the first position of a process most people abandon at exactly this point, which is why the first refusal is issued so easily.",
+      "sectionCount": 6,
+      "wordCount": 692
+    },
+    {
       "id": "money-landlord-eviction",
       "title": "Your landlord tells you to leave",
       "category": "money",
@@ -688,6 +864,22 @@
       "lede": "At your door, at your workplace, or a phone call: they would like a chat. Nothing formal, they say. Just to clear something up, and it would look better if you cooperate.",
       "sectionCount": 6,
       "wordCount": 569
+    },
+    {
+      "id": "money-scam-realised-late",
+      "title": "You have realised you were scammed",
+      "category": "money",
+      "categoryTitle": "Money, Legal & Authority",
+      "severity": "high",
+      "tool": "The First Hour",
+      "tags": [
+        "fraud",
+        "recovery",
+        "shame"
+      ],
+      "lede": "The certainty arrives all at once. The investment, the refund, the romance, the invoice, the job that needed a fee first. You can see the whole shape of it now, and the loudest thing in your head is not the money — it is that you cannot believe you fell for it.",
+      "sectionCount": 6,
+      "wordCount": 732
     },
     {
       "id": "money-sudden-income-loss",
@@ -723,6 +915,22 @@
       "lede": "A call, a visit, or an email: your bank's fraud team, the tax office, the police, your utility company, your own IT department. There is a problem, it is serious, and it must be resolved right now — and you must not discuss it with anyone.",
       "sectionCount": 6,
       "wordCount": 596
+    },
+    {
+      "id": "people-friend-owes-money",
+      "title": "Someone close owes you money and is avoiding it",
+      "category": "people",
+      "categoryTitle": "Manipulation & Bad Actors",
+      "severity": "medium",
+      "tool": "The Single Clean Conversation",
+      "tags": [
+        "money",
+        "friendship",
+        "boundaries"
+      ],
+      "lede": "It was a favour with no paperwork. The date passed. Then the messages got shorter, plans got cancelled, and now there is a subject you both steer around. The money is smaller than what it is costing the friendship, which is why nobody says anything.",
+      "sectionCount": 6,
+      "wordCount": 763
     },
     {
       "id": "people-gaslit-partner",
@@ -808,6 +1016,22 @@
       "lede": "A doorstep salesman, a timeshare room, a phone call about your boiler, or a car showroom at closing. The price is only good today. There is a folder open and a pen already out, and saying no keeps not working.",
       "sectionCount": 6,
       "wordCount": 603
+    },
+    {
+      "id": "work-asked-to-do-something-wrong",
+      "title": "You are asked to do something you believe is wrong",
+      "category": "work",
+      "categoryTitle": "Work & Career",
+      "severity": "high",
+      "tool": "The Written Clarification",
+      "tags": [
+        "ethics",
+        "authority",
+        "paper trail"
+      ],
+      "lede": "It is not obviously criminal. It is a number moved, a date changed, a customer not told, a name left off. Your manager is relaxed about it, which makes you wonder whether you are the problem. And it was asked verbally, so there is nothing to point at.",
+      "sectionCount": 6,
+      "wordCount": 792
     },
     {
       "id": "work-blamed-publicly",
@@ -905,6 +1129,38 @@
       "lede": "They ask a question you have absolutely prepared for. Nothing arrives. There is a silence you can hear, and inside it a loud voice explaining that you are losing this.",
       "sectionCount": 6,
       "wordCount": 567
+    },
+    {
+      "id": "work-restructure-announced",
+      "title": "A restructure is announced and your role is unclear",
+      "category": "work",
+      "categoryTitle": "Work & Career",
+      "severity": "high",
+      "tool": "The Visible Value Note",
+      "tags": [
+        "redundancy",
+        "uncertainty",
+        "positioning"
+      ],
+      "lede": "A slide showed a new structure. Your name was not on it, or it was, in a box with a question mark. Nobody will say more than \"nothing is decided yet.\" The office has split into people pretending it is fine and people updating their CVs in the car park.",
+      "sectionCount": 6,
+      "wordCount": 772
+    },
+    {
+      "id": "work-team-member-underperforming",
+      "title": "Someone on your team is not delivering",
+      "category": "work",
+      "categoryTitle": "Work & Career",
+      "severity": "medium",
+      "tool": "The Specific Gap",
+      "tags": [
+        "management",
+        "feedback",
+        "fairness"
+      ],
+      "lede": "Work arrives late, or thin, or not at all. Other people have started routing around them, and around you. You have hinted three times. Nothing has changed, and you are now angrier than the situation warrants because you have been carrying it silently.",
+      "sectionCount": 6,
+      "wordCount": 770
     }
   ]
 }
