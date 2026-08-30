@@ -202,6 +202,16 @@ a { color: inherit; text-decoration: none; }
 .g-3 { grid-template-columns: repeat(auto-fill, minmax(min(100%, 268px), 1fr)); }
 .g-4 { grid-template-columns: repeat(auto-fill, minmax(min(100%, 208px), 1fr)); }
 
+/* Cards in the same row should end level. A grid item stretches by
+   default, but the live-filtered grids (situations, vault) wrap each
+   card in an unstyled div so the filter has something to hide — and
+   that wrapper, not the card, was the item being stretched. Make the
+   wrapper a pass-through so the card itself fills the row height. */
+.grid > [data-sit],
+.grid > [data-v-item] { display: flex; }
+.grid > [data-sit] > .card,
+.grid > [data-v-item] > .card { flex: 1 1 auto; }
+
 .hr {
   height: 1px;
   border: 0;

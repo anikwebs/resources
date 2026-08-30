@@ -84,17 +84,35 @@ export const skelCards = (count = 6) =>
 
 /* ---------- cards ---------- */
 
+/* Every card used to put its eyebrow and title in a flex row with
+   the badge beside them. In a 268px grid column that left the title
+   roughly 130px, so real titles truncated mid-word — "Staying
+   steady unde…", "Deciding what actual…". Eyebrow and badge are
+   both small meta chips, so they belong together on one row, and
+   the title gets the full card width underneath.
+
+   One helper rather than nine near-copies, so the card family
+   cannot drift apart again. `lead` is for what must sit above the
+   meta row on its own line: a large index numeral, a track icon.
+   Callers pass already-escaped HTML, since some titles come from
+   md() and some from esc(). */
+function cardHead ({ eyebrow = '', badge = '', lead = '', title = '', clamp = 2 } = {}) {
+  const meta = eyebrow || badge
+    ? `<div class="card-meta">${eyebrow ? `<p class="eyebrow">${eyebrow}</p>` : ''}${badge}</div>`
+    : ''
+  return `${lead}${meta}<h3 class="card-title${clamp ? ` clamp-${clamp}` : ''}">${title}</h3>`
+}
+
 export function unitCard (u, { showTrack = false, n: index = null } = {}) {
   const done = isDone(u.id)
   return `<a class="card rise" href="${href(`read/${u.track}/${u.id}`)}" data-accent="${u.accent || 'forest'}">
-    <div class="card-head">
-      <div style="min-width:0">
-        ${index != null ? `<span class="card-n">${index}</span>` : ''}
-        ${showTrack && u.trackTitle ? `<p class="eyebrow">${esc(u.trackTitle)}</p>` : ''}
-        <h3 class="card-title clamp-3">${md(u.title)}</h3>
-      </div>
-      ${done ? `<span class="badge badge-success" title="Completed">${I.check}</span>` : ''}
-    </div>
+    ${cardHead({
+      lead: index != null ? `<span class="card-n">${index}</span>` : '',
+      eyebrow: showTrack && u.trackTitle ? esc(u.trackTitle) : '',
+      badge: done ? `<span class="badge badge-success" title="Completed">${I.check}</span>` : '',
+      title: md(u.title),
+      clamp: 3
+    })}
     ${u.subtitle ? `<p class="card-text clamp-2">${esc(clip(u.subtitle, 120))}</p>` : ''}
     <div class="card-foot">
       ${u.skill ? `<span class="t-meta faint">${esc(clip(u.skill, 40))}</span>` : ''}
@@ -105,13 +123,15 @@ export function unitCard (u, { showTrack = false, n: index = null } = {}) {
 
 export function situationCard (s) {
   return `<a class="card card-lead rise" href="${href(`situation/${s.id}`)}" data-accent="${s.accent || 'clay'}">
-    <div class="card-head">
-      <div style="min-width:0">
-        <p class="eyebrow">${esc(s.categoryTitle || '')}</p>
-        <h3 class="card-title clamp-2">${md(s.title)}</h3>
-      </div>
-      ${isSaved(s.id) ? `<span class="badge badge-info" title="Saved">${I.bookmark}</span>` : ''}
-    </div>
+    ${cardHead({
+      eyebrow: esc(s.categoryTitle || ''),
+      badge: isSaved(s.id) ? `<span class="badge badge-info" title="Saved">${I.bookmark}</span>` : '',
+      title: md(s.title),
+      /* Situation titles are whole sentences — "Money has left your
+         account and you did not authorise it" — so two lines cuts
+         them mid-thought. */
+      clamp: 3
+    })}
     ${s.lede ? `<p class="card-text clamp-3">${esc(clip(s.lede, 150))}</p>` : ''}
     <div class="card-foot">
       ${sev(s.severity)}
@@ -122,13 +142,11 @@ export function situationCard (s) {
 
 export function skillCard (sk, stats = null) {
   return `<a class="card rise" href="${href(`skill/${sk.id}`)}" data-accent="${sk.accent || 'forest'}">
-    <div class="card-head">
-      <div style="min-width:0">
-        <p class="eyebrow">${esc(sk.domainTitle || '')}</p>
-        <h3 class="card-title clamp-2">${esc(sk.name)}</h3>
-      </div>
-      <span class="badge badge-neutral">${esc(sk.levelLabel || '')}</span>
-    </div>
+    ${cardHead({
+      eyebrow: esc(sk.domainTitle || ''),
+      badge: sk.levelLabel ? `<span class="badge badge-neutral">${esc(sk.levelLabel)}</span>` : '',
+      title: esc(sk.name)
+    })}
     <p class="card-text clamp-3">${esc(clip(sk.blurb, 150))}</p>
     ${stats ? `<div class="card-foot card-foot-line">
       <span class="t-meta faint">${plural(stats.units, 'lesson')}</span>
@@ -139,13 +157,11 @@ export function skillCard (sk, stats = null) {
 
 export function toolCard (t) {
   return `<a class="card rise" href="${href(`tool/${t.id}`)}" data-accent="${t.accent}">
-    <div class="card-head">
-      <div style="min-width:0">
-        <p class="eyebrow">${esc(t.group)}</p>
-        <h3 class="card-title clamp-2">${esc(t.name)}</h3>
-      </div>
-      <span class="res-ic">${I[t.icon] || I.tool}</span>
-    </div>
+    ${cardHead({
+      lead: `<span class="res-ic">${I[t.icon] || I.tool}</span>`,
+      eyebrow: esc(t.group),
+      title: esc(t.name)
+    })}
     <p class="card-text clamp-3">${esc(t.blurb)}</p>
   </a>`
 }
@@ -160,13 +176,11 @@ const weeksLabel = w =>
 
 export function pathCard (p, stats, started = false) {
   return `<a class="card rise" href="${href(`path/${p.id}`)}" data-accent="${p.accent}">
-    <div class="card-head">
-      <div style="min-width:0">
-        <span class="card-n">${p.number}</span>
-        <h3 class="card-title clamp-2">${esc(p.title)}</h3>
-      </div>
-      ${started ? '<span class="badge badge-success">Started</span>' : ''}
-    </div>
+    ${cardHead({
+      lead: `<span class="card-n">${p.number}</span>`,
+      badge: started ? '<span class="badge badge-success">Started</span>' : '',
+      title: esc(p.title)
+    })}
     <p class="card-text clamp-3">${esc(clip(p.lede, 160))}</p>
     <div class="card-foot card-foot-line">
       <span class="t-meta faint">${weeksLabel(p.weeks)}</span>
@@ -177,12 +191,7 @@ export function pathCard (p, stats, started = false) {
 
 export function collectionCard (c) {
   return `<a class="card rise" href="${href(`vault/${c.id}`)}" data-accent="council">
-    <div class="card-head">
-      <div style="min-width:0">
-        <p class="eyebrow">${esc(c.kind || '')}</p>
-        <h3 class="card-title clamp-2">${md(c.title)}</h3>
-      </div>
-    </div>
+    ${cardHead({ eyebrow: esc(c.kind || ''), title: md(c.title) })}
     ${c.banner ? `<p class="card-text clamp-2">${esc(clip(c.banner, 120))}</p>` : ''}
     <div class="card-foot">
       <span class="t-meta faint">${plural(c.entryCount || (c.entries || []).length, 'entry', 'entries')}</span>
@@ -193,13 +202,11 @@ export function collectionCard (c) {
 
 export function scenarioCard (sc, answered = false) {
   return `<a class="card rise" href="${href(`scenario/${sc.id}`)}" data-accent="${sc.accent || 'clay'}">
-    <div class="card-head">
-      <div style="min-width:0">
-        <p class="eyebrow">${esc(sc.domain)}</p>
-        <h3 class="card-title clamp-2">${esc(sc.title)}</h3>
-      </div>
-      ${answered ? `<span class="badge badge-success" title="Answered">${I.check}</span>` : ''}
-    </div>
+    ${cardHead({
+      eyebrow: esc(sc.domain),
+      badge: answered ? `<span class="badge badge-success" title="Answered">${I.check}</span>` : '',
+      title: esc(sc.title)
+    })}
     <p class="card-text clamp-3">${esc(clip(strip((sc.setup || [])[0] || ''), 150))}</p>
     <div class="card-foot">
       <span class="badge badge-neutral">${esc(sc.difficulty)}</span>
@@ -210,23 +217,22 @@ export function scenarioCard (sc, answered = false) {
 
 export function treeCard (t, used = false) {
   return `<a class="card rise" href="${href(`tree/${t.id}`)}" data-accent="${t.accent || 'atlas'}">
-    <div class="card-head">
-      <div style="min-width:0"><h3 class="card-title clamp-2">${esc(t.title)}</h3></div>
-      ${used ? `<span class="badge badge-info" title="You have used this">${I.check}</span>` : ''}
-    </div>
+    ${cardHead({
+      badge: used ? `<span class="badge badge-info" title="You have used this">${I.check}</span>` : '',
+      title: esc(t.title)
+    })}
     <p class="card-text clamp-3">${esc(clip(t.blurb, 150))}</p>
   </a>`
 }
 
 export function trackCard (t, stats) {
   return `<a class="card card-pad-lg rise" href="${href(`track/${t.id}`)}" data-accent="${t.accent}">
-    <div class="card-head">
-      <div style="min-width:0">
-        <span class="res-ic" style="margin-bottom:var(--s-3)">${trackIcon(t.icon)}</span>
-        <h3 class="card-title">${md(t.name || t.title || '')}</h3>
-      </div>
-    </div>
-    ${t.tagline ? `<p class="eyebrow">${esc(t.tagline)}</p>` : ''}
+    ${cardHead({
+      lead: `<span class="res-ic">${trackIcon(t.icon)}</span>`,
+      eyebrow: t.tagline ? esc(t.tagline) : '',
+      title: md(t.name || t.title || ''),
+      clamp: 0
+    })}
     ${t.description || t.blurb || t.subtitle ? `<p class="card-text clamp-3">${esc(clip(t.description || t.blurb || t.subtitle, 170))}</p>` : ''}
     <div class="card-foot card-foot-line">
       <span class="t-meta faint">${plural(stats.units || 0, 'piece')}</span>

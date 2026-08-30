@@ -91,12 +91,8 @@ export async function aiRoleplay () {
       <div class="stack" style="gap:var(--s-6);margin-top:var(--s-6)">
         ${PERSONAS.map(p => `
           <article class="card card-pad-lg" data-accent="${p.accent}">
-            <div class="card-head">
-              <div style="min-width:0">
-                <span class="res-ic" style="margin-bottom:var(--s-3)">${I[p.icon] || I.users}</span>
-                <h3 class="card-title">${esc(p.role)}</h3>
-              </div>
-            </div>
+            <span class="res-ic">${I[p.icon] || I.users}</span>
+            <h3 class="card-title">${esc(p.role)}</h3>
             <p class="card-text">${md(p.use)}</p>
             <div style="margin-top:var(--s-4)">${promptBox('The brief — paste this first', p.brief)}</div>
             ${p.after ? `<div style="margin-top:var(--s-4)">${promptBox('The debrief — paste this when you type STOP', p.after)}</div>` : ''}
@@ -392,13 +388,11 @@ function battleCard (b) {
   const key = `battle-note:${b.id}`
   return `
   <article class="card card-pad-lg" data-accent="${done ? 'forest' : 'signal'}" data-battle="${esc(b.id)}">
-    <div class="card-head">
-      <div style="min-width:0">
-        <p class="eyebrow">Level ${b.level}</p>
-        <h3 class="card-title">${esc(b.title)}</h3>
-      </div>
+    <div class="card-meta">
+      <p class="eyebrow">Level ${b.level}</p>
       ${done ? '<span class="badge badge-success">Passed</span>' : ''}
     </div>
+    <h3 class="card-title">${esc(b.title)}</h3>
 
     <p class="card-text">${md(b.goal)}</p>
 
@@ -435,7 +429,10 @@ function mountBattles (root) {
     const card = btn.closest('[data-battle]')
     if (card) {
       card.dataset.accent = nowDone ? 'forest' : 'signal'
-      const head = card.querySelector('.card-head')
+      /* The badge lives in the card's meta row — see cardHead() in
+         parts.js. Must match battleCard() below or the badge lands
+         nowhere. */
+      const head = card.querySelector('.card-meta')
       const badge = card.querySelector('.badge-success')
       if (nowDone && !badge && head) head.insertAdjacentHTML('beforeend', '<span class="badge badge-success">Passed</span>')
       if (!nowDone && badge) badge.remove()

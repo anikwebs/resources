@@ -58,20 +58,18 @@ const noteField = (key, label, hint, placeholder) => `
 /* A card linking to another AI page. */
 const aiCard = r => `
   <a class="card rise" href="${href(r.route)}" data-accent="signal">
-    <div class="card-head"><div style="min-width:0">
-      <span class="res-ic" style="margin-bottom:var(--s-3)">${I.cpu}</span>
-      <h3 class="card-title clamp-2">${esc(r.title)}</h3>
-    </div></div>
+    <span class="res-ic">${I.cpu}</span>
+    <h3 class="card-title clamp-2">${esc(r.title)}</h3>
     <p class="card-text clamp-3">${esc(r.sub)}</p>
   </a>`
 
 const problemCard = p => {
   const d = PROBLEM_DOMAINS.find(x => x.id === p.domain) || {}
   return `<a class="card rise" href="${href(`ai/problem/${p.id}`)}" data-accent="${d.accent || 'signal'}">
-    <div class="card-head"><div style="min-width:0">
-      <p class="eyebrow">${esc(d.title || 'AI')}</p>
-      <h3 class="card-title clamp-2">${esc(p.title)}</h3>
-    </div></div>
+    <div class="card-meta"><p class="eyebrow">${esc(d.title || 'AI')}</p></div>
+    <!-- Problem titles are whole sentences ("I need to do something in
+         a spreadsheet and do not know how"), so two lines cuts them. -->
+    <h3 class="card-title clamp-3">${esc(p.title)}</h3>
     <p class="card-text clamp-3">${esc(p.hard)}</p>
     <div class="card-foot card-foot-line">
       <span class="t-meta faint">${plural((p.approach || []).length, 'step')}</span>
@@ -82,10 +80,8 @@ const problemCard = p => {
 
 const officeCard = m => `
   <a class="card rise" href="${href(`ai/office/${m.id}`)}" data-accent="${m.accent}">
-    <div class="card-head"><div style="min-width:0">
-      <span class="res-ic" style="margin-bottom:var(--s-3)">${I[m.icon] || I.inbox}</span>
-      <h3 class="card-title">AI for ${esc(m.title)}</h3>
-    </div></div>
+    <span class="res-ic">${I[m.icon] || I.inbox}</span>
+    <h3 class="card-title">AI for ${esc(m.title)}</h3>
     <p class="card-text clamp-3">${esc(m.lede)}</p>
     <div class="card-foot card-foot-line">
       <span class="t-meta faint">${plural(m.moves.length, 'move')}</span>
@@ -188,23 +184,23 @@ export default async function aiHub () {
       ${sectionHead('Practise, not read')}
       ${grid([
         `<a class="card rise" href="${href('ai/roleplay')}" data-accent="clay">
-          <div class="card-head"><div><span class="res-ic" style="margin-bottom:var(--s-3)">${I.mic}</span>
-          <h3 class="card-title">Role-play rehearsal</h3></div></div>
+          <span class="res-ic">${I.mic}</span>
+          <h3 class="card-title">Role-play rehearsal</h3>
           <p class="card-text">${PERSONAS.length} briefs that turn an assistant into an interviewer, a hostile client, a sceptical manager. Rehearse before it is real.</p>
         </a>`,
         `<a class="card rise" href="${href('ai/battles')}" data-accent="signal">
-          <div class="card-head"><div><span class="res-ic" style="margin-bottom:var(--s-3)">${I.bolt}</span>
-          <h3 class="card-title">Battle tests</h3></div></div>
+          <span class="res-ic">${I.bolt}</span>
+          <h3 class="card-title">Battle tests</h3>
           <p class="card-text">${BATTLES.length} progressive levels with a pass condition and the trap most people fall into. ${battleCount() ? `You have logged ${battleCount()}.` : 'None logged yet.'}</p>
         </a>`,
         `<a class="card rise" href="${href('ai/builder')}" data-accent="atlas">
-          <div class="card-head"><div><span class="res-ic" style="margin-bottom:var(--s-3)">${I.layers}</span>
-          <h3 class="card-title">Workflow builder</h3></div></div>
+          <span class="res-ic">${I.layers}</span>
+          <h3 class="card-title">Workflow builder</h3>
           <p class="card-text">Design a repeatable pipeline: input, AI step, your analysis, your review, output, action. Save it and reuse it.</p>
         </a>`,
         `<a class="card rise" href="${href('ai/challenge')}" data-accent="council">
-          <div class="card-head"><div><span class="res-ic" style="margin-bottom:var(--s-3)">${I.flag}</span>
-          <h3 class="card-title">The master challenge</h3></div></div>
+          <span class="res-ic">${I.flag}</span>
+          <h3 class="card-title">The master challenge</h3>
           <p class="card-text">One real problem from your actual life through all ${MASTER_CHALLENGE.stages.length} stages. The only exercise here that proves anything.</p>
         </a>`
       ], 2)}

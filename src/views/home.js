@@ -293,10 +293,8 @@ function aiSection () {
         <div class="grid g-3" style="margin-top:var(--s-6)">
           ${rows.map(r => `
             <a class="card rise" href="${href(r.to)}">
-              <div class="card-head">
-                <div style="min-width:0"><h3 class="card-title">${esc(r.t)}</h3></div>
-                <span class="res-ic">${I[r.ic]}</span>
-              </div>
+              <span class="res-ic">${I[r.ic]}</span>
+              <h3 class="card-title">${esc(r.t)}</h3>
               <p class="card-text clamp-3">${esc(r.d)}</p>
             </a>`).join('')}
         </div>
@@ -365,10 +363,8 @@ function quickSection () {
       <div class="grid g-3">
         ${QUICK.map(q => `
           <a class="card card-flat rise" href="${href(q.to)}">
-            <div class="card-head">
-              <div style="min-width:0"><h3 class="card-title">${esc(q.t)}</h3></div>
-              <span class="res-ic">${I[q.ic]}</span>
-            </div>
+            <span class="res-ic">${I[q.ic]}</span>
+            <h3 class="card-title">${esc(q.t)}</h3>
             <p class="card-text clamp-2">${esc(q.d)}</p>
           </a>`).join('')}
       </div>

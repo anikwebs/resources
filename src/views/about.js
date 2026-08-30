@@ -253,10 +253,8 @@ export async function notFound (ctx) {
           ['Show me everything', 'The full library and vault.', 'library', I.book]
         ].map(([t, d, to, icon]) => `
           <a class="card rise" href="${href(to)}">
-            <div class="card-head"><div style="min-width:0">
-              <span class="res-ic" style="margin-bottom:var(--s-3)">${icon}</span>
-              <h3 class="card-title clamp-2">${esc(t)}</h3>
-            </div></div>
+            <span class="res-ic">${icon}</span>
+            <h3 class="card-title clamp-2">${esc(t)}</h3>
             <p class="card-text">${esc(d)}</p>
           </a>`), 3)}
       </div>

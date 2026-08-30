@@ -150,8 +150,8 @@ export default async function situation (ctx) {
           <div>
             <p class="rail-t">Work it through</p>
             <a class="card card-flat" href="${href('tool/' + tool.id)}" data-accent="${tool.accent}">
-              <div class="card-head"><div style="min-width:0"><h3 class="card-title">${esc(tool.name)}</h3></div>
-                <span class="res-ic">${I[tool.icon] || I.tool}</span></div>
+              <span class="res-ic">${I[tool.icon] || I.tool}</span>
+              <h3 class="card-title">${esc(tool.name)}</h3>
               <p class="card-text clamp-2">${esc(tool.blurb)}</p>
             </a>
           </div>` : ''}

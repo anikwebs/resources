@@ -173,8 +173,62 @@ a.card:hover, button.card:hover {
 }
 .card-lead { padding-left: calc(var(--s-5) + 4px); }
 
-.card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--s-3); }
-.card-title { font-family: var(--font-display); font-size: 1.09rem; font-weight: 600; line-height: 1.28; letter-spacing: -0.018em; }
+/* (.card-head is gone: it was a flex row that squeezed every title
+   into whatever the badge left over. Cards are a plain vertical
+   stack now, and the meta row below carries the chips.) */
+
+/* The eyebrow and the badge share a row above the title, so the
+   title itself gets the whole card width. See cardHead() in
+   parts.js for why. baseline rather than center: the eyebrow's
+   leading rule should sit level with the badge's text. */
+.card-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-3);
+  min-height: 15px;
+}
+/* A category like "Physical Danger & Threat" wrapped to two lines
+   and pushed that card's title a line lower than its neighbours',
+   so a row of cards no longer read as a row. Keep the eyebrow to
+   one line and let it ellipsis — the full category is a click away
+   and the card title carries the meaning.
+
+   Switched from inline-flex to block, because text-overflow only
+   ellipsises a block box — on a flex container the text is an
+   anonymous item and gets cut mid-letter instead. */
+.card-meta > .eyebrow {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.card-meta > .eyebrow::before {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: var(--s-2);
+  /* Nudge off the text baseline so the rule sits mid-cap-height. */
+  position: relative;
+  top: -1px;
+}
+.card-meta > .badge, .card-meta > .sev { flex: none; }
+
+.card-title {
+  font-family: var(--font-display);
+  font-size: 1.09rem;
+  font-weight: 600;
+  line-height: 1.28;
+  letter-spacing: -0.018em;
+  /* Titles are short and now have full width, so prefer breaking
+     to a balanced shape over a long line and one orphan word. */
+  text-wrap: balance;
+}
+/* A card is a link, so its title carries the hover signal for the
+   whole surface — an underline would fight the border animation. */
+a.card:hover .card-title, button.card:hover .card-title { color: var(--ac); }
+/* Leading numeral / icon sits on its own line above the meta row. */
+.card > .card-n, .card > .res-ic { margin-bottom: var(--s-3); }
 .card-text { font-size: var(--t-small); line-height: 1.58; color: var(--muted); }
 .card-foot {
   margin-top: auto;
