@@ -894,3 +894,23 @@ kbd {
 .layer-deeper { background: var(--primary-soft); color: var(--primary); }
 .layer-advanced { background: var(--warning-soft); color: var(--warning); }
 .layer-expert { background: var(--accent-soft); color: var(--accent); }
+
+/* ---------------------------------------------------------------
+   DRILL — the practice gate that opens a situation playbook.
+   Visually distinct from the playbook prose beneath it: this is a
+   panel you act on, not text you read, so it gets a tinted ground
+   and a defined edge rather than sitting flush with the article.
+   --------------------------------------------------------------- */
+.drill { scroll-margin-top: 96px; }
+.drill-q {
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--ac, var(--primary));
+  border-radius: var(--r-3);
+  background: var(--surface);
+  box-shadow: var(--shadow-2);
+  padding: var(--s-6);
+}
+@media (max-width: 640px) { .drill-q { padding: var(--s-5); } }
+.drill-q .scn-q { margin-bottom: var(--s-5); }
+/* A drill that has been answered is settled, not urgent. */
+.drill-q:has(.verdict) { border-left-color: var(--success); }

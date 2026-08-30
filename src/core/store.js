@@ -42,7 +42,8 @@ export const store = {
 
 /* ---------------- theme ---------------- */
 export function initTheme () {
-  const t = store.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+  /* Light by default — see the note in index.html. A stored choice wins. */
+  const t = store.theme || 'light'
   document.documentElement.dataset.theme = t
   syncThemeColor(t)
   return t

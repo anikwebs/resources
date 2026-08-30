@@ -38,8 +38,11 @@
 <script>
   /* Set the theme before first paint so there is no flash. */
   try {
-    var t = JSON.parse(localStorage.getItem('rha:theme') || 'null')
-      || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+    /* Light is the default. The OS preference is deliberately not
+       consulted: this is a reading surface, and the warm paper light
+       theme is the intended presentation. Dark remains one click away
+       and, once chosen, is remembered. */
+    var t = JSON.parse(localStorage.getItem('rha:theme') || 'null') || 'light'
     document.documentElement.dataset.theme = t
     document.querySelector('meta[name=theme-color]').content = t === 'dark' ? '#12110d' : '#f4f1ea'
     var s = JSON.parse(localStorage.getItem('rha:scale') || '1')

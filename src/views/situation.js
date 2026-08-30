@@ -20,7 +20,8 @@ import { esc, md, readTime, strip } from '../core/dom.js'
 import { I } from '../core/icons.js'
 import { href } from '../core/router.js'
 import { getSituation, getSituations } from '../core/data.js'
-import { getNote } from '../core/store.js'
+import { getNote, recordScenario, getScenario } from '../core/store.js'
+import { drillFor } from '../data/drills.js'
 import { skillsForSituation } from '../data/skills.js'
 import { pathsContaining } from '../data/paths.js'
 import { TOOL_META } from '../tools/index.js'
@@ -70,6 +71,9 @@ export default async function situation (ctx) {
   }
 
   const present = ORDER.filter(t => byType[t])
+  const drill = drillFor(doc)
+  const drillKey = `drill:${id}`
+  const picked = drill ? (getScenario(drillKey) || {}).picked : null
   const skills = skillsForSituation(id)
   const paths = pathsContaining(id)
   const tool = TOOL_META.find(t => matchTool(t, doc))
@@ -98,6 +102,9 @@ export default async function situation (ctx) {
           </div>` : ''}
         </header>
 
+        ${drill ? drillHtml(drill, picked) : ''}
+
+        <div data-play${drill && !picked ? ' hidden' : ''}>
         ${jumpNav(present.map(t => ({ id: t, label: HEADS[t].t })).concat(doc.limit ? [{ id: 'limit', label: 'The limit' }] : []))}
 
         ${present.filter(t => t !== 'good').map(t => secHtml(t, byType[t])).join('')}
@@ -129,6 +136,7 @@ export default async function situation (ctx) {
             ${sectionHead('Nearby situations')}
             ${grid(siblings.map(situationCard), 3)}
           </div>` : ''}
+        </div>
       </article>
 
       <aside class="rail">
@@ -181,10 +189,155 @@ export default async function situation (ctx) {
     html,
     accent,
     recent: { id, kind: 'situation', title: doc.title, route: `situation/${id}` },
-    mount: root => {
-      root.addEventListener('click', e => { if (e.target.closest('[data-print]')) window.print() })
+    mount: root => mountSituation(root, id, drill, drillKey)
+  }
+}
+
+/* -------------------------------------------------------------
+   THE DRILL (§13, §19)
+
+   Practice comes before reading. The playbook stays folded away
+   until you commit to an answer, because the useful question is
+   not "does this sound right when explained" but "would I have
+   done it". Once you commit, every option opens up with its own
+   consequence — including the ones you did not choose, since the
+   reason a tempting option is wrong is the actual lesson.
+   ------------------------------------------------------------- */
+
+const GRADE = {
+  best: { label: 'Strongest move', cls: 'grade-best' },
+  ok: { label: 'Defensible, out of order', cls: 'grade-ok' },
+  risky: { label: 'Risky', cls: 'grade-risky' },
+  poor: { label: 'Makes it worse', cls: 'grade-poor' }
+}
+
+function drillHtml (drill, picked) {
+  return `
+  <section class="sec drill" id="drill" data-drill>
+    <div class="sec-head">
+      <h2>Before you read it</h2>
+      <span class="t-label faint">Practice first</span>
+    </div>
+    <p class="t-small muted" style="margin-bottom:var(--s-5)">Recognising the right move under pressure is a different
+      skill from agreeing with it afterwards. Commit to what you would <em>actually</em> do — then the playbook opens.</p>
+
+    <div class="drill-q">
+      <h3 class="scn-q">${esc(drill.question)}</h3>
+      <div class="opts" role="group" aria-label="Your options" data-drill-opts>
+        ${drill.options.map(o => drillOpt(o, picked)).join('')}
+      </div>
+      <div data-drill-verdict>${picked ? drillVerdict(drill, picked) : `
+        <p class="t-small faint" style="margin-top:var(--s-5)">${I.eye} Nothing is revealed until you answer. There is no
+        penalty for being wrong here — that is the entire point of practising somewhere safe.</p>`}</div>
+    </div>
+  </section>`
+}
+
+function drillOpt (o, picked) {
+  const revealed = !!picked
+  return `
+  <button class="opt" type="button" data-dopt="${esc(o.key)}"
+    data-picked="${picked === o.key}" data-revealed="${revealed}"${revealed ? ' disabled' : ''}>
+    <span class="k">${esc(o.key)}</span>
+    <span class="txt">${md(o.text)}</span>
+  </button>`
+}
+
+function drillVerdict (drill, key) {
+  const o = drill.options.find(x => x.key === key)
+  if (!o) return ''
+  const g = GRADE[o.grade] || GRADE.ok
+  const best = drill.options.find(x => x.grade === 'best')
+  const right = o.grade === 'best'
+
+  return `
+  <div class="verdict" style="margin-top:var(--s-6)">
+    <div class="verdict-row">
+      <div class="between" style="flex-wrap:wrap;gap:var(--s-3)">
+        <span class="grade ${g.cls}">${right ? I.circleCheck : I.alert}${esc(g.label)}</span>
+        <span class="t-meta faint">You chose ${esc(o.key)}</span>
+      </div>
+    </div>
+    <div class="verdict-row"><div class="lab">What happens if you do this</div><p>${md(o.consequence)}</p></div>
+    <div class="verdict-row"><div class="lab">Why</div><p>${md(o.why)}</p></div>
+  </div>
+
+  ${!right && best ? `
+    <div class="callout callout-success" style="margin-top:var(--s-5)">
+      <span class="lab">The strongest move was ${esc(best.key)}</span>
+      <p><strong>${md(best.text)}</strong> — ${md(best.consequence)}</p>
+    </div>` : ''}
+
+  <details class="acc" style="margin-top:var(--s-5)">
+    <summary>Every option, and what each one costs${I.chevDown}</summary>
+    <div class="acc-body stack">
+      ${drill.options.map(x => {
+        const gg = GRADE[x.grade] || GRADE.ok
+        return `
+        <div class="card card-flat">
+          <div class="between" style="gap:var(--s-3);flex-wrap:wrap">
+            <span class="grade ${gg.cls}">${esc(x.key)} · ${esc(gg.label)}</span>
+            ${x.key === key ? '<span class="badge badge-info">Your answer</span>' : ''}
+          </div>
+          <p class="t-small" style="margin-top:var(--s-3)"><strong>${md(x.text)}</strong></p>
+          <p class="t-small muted" style="margin-top:var(--s-2)">${md(x.consequence)}</p>
+        </div>`
+      }).join('')}
+    </div>
+  </details>
+
+  <div class="row-wrap" style="gap:var(--s-3);margin-top:var(--s-5)">
+    <button class="btn btn-ghost btn-sm" data-drill-again>${I.reset}Try again</button>
+    <a class="btn btn-primary btn-sm" href="#play">${I.book}Read the playbook</a>
+  </div>`
+}
+
+function mountSituation (root, id, drill, drillKey) {
+  const onClick = e => {
+    if (e.target.closest('[data-print]')) { window.print(); return }
+
+    const opt = e.target.closest('[data-dopt]')
+    if (opt && drill) {
+      reveal(opt.dataset.dopt)
+      return
+    }
+
+    if (e.target.closest('[data-drill-again]') && drill) {
+      const opts = root.querySelector('[data-drill-opts]')
+      const v = root.querySelector('[data-drill-verdict]')
+      if (opts) opts.innerHTML = drill.options.map(o => drillOpt(o, null)).join('')
+      if (v) {
+        v.innerHTML = `<p class="t-small faint" style="margin-top:var(--s-5)">${I.eye} Pick the one you would actually do.</p>`
+      }
+      // The playbook stays open once earned; re-answering is for
+      // practice, not a punishment that hides what you already read.
+      const first = root.querySelector('[data-dopt]')
+      if (first) first.focus()
+      return
+    }
+
+    // "Read the playbook" scrolls rather than navigating, since a bare
+    // #fragment would be parsed as a route by the hash router.
+    const jump = e.target.closest('a[href="#play"]')
+    if (jump) {
+      e.preventDefault()
+      const play = root.querySelector('[data-play]')
+      if (play) play.scrollIntoView({ behavior: 'smooth', block: 'start' })
     }
   }
+
+  function reveal (key) {
+    const opts = root.querySelector('[data-drill-opts]')
+    const v = root.querySelector('[data-drill-verdict]')
+    const play = root.querySelector('[data-play]')
+    if (opts) opts.innerHTML = drill.options.map(o => drillOpt(o, key)).join('')
+    if (v) v.innerHTML = drillVerdict(drill, key)
+    if (play) play.hidden = false
+    recordScenario(drillKey, key)
+  }
+
+  root.addEventListener('click', onClick)
+  return () => root.removeEventListener('click', onClick)
 }
 
 function secHtml (type, items) {
