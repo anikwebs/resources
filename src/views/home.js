@@ -144,7 +144,7 @@ function hero (st, sitCount) {
           <div class="stats" style="margin-top:var(--s-8)">
             <div class="stat"><b>${num(st.totalUnits)}</b><span>lessons &amp; chapters</span></div>
             <div class="stat"><b>${sitCount}</b><span>situation playbooks</span></div>
-            <div class="stat"><b>17</b><span>working tools</span></div>
+            <div class="stat"><b>${TOOL_META.length}</b><span>working tools</span></div>
             <div class="stat"><b>${num(st.totalWords)}</b><span>words, all offline</span></div>
           </div>
         </div>

@@ -32,14 +32,185 @@ const SITE = 'The Resources by Anik'
    1. CHROME
    ============================================================ */
 
-/* Primary navigation. Kept short on purpose — everything else is
-   reachable from the drawer, the footer or search. */
+/* Primary navigation. Each top-level item opens a panel listing what
+   is actually underneath it, because "Situations" alone does not tell
+   anyone that there are sixty-seven playbooks sorted by category, and
+   a menu that hides its own contents makes the product look smaller
+   than it is. `to` stays clickable for people who know where they are
+   going; the panel is for people who do not. */
 const NAV = [
-  { to: 'situations', label: 'Situations', icon: 'alert' },
-  { to: 'skills', label: 'Skills', icon: 'target' },
-  { to: 'tools', label: 'Toolkit', icon: 'tool' },
-  { to: 'ai', label: 'AI', icon: 'cpu' },
-  { to: 'library', label: 'Library', icon: 'book' },
+  {
+    to: 'situations',
+    label: 'Situations',
+    icon: 'alert',
+    blurb: 'Something is happening. Find the playbook, answer the drill, then read the moves in order.',
+    cols: [
+      {
+        head: 'By pressure',
+        links: [
+          { to: 'situations?cat=work', label: 'Work', icon: 'inbox', note: 'Blame, deadlines, a boss shouting' },
+          { to: 'situations?cat=conflict', label: 'Conflict', icon: 'chat', note: 'Accusations, apologies, feuds' },
+          { to: 'situations?cat=money', label: 'Money', icon: 'money', note: 'Rent, debt, eviction, contracts' },
+          { to: 'situations?cat=people', label: 'People', icon: 'users', note: 'Pressure, guilt, manipulation' }
+        ]
+      },
+      {
+        head: 'When it is serious',
+        links: [
+          { to: 'situations?cat=danger', label: 'Danger', icon: 'shield', note: 'Aggression, being followed, cornered' },
+          { to: 'situations?cat=crisis', label: 'Crisis', icon: 'alert', note: 'Collapse, choking, fire, flood' },
+          { to: 'situations?cat=health', label: 'Health', icon: 'heart', note: 'Diagnosis, burnout, advocating' },
+          { to: 'situations?cat=digital', label: 'Digital', icon: 'cpu', note: 'Hacked, scammed, exposed' }
+        ]
+      },
+      {
+        head: 'Ways in',
+        links: [
+          { to: 'situations', label: 'All playbooks', icon: 'list', note: 'Every situation, filterable' },
+          { to: 'situations?cat=life', label: 'Life events', icon: 'home', note: 'Grief, moving, relationships' },
+          { to: 'trees', label: 'Decision trees', icon: 'route', note: 'Answer questions, get a route' },
+          { to: 'scenarios', label: 'Hard scenarios', icon: 'puzzle', note: 'Commit to a choice, then see it' }
+        ]
+      }
+    ]
+  },
+  {
+    to: 'skills',
+    label: 'Skills',
+    icon: 'target',
+    blurb: 'Something you can get better at. Each skill names the signals, the reading, and one thing to practise this week.',
+    cols: [
+      {
+        head: 'Areas',
+        links: [
+          { to: 'skills/work', label: 'Work', icon: 'inbox', note: 'Pressure, priorities, finishing' },
+          { to: 'skills/career', label: 'Career', icon: 'target', note: 'Direction, capital, pay, leaving' },
+          { to: 'skills/communication', label: 'Communication', icon: 'chat', note: 'Clarity, feedback, hard talks' },
+          { to: 'skills/daily', label: 'Daily life', icon: 'home', note: 'Admin, health, emergencies' }
+        ]
+      },
+      {
+        head: 'More areas',
+        links: [
+          { to: 'skills/money', label: 'Money', icon: 'money', note: 'Triage, decisions, paperwork' },
+          { to: 'skills/learning', label: 'Learning & thinking', icon: 'brain', note: 'Finding out, judging, remembering' },
+          { to: 'skills/digital', label: 'Digital life', icon: 'shield', note: 'AI fluency, security, footprint' },
+          { to: 'skills', label: 'All skills', icon: 'list', note: 'Every skill across every area' }
+        ]
+      },
+      {
+        head: 'Sequenced',
+        links: [
+          { to: 'paths', label: 'Learning paths', icon: 'route', note: 'Ordered routes with a finish line' },
+          { to: 'library', label: 'The full library', icon: 'book', note: 'Every lesson, every track' },
+          { to: 'progress', label: 'Your progress', icon: 'chart', note: 'What you have finished' }
+        ]
+      }
+    ]
+  },
+  {
+    to: 'tools',
+    label: 'Toolkit',
+    icon: 'tool',
+    blurb: 'Not worksheets. Each one takes what you type and works out something you could not see by staring at the problem.',
+    cols: [
+      {
+        head: 'Deciding & working',
+        links: [
+          { to: 'tool/decision-matrix', label: 'Decision Matrix', icon: 'scale', note: 'Score options against weighted criteria' },
+          { to: 'tool/pre-mortem', label: 'Pre-Mortem', icon: 'alert', note: 'Assume it failed, work backwards' },
+          { to: 'tool/priority-matrix', label: 'Priority Matrix', icon: 'grid', note: 'Importance against urgency' },
+          { to: 'tool/time-audit', label: 'Time Audit', icon: 'clock', note: 'Where the week actually goes' }
+        ]
+      },
+      {
+        head: 'Talking & money',
+        links: [
+          { to: 'tool/conversation-planner', label: 'Conversation Planner', icon: 'chat', note: 'Opening line, outcome, pushback' },
+          { to: 'tool/email-pressure-test', label: 'Message Pressure Test', icon: 'shield', note: 'Read a draft before you send it' },
+          { to: 'tool/money-triage', label: 'Money Triage', icon: 'money', note: 'Which bills can actually hurt you' },
+          { to: 'tool/negotiation-planner', label: 'Negotiation Planner', icon: 'scale', note: 'Your number and your walk-away' }
+        ]
+      },
+      {
+        head: 'By group',
+        links: [
+          { to: 'tools#deciding', label: 'Deciding', icon: 'route', note: 'A choice with no obvious answer' },
+          { to: 'tools#building', label: 'Building', icon: 'layers', note: 'Goals, habits, learning, review' },
+          { to: 'tools#thinking', label: 'Thinking', icon: 'brain', note: 'What is true and what is wrong' },
+          { to: 'tools', label: 'All tools', icon: 'list', note: 'The complete toolkit' }
+        ]
+      }
+    ]
+  },
+  {
+    to: 'ai',
+    label: 'AI',
+    icon: 'cpu',
+    blurb: 'Using a model as a genuine multiplier, and never being fooled by one. The method, then the practice rooms.',
+    cols: [
+      {
+        head: 'The method',
+        links: [
+          { to: 'ai', label: 'How to work with it', icon: 'cpu', note: 'The workflow, start to finish' },
+          { to: 'ai/context', label: 'Giving context', icon: 'layers', note: 'The seven elements that matter' },
+          { to: 'ai/verify', label: 'The verification firewall', icon: 'shield', note: 'Catching the confident lie' },
+          { to: 'ai/safety', label: 'Where not to use it', icon: 'alert', note: 'The honest limits' }
+        ]
+      },
+      {
+        head: 'Practice rooms',
+        links: [
+          { to: 'ai/library', label: 'Real problems', icon: 'inbox', note: 'A prompt, a second pass, a check' },
+          { to: 'ai/roleplay', label: 'Rehearsal room', icon: 'users', note: 'Practise the conversation first' },
+          { to: 'ai/builder', label: 'Workflow builder', icon: 'sliders', note: 'Design a repeatable pipeline' },
+          { to: 'ai/battles', label: 'Battle tests', icon: 'flag', note: 'Beat the model at judgment' }
+        ]
+      },
+      {
+        head: 'Reference',
+        links: [
+          { to: 'ai/prompts', label: 'Prompt vault', icon: 'spark', note: 'Every prompt in one place' },
+          { to: 'ai/tools', label: 'Which tool for what', icon: 'tool', note: 'Picking the right assistant' },
+          { to: 'ai/score', label: 'Resourcefulness score', icon: 'chart', note: 'Where you actually stand' }
+        ]
+      }
+    ]
+  },
+  {
+    to: 'library',
+    label: 'Library',
+    icon: 'book',
+    blurb: 'The long-form reading. Four tracks, from the core course to the atlas of ideas.',
+    cols: [
+      {
+        head: 'Tracks',
+        links: [
+          { to: 'track/mastery', label: 'The mastery course', icon: 'book', note: 'Eight levels, the core sequence' },
+          { to: 'track/workbook', label: 'The workbook', icon: 'pen', note: 'The practical companion' },
+          { to: 'track/atlas', label: 'The atlas', icon: 'globe', note: 'Nine worlds of ideas' },
+          { to: 'track/mastery-life', label: 'Mastery of life', icon: 'compass', note: 'Seven parts, the long view' }
+        ]
+      },
+      {
+        head: 'Ways in',
+        links: [
+          { to: 'library', label: 'Everything', icon: 'list', note: 'All lessons, all tracks' },
+          { to: 'vault', label: 'The vault', icon: 'vault', note: 'Curated collections' },
+          { to: 'paths', label: 'Learning paths', icon: 'route', note: 'Ordered, with a finish line' },
+          { to: 'search', label: 'Search everything', icon: 'search', note: 'Full text, every page' }
+        ]
+      },
+      {
+        head: 'Yours',
+        links: [
+          { to: 'progress', label: 'Progress', icon: 'chart', note: 'Lessons done, tools used' },
+          { to: 'saved', label: 'Saved', icon: 'bookmark', note: 'Everything you kept' },
+          { to: 'about', label: 'What this is', icon: 'question', note: 'And what it is not' }
+        ]
+      }
+    ]
+  },
   { to: 'paths', label: 'Paths', icon: 'route' }
 ]
 
@@ -48,33 +219,67 @@ const DRAWER = [
     head: 'Start here',
     links: [
       { to: '', label: 'Home', icon: 'home' },
-      { to: 'situations', label: 'Situation playbooks', icon: 'alert' },
+      { to: 'situations', label: 'All situation playbooks', icon: 'alert' },
       { to: 'paths', label: 'Learning paths', icon: 'route' },
+      { to: 'search', label: 'Search everything', icon: 'search' },
       { to: 'about', label: 'What this is', icon: 'question' }
     ]
   },
   {
-    head: 'Learn',
+    head: 'Situations by pressure',
     links: [
-      { to: 'skills', label: 'Skills by domain', icon: 'target' },
-      { to: 'library', label: 'The full library', icon: 'book' },
-      { to: 'vault', label: 'The vault', icon: 'vault' }
+      { to: 'situations?cat=work', label: 'Work', icon: 'inbox' },
+      { to: 'situations?cat=conflict', label: 'Conflict', icon: 'chat' },
+      { to: 'situations?cat=money', label: 'Money', icon: 'money' },
+      { to: 'situations?cat=people', label: 'People', icon: 'users' },
+      { to: 'situations?cat=danger', label: 'Danger', icon: 'shield' },
+      { to: 'situations?cat=crisis', label: 'Crisis', icon: 'alert' },
+      { to: 'situations?cat=health', label: 'Health', icon: 'heart' },
+      { to: 'situations?cat=digital', label: 'Digital', icon: 'cpu' },
+      { to: 'situations?cat=life', label: 'Life events', icon: 'home' }
+    ]
+  },
+  {
+    head: 'Skills by area',
+    links: [
+      { to: 'skills/work', label: 'Work', icon: 'inbox' },
+      { to: 'skills/career', label: 'Career', icon: 'target' },
+      { to: 'skills/communication', label: 'Communication', icon: 'chat' },
+      { to: 'skills/daily', label: 'Daily life', icon: 'home' },
+      { to: 'skills/money', label: 'Money', icon: 'money' },
+      { to: 'skills/learning', label: 'Learning & thinking', icon: 'brain' },
+      { to: 'skills/digital', label: 'Digital life', icon: 'shield' },
+      { to: 'skills', label: 'All skills', icon: 'list' }
     ]
   },
   {
     head: 'Practise',
     links: [
+      { to: 'tools', label: 'The full toolkit', icon: 'tool' },
       { to: 'scenarios', label: 'Hard scenarios', icon: 'puzzle' },
-      { to: 'trees', label: 'Decision trees', icon: 'route' },
-      { to: 'tools', label: 'The seventeen tools', icon: 'tool' }
+      { to: 'trees', label: 'Decision trees', icon: 'route' }
+    ]
+  },
+  {
+    head: 'Read',
+    links: [
+      { to: 'library', label: 'The full library', icon: 'book' },
+      { to: 'track/mastery', label: 'The mastery course', icon: 'book' },
+      { to: 'track/workbook', label: 'The workbook', icon: 'pen' },
+      { to: 'track/atlas', label: 'The atlas', icon: 'globe' },
+      { to: 'track/mastery-life', label: 'Mastery of life', icon: 'compass' },
+      { to: 'vault', label: 'The vault', icon: 'vault' }
     ]
   },
   {
     head: 'AI intelligence',
     links: [
       { to: 'ai', label: 'The method', icon: 'cpu' },
+      { to: 'ai/context', label: 'Giving context', icon: 'layers' },
+      { to: 'ai/verify', label: 'The verification firewall', icon: 'shield' },
+      { to: 'ai/safety', label: 'Where not to use it', icon: 'alert' },
       { to: 'ai/library', label: 'Real-life problems', icon: 'inbox' },
-      { to: 'ai/roleplay', label: 'Rehearsal room', icon: 'mic' },
+      { to: 'ai/roleplay', label: 'Rehearsal room', icon: 'users' },
       { to: 'ai/builder', label: 'Workflow builder', icon: 'sliders' },
       { to: 'ai/battles', label: 'Battle tests', icon: 'flag' },
       { to: 'ai/score', label: 'Resourcefulness score', icon: 'chart' },
@@ -85,8 +290,7 @@ const DRAWER = [
     head: 'Yours',
     links: [
       { to: 'progress', label: 'Progress', icon: 'chart' },
-      { to: 'saved', label: 'Saved', icon: 'bookmark' },
-      { to: 'search', label: 'Search everything', icon: 'search' }
+      { to: 'saved', label: 'Saved', icon: 'bookmark' }
     ]
   }
 ]
@@ -101,21 +305,30 @@ const TABS = [
 
 const FOOT = [
   {
-    head: 'Explore',
+    head: 'When something happens',
     links: [
-      { to: 'situations', label: 'Situations' },
-      { to: 'skills', label: 'Skills' },
-      { to: 'library', label: 'Library' },
-      { to: 'vault', label: 'Vault' }
+      { to: 'situations', label: 'Situation playbooks' },
+      { to: 'trees', label: 'Decision trees' },
+      { to: 'scenarios', label: 'Hard scenarios' },
+      { to: 'situations?cat=crisis', label: 'Crisis & danger' }
     ]
   },
   {
-    head: 'Practise',
+    head: 'Get better at things',
     links: [
-      { to: 'tools', label: 'Toolkit' },
-      { to: 'scenarios', label: 'Scenarios' },
-      { to: 'trees', label: 'Decision trees' },
-      { to: 'paths', label: 'Learning paths' }
+      { to: 'skills', label: 'Skills by area' },
+      { to: 'paths', label: 'Learning paths' },
+      { to: 'library', label: 'The full library' },
+      { to: 'vault', label: 'The vault' }
+    ]
+  },
+  {
+    head: 'Do the work',
+    links: [
+      { to: 'tools', label: 'The toolkit' },
+      { to: 'tool/decision-matrix', label: 'Decision matrix' },
+      { to: 'tool/money-triage', label: 'Money triage' },
+      { to: 'tool/conversation-planner', label: 'Conversation planner' }
     ]
   },
   {
@@ -123,6 +336,7 @@ const FOOT = [
     links: [
       { to: 'ai', label: 'AI intelligence' },
       { to: 'ai/prompts', label: 'Prompt vault' },
+      { to: 'ai/verify', label: 'Verify before you trust' },
       { to: 'progress', label: 'Your progress' },
       { to: 'about', label: 'About & limits' }
     ]
@@ -143,7 +357,35 @@ function chrome () {
         </a>
 
         <nav class="nav-links" aria-label="Main">
-          ${NAV.map(n => `<a class="nav-link" data-nav="${n.to}" href="${href(n.to)}">${esc(n.label)}</a>`).join('')}
+          ${NAV.map((n, i) => n.cols ? `
+            <div class="nav-item" data-nav-item>
+              <a class="nav-link has-panel" data-nav="${n.to}" href="${href(n.to)}"
+                 aria-expanded="false" aria-controls="navpanel-${i}">${esc(n.label)}${I.chev}</a>
+              <div class="nav-panel" id="navpanel-${i}" hidden>
+                <div class="nav-panel-in">
+                  <div class="nav-panel-lead">
+                    <span class="nav-panel-eyebrow">${I[n.icon] || ''}${esc(n.label)}</span>
+                    <p>${esc(n.blurb || '')}</p>
+                    <a class="nav-panel-all" href="${href(n.to)}">Open ${esc(n.label.toLowerCase())} ${I.arrow}</a>
+                  </div>
+                  <div class="nav-panel-cols">
+                    ${n.cols.map(c => `
+                      <div class="nav-col">
+                        <p class="nav-col-head">${esc(c.head)}</p>
+                        ${c.links.map(l => `
+                          <a class="nav-col-link" href="${href(l.to)}">
+                            <span class="nav-col-ic">${I[l.icon] || I.circle}</span>
+                            <span class="nav-col-txt">
+                              <span class="nav-col-label">${esc(l.label)}</span>
+                              ${l.note ? `<span class="nav-col-note">${esc(l.note)}</span>` : ''}
+                            </span>
+                          </a>`).join('')}
+                      </div>`).join('')}
+                  </div>
+                </div>
+              </div>
+            </div>`
+            : `<a class="nav-link" data-nav="${n.to}" href="${href(n.to)}">${esc(n.label)}</a>`).join('')}
         </nav>
 
         <div class="nav-right">
@@ -161,7 +403,7 @@ function chrome () {
     <main id="main" tabindex="-1"></main>
 
     <footer class="foot">
-      <div class="shell foot-in">
+      <div class="shell foot-in" style="--foot-cols:${FOOT.length}">
         <div class="foot-about">
           <a class="brand" href="${href('')}" style="margin-bottom:var(--s-4)">
             <span class="brand-mark" aria-hidden="true">TR</span>
@@ -255,6 +497,58 @@ function closeDrawer () {
   $('[data-open-drawer]').setAttribute('aria-expanded', 'false')
   document.body.style.overflow = ''
   if (releaseDrawer) { releaseDrawer(); releaseDrawer = null }
+}
+
+/* ---------- desktop mega-menu panels ----------
+   Hover opens after a short delay so a diagonal mouse path across
+   the bar does not flash three panels. Focus opens immediately,
+   because a keyboard user asking for the panel means it. Closing is
+   also delayed: the gap between the trigger and the panel is real
+   and the pointer crosses it. */
+let panelTimer = null
+/* Set while Escape is closing a panel, so the focus() that follows
+   cannot re-trigger focusin and re-open it. */
+let panelLock = false
+function closePanels (except) {
+  $$('[data-nav-item]').forEach(item => {
+    if (item === except) return
+    if (!item.classList.contains('open')) return
+    item.classList.remove('open')
+    item.querySelector('.nav-panel')?.setAttribute('hidden', '')
+    item.querySelector('.has-panel')?.setAttribute('aria-expanded', 'false')
+  })
+}
+function openPanel (item) {
+  if (panelLock) return
+  if (!item || item.classList.contains('open')) return closePanels(item)
+  closePanels(item)
+  item.classList.add('open')
+  item.querySelector('.nav-panel')?.removeAttribute('hidden')
+  item.querySelector('.has-panel')?.setAttribute('aria-expanded', 'true')
+}
+function wirePanels () {
+  $$('[data-nav-item]').forEach(item => {
+    item.addEventListener('pointerenter', () => {
+      clearTimeout(panelTimer)
+      panelTimer = setTimeout(() => openPanel(item), 90)
+    })
+    item.addEventListener('pointerleave', () => {
+      clearTimeout(panelTimer)
+      panelTimer = setTimeout(() => closePanels(null), 180)
+    })
+    /* focusin covers both the trigger and every link inside, so
+       tabbing through the panel keeps it open. */
+    item.addEventListener('focusin', () => { clearTimeout(panelTimer); openPanel(item) })
+    item.addEventListener('focusout', e => {
+      if (!item.contains(e.relatedTarget)) closePanels(null)
+    })
+    /* On a touch screen there is no hover, so the first tap on the
+       trigger should reveal the panel rather than navigate. */
+    item.querySelector('.has-panel')?.addEventListener('click', e => {
+      if (matchMedia('(hover: hover)').matches) return
+      if (!item.classList.contains('open')) { e.preventDefault(); openPanel(item) }
+    })
+  })
 }
 
 /* ============================================================
@@ -419,6 +713,7 @@ async function renderer (view, ctx, prev) {
 
   markActive(ctx.path)
   closeDrawer()
+  closePanels(null)
   closeSearch()
 
   if (view.recent && view.recent.id !== (lastRecent && lastRecent.id)) {
@@ -646,7 +941,23 @@ function delegate () {
 
   /* global keys */
   addEventListener('keydown', e => {
-    if (e.key === 'Escape') { closeSearch(); closeDrawer(); return }
+    if (e.key === 'Escape') {
+      /* If a mega-menu is open, Escape belongs to it and focus goes
+         back to the trigger that opened it. */
+      const open = $('[data-nav-item].open')
+      if (open) {
+        /* Only pull focus back to the trigger if focus was actually
+           inside the panel — otherwise focusing it fires focusin and
+           immediately re-opens the thing we just closed. */
+        const inside = open.contains(document.activeElement)
+        panelLock = true
+        closePanels(null)
+        if (inside) open.querySelector('.has-panel')?.focus()
+        setTimeout(() => { panelLock = false }, 0)
+        return
+      }
+      closeSearch(); closeDrawer(); return
+    }
     const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName) || e.target.isContentEditable
     if (typing) return
     if (e.key === '/' || (e.key.toLowerCase() === 'k' && (e.metaKey || e.ctrlKey))) {
@@ -691,6 +1002,7 @@ function boot () {
 
   routes()
   delegate()
+  wirePanels()
   setRenderer(renderer)
 
   /* First hash: land on home rather than an empty address. */
