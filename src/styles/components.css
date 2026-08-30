@@ -277,6 +277,9 @@ a.card:hover, button.card:hover {
 /* jump strip */
 .jump { display: flex; gap: var(--s-2); flex-wrap: wrap; }
 .jump a {
+  /* No href (see jumpNav in parts.js), so the cursor and the focus
+     ring both have to be set explicitly. */
+  cursor: pointer;
   padding: 5px 12px;
   border-radius: var(--r-pill);
   border: 1px solid var(--line);
@@ -286,6 +289,12 @@ a.card:hover, button.card:hover {
   transition: all var(--d-1);
 }
 .jump a:hover { border-color: var(--ac); color: var(--ac); }
+.jump a:focus-visible { border-color: var(--ac); color: var(--ac); }
+
+/* A jump gives its target tabindex="-1" so screen readers follow it.
+   That must not paint an outline on a whole section the user never
+   tabbed to — only genuine keyboard focus should be visible. */
+.sec:focus:not(:focus-visible) { outline: none; }
 
 /* ---------------------------------------------------------------
    INPUTS
