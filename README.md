@@ -45,30 +45,40 @@ Two consequences of those rules worth stating plainly:
 
 | Area | Contents |
 |---|---|
-| **Situations** | 51 full playbooks across work, career, communication, daily life, money, learning and digital life |
+| **Situations** | 67 full playbooks across work, career, communication, daily life, money, learning and digital life — each opening with a multiple-choice drill before the playbook unlocks |
 | **Skills** | 46 skills organised by domain, each with progressive depth |
 | **Library** | 239 lessons across 4 tracks, plus a 36-collection reference vault |
-| **Toolkit** | 17 tools that actually compute and save their state |
+| **Toolkit** | 21 tools in 6 groups that actually compute and save their state |
 | **Scenarios** | 8 "what would you do?" exercises with consequences, trade-offs, hidden issues and expert reasoning |
 | **Decision trees** | 11 guided walkthroughs (say yes, say no, quit, negotiate, escalate, trust this information, use AI…) |
 | **Learning paths** | 10 sequenced paths combining lessons, situations, tools, practice and reflection |
-| **AI intelligence core** | An 11-step working method, a 29-problem library, an office masterclass, a role-play engine, a workflow builder, verification discipline, 8 battle tests, a 10-dimension resourcefulness score and a master challenge |
+| **AI intelligence core** | An 11-step working method, a 29-problem library (each prompt with follow-ups and an ordered quality checklist), an office masterclass, a role-play engine, a workflow builder, verification discipline, 8 battle tests, a 10-dimension resourcefulness score and a master challenge |
 | **Progress** | Completions, saved items, notes, active paths, tools used, scenario and battle records — all exportable |
 
 ### The situation engine
 
-Every one of the 51 situations is written to the same twelve-part structure, so
-you always know where to look: **the situation · the real problem · what matters
-· possible moves · best approach · what to say · what not to do · the hidden
-layer · the edge case · recovery · takeaway · do this now.**
+**Practice before reading.** Every situation opens with a multiple-choice drill:
+you commit to a first move while the pressure is hypothetical, and only then does
+the playbook open. Each option — including the wrong ones — explains its actual
+consequence, because knowing why the tempting move fails is the part that
+survives contact with the real thing.
 
-### The seventeen tools
+Behind the drill, every one of the 67 situations is written to the same
+twelve-part structure, so you always know where to look: **the situation · the
+real problem · what matters · possible moves · best approach · what to say ·
+what not to do · the hidden layer · the edge case · recovery · takeaway · do
+this now.**
 
-Decision matrix · priority matrix · risk analyser · opportunity cost ·
-problem canvas · task decomposition · conversation planner · negotiation
-planner · meeting planner · career decision · personal SWOT · goal planner ·
-habit planner · learning planner · credibility checker · scenario simulator ·
-reflection.
+### The twenty-one tools
+
+**Deciding** — decision matrix · risk analyser · opportunity cost · career
+decision · scenario simulator · pre-mortem
+**Doing** — priority matrix · task decomposition · time audit · meeting planner
+**Talking** — conversation planner · negotiation planner · message pressure test
+**Money** — money triage
+**Growing** — goal planner · habit planner · learning planner · personal SWOT ·
+reflection
+**Thinking** — credibility checker · problem-solving canvas
 
 Each one takes real input, computes a real result, and remembers what you
 entered when you come back.
@@ -92,7 +102,7 @@ the-resources-by-anik/
     ├── main.js                    chrome, router registration, delegation, boot
     ├── core/                      router · store · data · search · dom · icons
     ├── data/                      skills · paths · scenarios · trees · ai
-    ├── tools/                     kit.js + 17 tool modules
+    ├── tools/                     kit.js + 21 tool modules
     ├── views/                     17 view modules
     └── styles/                    tokens · base · components · app
 ```
