@@ -38,3 +38,8 @@ desktop.ini
 .cache/
 .vite/
 *.tsbuildinfo
+
+# Workflow file: app tokens are forbidden from pushing .github/workflows/**,
+# so it lives at docs/deploy-workflow.yml.txt in the repo instead. Copy it to
+# .github/workflows/deploy.yml yourself to enable automated deploys.
+.github/workflows/
